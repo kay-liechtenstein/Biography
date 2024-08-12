@@ -246,7 +246,6 @@
             transition: transform 0.2s ease-out, color 0.2s ease-out;
         }
 
-        /* 以下がスマホ用のスタイル調整 */
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 28px;
@@ -310,7 +309,8 @@
             }
 
             .toggle-button {
-                width: 100%;
+                width: 90%;  /* 画面幅の90%に設定 */
+                max-width: 350px;  /* 最大幅を350pxに設定 */
                 padding: 15px;
             }
 
