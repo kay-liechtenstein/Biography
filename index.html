@@ -186,53 +186,65 @@
             transform: scale(1.05);
         }
 
-        .footer {
-            margin-top: 20px;
-            text-align: center;
-            font-size: 16px;
-            color: #34495E;
-            padding: 20px;
-            background-image: url('palette.png');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #34495E;
+    padding: 20px;
+    background-image: url('palette.png');
+    background-size: cover;
+    background-position: center;
+}
 
-        .footer a {
-            color: #2980B9;
-            text-decoration: none;
-            margin: 5px 0;
-            font-weight: bold;
-            color: #34495E;
-            position: relative;
-            padding-bottom: 5px; /* To create space for the underline */
-        }
+.footer-grid {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 710px;
+    margin: 20px auto;
+}
 
-        .footer a::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background-color: #34495E;
-            left: 0;
-            bottom: 0;
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease-out;
-        }
+.footer-grid div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 20px;
+}
 
-        .footer a:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
+.footer a {
+    color: #2980B9;
+    text-decoration: none;
+    margin: 5px 0;
+    font-weight: bold;
+    color: #34495E;
+    position: relative;
+    padding-bottom: 5px; /* To create space for the underline */
+}
 
-        .footer a:hover {
-            color: #1b2838;
-            transform: translateY(-2px);
-            transition: transform 0.2s ease-out, color 0.2s ease-out;
-        }
+.footer a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #34495E;
+    left: 0;
+    bottom: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.footer a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.footer a:hover {
+    color: #1b2838;
+    transform: translateY(-2px);
+    transition: transform 0.2s ease-out, color 0.2s ease-out;
+}
     </style>
 </head>
 <body>
@@ -284,11 +296,20 @@
 
     <div class="footer">
         <p>© 2024 Koichi Akashi</p>
-        <a href="https://funaifoundation.jp/grantee.php?id=82&type=bch" target="_blank">Biannual Reports (Funai Foundation)</a>
-        <a href="https://judge.cpsta.co.uk/past-problems" target="_blank">St Andrews Online Judge</a>
-        <a href="https://researchmap.jp/K_StA?cover-edit&lang=en" target="_blank">Researchmap</a>
-        <a href="mailto:ka203@st-andrews.ac.uk">Contact</a>
+        <div class="footer-grid">
+            <div>
+                <a href="https://funaifoundation.jp/grantee.php?id=82&type=bch" target="_blank">Funai Foundation</a>
+                <a href="https://judge.cpsta.co.uk/past-problems" target="_blank">St Andrews Online Judge</a>
+                <a href="https://uk.linkedin.com/in/koichi-akashi-bab220226?trk=people_directory" target="_blank">LinkedIn</a>
+            </div>
+            <div>
+                <a href="https://researchmap.jp/K_StA?cover-edit&lang=en" target="_blank">Researchmap</a>
+                <a href="https://orcid.org/0009-0005-6979-9257" target="_blank">ORCID</a>
+                <a href="mailto:ka203@st-andrews.ac.uk">Contact</a>
+            </div>
+        </div>
     </div>
+
 
     <script>
         function togglePublications() {
