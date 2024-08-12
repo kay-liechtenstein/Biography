@@ -186,65 +186,145 @@
             transform: scale(1.05);
         }
 
-.footer {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 16px;
-    color: #34495E;
-    padding: 20px;
-    background-image: url('palette.png');
-    background-size: cover;
-    background-position: center;
-}
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+            color: #34495E;
+            padding: 20px;
+            background-image: url('palette.png');
+            background-size: cover;
+            background-position: center;
+        }
 
-.footer-grid {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 710px;
-    margin: 20px auto;
-}
+        .footer-grid {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 710px;
+            margin: 20px auto;
+        }
 
-.footer-grid div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 0 20px;
-}
+        .footer-grid div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 0 20px;
+        }
 
-.footer a {
-    color: #2980B9;
-    text-decoration: none;
-    margin: 5px 0;
-    font-weight: bold;
-    color: #34495E;
-    position: relative;
-    padding-bottom: 5px; /* To create space for the underline */
-}
+        .footer a {
+            color: #2980B9;
+            text-decoration: none;
+            margin: 5px 0;
+            font-weight: bold;
+            color: #34495E;
+            position: relative;
+            padding-bottom: 5px; /* To create space for the underline */
+        }
 
-.footer a::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #34495E;
-    left: 0;
-    bottom: 0;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease-out;
-}
+        .footer a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #34495E;
+            left: 0;
+            bottom: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
 
-.footer a:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
+        .footer a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
 
-.footer a:hover {
-    color: #1b2838;
-    transform: translateY(-2px);
-    transition: transform 0.2s ease-out, color 0.2s ease-out;
-}
+        .footer a:hover {
+            color: #1b2838;
+            transform: translateY(-2px);
+            transition: transform 0.2s ease-out, color 0.2s ease-out;
+        }
+
+        /* 以下がスマホ用のスタイル調整 */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .profile {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile img {
+                width: 100%;
+                height: auto;
+                margin: 0;
+                margin-bottom: 20px;
+            }
+
+            .profile h2 {
+                font-size: 28px;
+                text-align: center;
+            }
+
+            .profile h3 {
+                font-size: 18px;
+                text-align: center;
+            }
+
+            .profile div {
+                text-align: center;
+            }
+
+            .education {
+                flex-direction: column-reverse;
+                align-items: center;
+                text-align: center;
+            }
+
+            .education img {
+                width: 100%;
+                height: auto;
+                margin: 0;
+                margin-top: 20px;
+            }
+
+            .education h2 {
+                font-size: 24px;
+                text-align: center;
+            }
+
+            .education p {
+                text-align: center;
+            }
+
+            .publications h2 {
+                font-size: 24px;
+                text-align: center;
+            }
+
+            .publications ul {
+                text-align: left;
+            }
+
+            .toggle-button {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .footer-grid {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-grid div {
+                align-items: center;
+                margin: 10px 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -255,7 +335,7 @@
     <div class="content">
         <br>
         <p>
-            Born and grown up in Japan, Koichi is now a medical student at the University of St Andrews, United Kingdom. Along with his major in medicine, he has extended his knowledge and experience in the field of informatics as a software developer in a couple of research teams led by figures in various univiersities, notably such as Tokyo Institute of Technology. Furthermore, he is a problem author on competitive programming platform St Andrews Online Judge, and has contributed 50+ problems. He is a scholar of both Funai Foundation of Information Technology and Japan Student Services Organization, and is passionate about algorithms, cybersecurity, machine learning, and thier application to medicine. After graduation from St Andrews in the summer of 2025 with Bachelor of Science Honours (Medicine), he is expected to progress onto the School of Medical Sciences, University of Manchester for clinical training in pursuit of final MBChB (Bachelor of Medicine and Bachelor of Surgery) degree planned to be conferred in 2028.
+            Born and grown up in Japan, Koichi is now a medical student at the University of St Andrews, United Kingdom. Along with his major in medicine, he has extended his knowledge and experience in the field of informatics as a software developer in a couple of research teams led by figures in various universities, notably such as Tokyo Institute of Technology. Furthermore, he is a problem author on competitive programming platform St Andrews Online Judge, and has contributed 50+ problems. He is a scholar of both Funai Foundation of Information Technology and Japan Student Services Organization, and is passionate about algorithms, cybersecurity, machine learning, and their application to medicine. After graduation from St Andrews in the summer of 2025 with Bachelor of Science Honours (Medicine), he is expected to progress onto the School of Medical Sciences, University of Manchester for clinical training in pursuit of final MBChB (Bachelor of Medicine and Bachelor of Surgery) degree planned to be conferred in 2028.
         </p>
         <br>
 
