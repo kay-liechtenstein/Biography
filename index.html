@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koichi Akashi</title>
+    <style>
+        /* existing styles here */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('pattern.png');
+            background-size: cover;
+            background-repeat: repeat;
+            background-attachment: fixed;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.8);
+            background-blend-mode: overlay;
+        }
+        
+        .header {
+            background-image: url('pastel.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content p {
+            max-width: 710px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: justify;
+            font-style: italic;
+        }
+
+        .profile {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .profile img {
+            border-radius: 70px;
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            margin-right: 20px;
+            transition: transform 1s ease, opacity 1s ease;
+            opacity: 0;
+            position: relative;
+        }
+
+        .profile div {
+            text-align: left;
+        }
+
+        .profile h2 {
+            margin: 0;
+            font-size: 40px;
+            color: #34495E;
+        }
+
+        .profile h3 {
+            margin: 10px 0;
+            font-size: 20px;
+            color: black;
+        }
+
+        .profile p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #34495E;
+        }
+
+        .education {
+            padding: 10px;
+            max-width: 710px;
+            margin: 0 auto;
+        }
+
+        .education h2 {
+            font-size: 28px;
+            color: #34495E;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .education p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 0;
+            text-align: left;
+        }
+
+        .publications {
+            padding: 10px;
+            max-width: 710px;
+            margin: 0 auto;
+        }
+
+        .publications h2 {
+            font-size: 28px;
+            color: #34495E;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .publications ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: justify;
+        }
+
+        .publications li {
+            font-size: 18px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .visible li {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toggle-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-image: linear-gradient(to right, #2c3e50, #1b2838);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 20px auto;
+            transition: background-image 0.3s, transform 0.3s;
+        }
+
+        .toggle-button:hover {
+            background-image: linear-gradient(to right, #1b2838, #2c3e50);
+            transform: scale(1.05);
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+            color: #34495E;
+            padding: 20px;
+            background-image: url('palette.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer a {
+            color: #2980B9;
+            text-decoration: none;
+            margin: 5px 0;
+            font-weight: bold;
+            color: #34495E;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Informatics ushered into Medicine</h1>
+    </div>
+
+    <div class="content">
+        <br>
+        <p>
+            Born and grown up in Japan, Koichi is now a medical student at the University of St Andrews, United Kingdom. Along with his major in medicine, he has extended his knowledge and experience in the field of informatics as a software developer in a couple of research teams led by figures in various univiersities, notably such as Tokyo Institute of Technology. Furthermore, he is a problem author on competitive programming platform St Andrews Online Judge, and has contributed 50+ problems. He is a scholar of both Funai Foundation of Information Technology and Japan Student Services Organization, and is passionate about algorithms, cybersecurity, machine learning, and thier application to medicine. After graduation from St Andrews in the summer of 2025 with Bachelor of Science Honours (Medicine), he is expected to progress onto the School of Medical Sciences, University of Manchester for clinical training in pursuit of final MBChB (Bachelor of Medicine and Bachelor of Surgery) degree planned to be conferred in 2028.
+        </p>
+        <br>
+
+        <div class="profile">
+            <img id="profile-image" src="kay.jpeg" alt="Profile Picture">
+            <div>
+                <h2>Koichi Akashi</h2>
+                <h3>Third-Year Medical Student at the University of St Andrews</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="education">
+        <h2>Education</h2>
+        <p>◉ School of Medicine, University of St Andrews (Sep 2022 - Present)</p>
+    </div>
+
+    <div class="publications">
+        <h2>Publications</h2>
+        <ul id="publication-list">
+            <li style="transform: none; opacity: 1;">◉ K. Akashi, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu: Eduinformatics in Practice: Text Mining-Based Analysis of Contributing Factors to the Improvement of Reading Comprehension Assisted by Marking Scheme Employing DP-LCS Algorithm. 8th World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4 2024) in press (Jan 2025).</li>
+            <li style="transform: none; opacity: 1;">◉ H. Ito, K. Bannaka, R. Kozaki, K. Murakami, K. Akashi, S. Matsumoto, K. Takamatsu: Leveraging Eduinformatics to Foster Network-Type Thinking in Early Childhood Education Through Picture Books. 8th World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4 2024) in press (Jan 2025).</li>
+            <li style="transform: none; opacity: 1;">◉ T. Sakai, N. Shiratori, S. Matsumoto, K. Akashi, H. Ito, K. Murakami, K. Takamatsu, T. Iiyoshi: Enhancing University Sustainability through Eduinformatics: a Collaborative Approach to Resolving Common Management Issues from a Macro Perspective. 8th World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4 2024) in press (Jan 2025).</li>
+            <div id="hidden-publications" class="hidden">
+                <li>◉ K. Takamatsu, S. Matsumoto, N. Honda, S. Matsumoto, Y. Ishige, H. Kawasaki, I Noda, K. Bannaka, T. Gozu, K. Murakami, T. Sakai, R. Kozaki, A. Kishida, H. Ito, K. Akashi, S. Hama, G Presco, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, M. Mori: Lifelong Sustainable Inquiry-based Community Learning (LSiCL) Based on Eduinformatics. 8th World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4 2024) in press (Jan 2025).</li>
+                <li>◉ K. Bannaka, R. Kozaki, K. Murakami, H. Ito, K. Akashi, S. Matsumoto, K. Takamatsu: Enhancing Network-Type Thinking in Early Childhood: A Topic Model Approach to Picture Book Analysis based on Eduinformatics. 9th International Congress on Information and Communication Technology ICICT 2024, London, in press (Oct 2024).</li>
+                <li>◉ H. Ito, K. Akashi, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: The First Step for Personalized Learning of Abridgement Education: The Character-Based Pyramid Method and Semi-Automatic Implementation. IEEJ Transactions on Electronics, Information and Systems, 144(10) in press (Aug 2024).</li>
+                <li>◉ K. Akashi, H. Ito, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: Fully automated system for the marking and quantitative assessment of reading skills of students on the basis of abridgement. 15th International Congress on Advanced Applied Informatics Winter (IIAI-AAI-Winter) , IEEE, 143-148, Jan 2024.</li>
+                <li>◉ H. Ito, K. Akashi, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: The Character-based Pyramid Method and Semi-automatic Abridgement for Scaling Up the Abridgement Learning Method. The Papers of Technical Meeting on "Information Systems", IS23026 31-36, Oct 2023.</li>
+            </div>
+        </ul>
+        <div id="toggle-button" class="toggle-button" onclick="togglePublications()">View All 8 Publications</div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Koichi Akashi</p>
+        <a href="https://funaifoundation.jp/grantee.php?id=82&type=bch" target="_blank">Biannual Reports (Funai Foundation)</a>
+        <a href="https://researchmap.jp/K_StA?cover-edit&lang=en" target="_blank">Researchmap</a>
+        <a href="https://judge.cpsta.co.uk/past-problems" target="_blank">St Andrews Online Judge</a>
+    </div>
+
+    <script>
+        function togglePublications() {
+            const hiddenPublications = document.getElementById('hidden-publications');
+            const toggleButton = document.getElementById('toggle-button');
+            const items = hiddenPublications.querySelectorAll('li');
+
+            if (hiddenPublications.classList.contains('hidden')) {
+                hiddenPublications.classList.remove('hidden');
+                items.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.transform = 'translateY(0)';
+                        item.style.opacity = '1';
+                    }, index * 100);  // Delay for each item
+                });
+                toggleButton.textContent = 'Collapse';
+            } else {
+                items.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.transform = 'translateY(20px)';
+                        item.style.opacity = '0';
+                    }, (items.length - index - 1) * 100);  // Delay for each item
+                });
+
+                setTimeout(() => {
+                    hiddenPublications.classList.add('hidden');
+                }, items.length * 100);  // Wait for last item to complete animation
+                toggleButton.textContent = 'Expand';
+            }
+        }
+
+        window.addEventListener('scroll', function() {
+            const profileImage = document.getElementById('profile-image');
+            const scrollPosition = window.scrollY;
+            const imagePosition = profileImage.offsetTop;
+
+            if (scrollPosition > imagePosition - window.innerHeight) {
+                profileImage.style.transform = 'translateY(0)';
+                profileImage.style.opacity = '1';
+            } else {
+                profileImage.style.transform = 'translateY(50px)';
+                profileImage.style.opacity = '0';
+            }
+        });
+    </script>
+</body>
+</html>
