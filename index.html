@@ -373,10 +373,9 @@
                 <li>◉ K. Bannaka, R. Kozaki, K. Murakami, H. Ito, K. Akashi, S. Matsumoto, K. Takamatsu: Enhancing Network-Type Thinking in Early Childhood: A Topic Model Approach to Picture Book Analysis based on Eduinformatics. 9th International Congress on Information and Communication Technology ICICT 2024, London, in press (Oct 2024).</li>
                 <li>◉ H. Ito, K. Akashi, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: The First Step for Personalized Learning of Abridgement Education: The Character-Based Pyramid Method and Semi-Automatic Implementation. IEEJ Transactions on Electronics, Information and Systems, 144(10) in press (Aug 2024).</li>
                 <li>◉ K. Akashi, H. Ito, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: Fully automated system for the marking and quantitative assessment of reading skills of students on the basis of abridgement. 15th International Congress on Advanced Applied Informatics Winter (IIAI-AAI-Winter) , IEEE, 143-148, Jan 2024.</li>
-                <li>◉ H. Ito, K. Akashi, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: The Character-based Pyramid Method and Semi-automatic Abridgement for Scaling Up the Abridgement Learning Method. The Papers of Technical Meeting on "Information Systems", IS23026 31-36, Oct 2023.</li>
             </div>
         </ul>
-        <div id="toggle-button" class="toggle-button" onclick="togglePublications()">View All 13 Publications</div>
+        <div id="toggle-button" class="toggle-button" onclick="togglePublications()">View All 12 Publications</div>
     </div>
 
     <div class="footer">
@@ -397,34 +396,45 @@
 
 
     <script>
-        function togglePublications() {
-            const hiddenPublications = document.getElementById('hidden-publications');
-            const toggleButton = document.getElementById('toggle-button');
-            const items = hiddenPublications.querySelectorAll('li');
+function togglePublications() {
+    const hiddenPublications = document.getElementById('hidden-publications');
+    const toggleButton = document.getElementById('toggle-button');
+    const items = hiddenPublications.querySelectorAll('li');
 
-            if (hiddenPublications.classList.contains('hidden')) {
-                hiddenPublications.classList.remove('hidden');
-                items.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.style.transform = 'translateY(0)';
-                        item.style.opacity = '1';
-                    }, index * 100);  // Delay for each item
-                });
-                toggleButton.textContent = 'Collapse';
-            } else {
-                items.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.style.transform = 'translateY(20px)';
-                        item.style.opacity = '0';
-                    }, (items.length - index - 1) * 100);  // Delay for each item
-                });
+    if (hiddenPublications.classList.contains('hidden')) {
+        hiddenPublications.classList.remove('hidden');
 
+        // すべてのアイテムの初期状態をリセット
+        items.forEach((item) => {
+            item.style.transform = 'translateY(20px)';
+            item.style.opacity = '0';
+        });
+
+        // 少し遅延してからアニメーション開始
+        setTimeout(() => {
+            items.forEach((item, index) => {
                 setTimeout(() => {
-                    hiddenPublications.classList.add('hidden');
-                }, items.length * 100);  // Wait for last item to complete animation
-                toggleButton.textContent = 'View All 13 Publications';
-            }
-        }
+                    item.style.transform = 'translateY(0)';
+                    item.style.opacity = '1';
+                }, index * 100); // 各アイテムに遅延を追加
+            });
+        }, 100); // 全体遅延
+        toggleButton.textContent = 'Collapse';
+    } else {
+        items.forEach((item, index) => {
+            setTimeout(() => {
+                item.style.transform = 'translateY(20px)';
+                item.style.opacity = '0';
+            }, (items.length - index - 1) * 100); // 逆順で遅延
+        });
+
+        setTimeout(() => {
+            hiddenPublications.classList.add('hidden');
+        }, items.length * 100); // 最後のアニメーションが終了するタイミング
+        toggleButton.textContent = 'View All 12 Publications';
+    }
+}
+
 
         window.addEventListener('scroll', function() {
             const profileImage = document.getElementById('profile-image');
