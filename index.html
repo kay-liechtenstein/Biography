@@ -186,6 +186,41 @@
             transform: scale(1.05);
         }
 
+        .awards {
+            padding: 10px;
+            max-width: 710px;
+            margin: 0 auto;
+        }
+
+        .awards h2 {
+            font-size: 28px;
+            color: #34495E;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .awards ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: justify;
+        }
+
+        .awards li {
+            font-size: 18px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .awards .visible li {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+
         .footer {
             margin-top: 20px;
             text-align: center;
@@ -357,6 +392,20 @@
         <img id="education-image" src="kay-oral.jpeg" alt="Education Picture">
     </div>
 
+    <div class="awards">
+        <br>
+        <h2>Awards</h2>
+        <ul id="awards-list">
+            <li style="transform: none; opacity: 1;">◉ Competitive Paper Award, Exploring the Modality of Network-Type Thinking in Young Children with Picture Books, 17th IIAI International Conference on Smart Learning Technologies and Learning Environments (Dec 2024).</li>
+            <li style="transform: none; opacity: 1;">◉ Best Paper Award, A Novel Balanced Reporting Innovation with Data Governance Evolution (BRIDGE) Method: An Eduinformatics Integration of Creativity, Abduction and Organizational Knowledge Acceptance, The 19th International Conference on Knowledge, Information and Creativity Support Systems (Dec 2024).</li>
+            <div id="hidden-awards" class="hidden">
+                <li style="transform: none; opacity: 1;">◉ Funai Overseas Scholarships, Funai Foundation for Information Technology (Sep 2021).</li>
+                <li style="transform: none; opacity: 1;">◉ Scholarships of Student Exchange Support Program, Japan Student Services Organization (Sep 2021).</li>
+            </div>
+        </ul>
+        <div id="toggle-awards" class="toggle-button" onclick="toggleAwards()">View All 4 Awards</div>
+    </div>
+
     <div class="publications">
         <h2>Publications</h2>
         <ul id="publication-list">
@@ -459,6 +508,42 @@ function togglePublications() {
                 educationImage.style.opacity = '0';
             }
         });
+function toggleAwards() {
+    const hiddenAwards = document.getElementById('hidden-awards');
+    const toggleAwardsButton = document.getElementById('toggle-awards');
+    const items = hiddenAwards.querySelectorAll('li');
+
+    if (hiddenAwards.classList.contains('hidden')) {
+        hiddenAwards.classList.remove('hidden');
+
+        items.forEach((item) => {
+            item.style.transform = 'translateY(20px)';
+            item.style.opacity = '0';
+        });
+
+        setTimeout(() => {
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.transform = 'translateY(0)';
+                    item.style.opacity = '1';
+                }, index * 100);
+            });
+        }, 100);
+        toggleAwardsButton.textContent = 'Collapse';
+    } else {
+        items.forEach((item, index) => {
+            setTimeout(() => {
+                item.style.transform = 'translateY(20px)';
+                item.style.opacity = '0';
+            }, (items.length - index - 1) * 100);
+        });
+
+        setTimeout(() => {
+            hiddenAwards.classList.add('hidden');
+        }, items.length * 100);
+        toggleAwardsButton.textContent = 'View All 4 Awards';
+    }
+}
     </script>
 </body>
 </html>
