@@ -253,7 +253,7 @@
             font-weight: bold;
             color: #34495E;
             position: relative;
-            padding-bottom: 5px; /* To create space for the underline */
+            padding-bottom: 5px; 
         }
 
         .footer a::after {
@@ -359,6 +359,21 @@
                 margin: 10px 0;
             }
         }
+
+        @media (max-width: 768px) {
+            .profile img {
+                width: 60%;
+                height: auto;
+                max-width: 250px;
+            }
+
+            .education img {
+                width: 70%;
+                height: auto;
+                max-width: 300px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -428,15 +443,13 @@
     </div>
 
     <div class="footer">
-        <p>© 2024 Koichi Akashi</p>
+        <p>© 2025 Koichi Akashi</p>
         <div class="footer-grid">
             <div>
-                <a href="https://funaifoundation.jp/grantee.php?id=82&type=bch" target="_blank">Funai Foundation</a>
+                <a href="https://researchmap.jp/K_StA?cover-edit&lang=en" target="_blank">Researchmap</a>
                 <a href="https://judge.cpsta.co.uk/past-problems" target="_blank">St Andrews Online Judge</a>
-                <a href="https://uk.linkedin.com/in/koichi-akashi-bab220226?trk=people_directory" target="_blank">LinkedIn</a>
             </div>
             <div>
-                <a href="https://researchmap.jp/K_StA?cover-edit&lang=en" target="_blank">Researchmap</a>
                 <a href="https://orcid.org/0009-0005-6979-9257" target="_blank">ORCID</a>
                 <a href="mailto:ka203@st-andrews.ac.uk">Contact</a>
             </div>
@@ -492,6 +505,7 @@ function togglePublications() {
             const educationImagePosition = educationImage.offsetTop;
 
             if (scrollPosition > imagePosition - window.innerHeight) {
+                profileImage.style.transitionDelay = '0s';
                 profileImage.style.transform = 'translateY(0)';
                 profileImage.style.opacity = '1';
             } else {
@@ -500,6 +514,7 @@ function togglePublications() {
             }
 
             if (scrollPosition > educationImagePosition - window.innerHeight) {
+                educationImage.style.transitionDelay = '0.5s';
                 educationImage.style.transform = 'translateY(0)';
                 educationImage.style.opacity = '1';
             } else {
