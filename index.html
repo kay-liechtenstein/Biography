@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koichi Akashi</title>
     <link rel="icon" href="cat.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
@@ -25,12 +25,93 @@
             pointer-events: none;
         }
 
-        .header {
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             position: relative;
+            padding: 80px 20px 40px;
+            box-sizing: border-box;
+        }
+
+        .hero-content {
+            max-width: 710px;
+            text-align: center;
+            opacity: 0;
+            filter: blur(10px);
+            animation: fadeInClear 1.2s ease-out 0.3s forwards;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            line-height: 1.8;
+            text-align: justify;
+            font-style: italic;
+            color: #333;
+        }
+
+        @keyframes fadeInClear {
+            to {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        .discover-btn {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            filter: blur(5px);
+            animation: fadeInClear 1s ease-out 1.2s forwards;
+            transition: transform 0.3s ease;
+        }
+
+        .discover-btn:hover {
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        .discover-btn span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            color: #B8860B;
+            margin-bottom: 10px;
+        }
+
+        .discover-arrow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .discover-arrow svg {
+            width: 24px;
+            height: 24px;
+            stroke: #B8860B;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             color: white;
-            padding: 40px 20px;
+            padding: 20px;
             text-align: center;
             overflow: hidden;
+            z-index: 100;
+            box-sizing: border-box;
         }
 
         .header canvas {
@@ -48,9 +129,13 @@
             margin: 0;
             font-family: 'Montserrat', sans-serif;
             font-size: 24px;
-            font-weight: 800;
+            font-weight: 400;
             letter-spacing: 4px;
             text-transform: uppercase;
+        }
+
+        #main-content {
+            padding-top: 70px;
         }
 
         .content {
@@ -191,14 +276,14 @@
             100% { background-position: -100% 0; }
         }
 
-        .shimmer-teal {
+        .shimmer-header {
             background: linear-gradient(
                 90deg,
-                #f0f0f0 0%,
-                #f0f0f0 40%,
-                #2d9999 50%,
-                #f0f0f0 60%,
-                #f0f0f0 100%
+                #fff 0%,
+                #fff 40%,
+                #5c4a1f 50%,
+                #fff 60%,
+                #fff 100%
             );
             background-size: 200% 100%;
             -webkit-background-clip: text;
@@ -488,6 +573,24 @@
         }
 
         @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 32px !important;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .hero-content p:first-of-type {
+                font-size: 10px !important;
+                text-align: center !important;
+                letter-spacing: 2px !important;
+            }
+
+            .discover-btn {
+                bottom: 30px;
+            }
+
             .header h1 {
                 font-size: 28px;
             }
@@ -555,10 +658,19 @@
                 text-align: left;
             }
 
+            .awards h2 {
+                font-size: 24px;
+                text-align: center;
+            }
+
             .toggle-button {
-                width: 90%;  /* 画面幅の90%に設定 */
-                max-width: 350px;  /* 最大幅を350pxに設定 */
-                padding: 15px;
+                width: auto !important;
+                display: inline-block !important;
+                padding: 10px 20px !important;
+            }
+
+            .publications, .awards {
+                text-align: center;
             }
 
             .footer-grid {
@@ -591,17 +703,36 @@
 </head>
 <body>
     <canvas id="network-bg"></canvas>
+
+    <!-- Fixed Header -->
     <div class="header">
         <canvas id="header-bg"></canvas>
-        <h1 class="shimmer-teal">Informatics ushered into Medicine</h1>
+        <h1 class="shimmer-header">Informatics ushered into Medicine</h1>
     </div>
 
-    <div class="content">
-        <br>
-        <p>
-            Koichi is a third-year medical student at the University of Manchester, pursuing Bachelor of Medicine and Bachelor of Surgery (MBChB) degree. He graduated from the School of Medicine, University of St Andrews in July 2025 with Bachelor of Science Honours (Medicine). Along with his major in medicine he is a software developer and has designed & developed several systems in the past, notably <a href="https://shukuyaku.com" target="_blank" style="color: black;">ShukuYaku</a> and <a href="https://shukuyaku-lab.com" target="_blank" style="color: black;">ShukuYakuLAB</a>. He is a member of multiple research projects led by a professor at Institute of Science Tokyo, and has published <span id="pub-count"></span> conference and journal papers, with 2 awards at the world conferences. He is currently looking at the fusion of robotics and pulmonology. 
-        </p>
-        <br>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="shimmer" style="font-size: 48px; margin-bottom: 10px;">Koichi Akashi</h1>
+            <p style="font-style: normal; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 14px; letter-spacing: 3px; color: #666; margin-bottom: 40px; font-weight: 600;">MEDICAL STUDENT &bull; RESEARCHER &bull; DEVELOPER</p>
+            <p>
+                Koichi is a third-year medical student at the University of Manchester, pursuing Bachelor of Medicine and Bachelor of Surgery (MBChB) degree. He graduated from the School of Medicine, University of St Andrews in July 2025 with Bachelor of Science Honours (Medicine). Along with his major in medicine he is a software developer and has designed & developed several systems in the past, notably <a href="https://shukuyaku.com" target="_blank" style="color: black;">ShukuYaku</a> and <a href="https://shukuyaku-lab.com" target="_blank" style="color: black;">ShukuYakuLAB</a>. He is a member of multiple research projects led by a professor at Institute of Science Tokyo, and has published <span id="pub-count"></span> conference and journal papers, with 2 awards at the world conferences. He is currently looking at the fusion of robotics and pulmonology.
+            </p>
+        </div>
+        <div class="discover-btn" onclick="scrollToContent()">
+            <span>DISCOVER</span>
+            <div class="discover-arrow">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <div class="content">
+            <br>
 
         <div class="profile">
             <div class="image-reveal" id="profile-reveal" style="--bg-image: url('kay.jpeg')">
@@ -686,9 +817,34 @@
             </div>
         </div>
     </div>
+    </div><!-- End main-content -->
 
 
     <script>
+// Smooth scroll to main content
+function scrollToContent() {
+    const profileReveal = document.getElementById('profile-reveal');
+    const rect = profileReveal.getBoundingClientRect();
+    const targetPosition = window.pageYOffset + rect.top - 90;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = 1000;
+    let start = null;
+
+    function animation(currentTime) {
+        if (start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const ease = progress < 0.5
+            ? 2 * progress * progress
+            : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+        window.scrollTo(0, startPosition + distance * ease);
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animation);
+        }
+    }
+    requestAnimationFrame(animation);
+}
 // Count items and set initial button text
 function initCounts() {
     const publicationCount = document.getElementById('publication-list').querySelectorAll('li').length;
@@ -816,10 +972,12 @@ function toggleAwards() {
     const nodeRadius = 6;
 
     const morphDuration = 2000;
-    const pauseDuration = 3500;
+    const morphCooldown = 500;
     let lastMorphTime = 0;
+    let morphEndTime = 0;
     let isMorphing = false;
     let morphProgress = 0;
+    let scrollTriggered = false;
 
     const nodeColor = 'rgba(200, 200, 200, 0.8)';
 
@@ -884,18 +1042,23 @@ function toggleAwards() {
         return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     }
 
+    function startMorph(timestamp) {
+        if (isMorphing) return;
+        isMorphing = true;
+        lastMorphTime = timestamp || performance.now();
+        nodes.forEach(node => {
+            node.startX = node.x;
+            node.startY = node.y;
+        });
+        generateNewTargets();
+    }
+
     function updateNodes(timestamp) {
         if (!lastMorphTime) lastMorphTime = timestamp;
-        const elapsed = timestamp - lastMorphTime;
 
-        if (!isMorphing && elapsed >= pauseDuration) {
-            isMorphing = true;
-            lastMorphTime = timestamp;
-            nodes.forEach(node => {
-                node.startX = node.x;
-                node.startY = node.y;
-            });
-            generateNewTargets();
+        if (scrollTriggered && !isMorphing && timestamp - morphEndTime > morphCooldown) {
+            scrollTriggered = false;
+            startMorph(timestamp);
         }
 
         if (isMorphing) {
@@ -907,10 +1070,15 @@ function toggleAwards() {
             });
             if (morphProgress >= 1) {
                 isMorphing = false;
-                lastMorphTime = timestamp;
+                morphEndTime = timestamp;
+                scrollTriggered = false;
             }
         }
     }
+
+    window.addEventListener('scroll', () => {
+        scrollTriggered = true;
+    }, { passive: true });
 
     function drawConnections() {
         ctx.lineWidth = 1;
@@ -960,7 +1128,7 @@ function toggleAwards() {
 
 // Morphing Triangles background animation for header and footer
 (function() {
-    const tiffany = { light: '#A8E6E2', mid: '#81D8D0', dark: '#0ABAB5' };
+    const gold = { light: '#F5E6C8', mid: '#D4AF37', dark: '#B8860B' };
 
     function createTriangleAnimation(canvasId, gradientReverse) {
         const canvas = document.getElementById(canvasId);
@@ -1000,13 +1168,13 @@ function toggleAwards() {
         function animate() {
             const grad = ctx.createLinearGradient(0, 0, width, height);
             if (gradientReverse) {
-                grad.addColorStop(0, tiffany.light);
-                grad.addColorStop(0.5, tiffany.mid);
-                grad.addColorStop(1, tiffany.dark);
+                grad.addColorStop(0, gold.light);
+                grad.addColorStop(0.5, gold.mid);
+                grad.addColorStop(1, gold.dark);
             } else {
-                grad.addColorStop(0, tiffany.dark);
-                grad.addColorStop(0.5, tiffany.mid);
-                grad.addColorStop(1, tiffany.light);
+                grad.addColorStop(0, gold.dark);
+                grad.addColorStop(0.5, gold.mid);
+                grad.addColorStop(1, gold.light);
             }
             ctx.fillStyle = grad;
             ctx.fillRect(0, 0, width, height);
