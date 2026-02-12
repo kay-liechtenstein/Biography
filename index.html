@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koichi Akashi</title>
     <link rel="icon" href="cat.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
@@ -23,19 +24,33 @@
             z-index: -1;
             pointer-events: none;
         }
-        
+
         .header {
-            background-image: url('pastel.png');
-            background-size: cover;
-            background-position: center;
+            position: relative;
             color: white;
             padding: 40px 20px;
             text-align: center;
+            overflow: hidden;
+        }
+
+        .header canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
         }
 
         .header h1 {
+            position: relative;
+            z-index: 1;
             margin: 0;
-            font-size: 36px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
         .content {
@@ -396,14 +411,31 @@
 
 
         .footer {
+            position: relative;
             margin-top: 20px;
             text-align: center;
-            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
             color: #34495E;
             padding: 20px;
-            background-image: url('palette.png');
-            background-size: cover;
-            background-position: center;
+            overflow: hidden;
+        }
+
+        .footer canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .footer > *:not(canvas) {
+            position: relative;
+            z-index: 1;
         }
 
         .footer-grid {
@@ -560,6 +592,7 @@
 <body>
     <canvas id="network-bg"></canvas>
     <div class="header">
+        <canvas id="header-bg"></canvas>
         <h1 class="shimmer-teal">Informatics ushered into Medicine</h1>
     </div>
 
@@ -640,6 +673,7 @@
     </div>
 
     <div class="footer">
+        <canvas id="footer-bg"></canvas>
         <p>© 2026 Koichi Akashi</p>
         <div class="footer-grid">
             <div>
@@ -648,7 +682,7 @@
             </div>
             <div>
                 <a href="https://orcid.org/0009-0005-6979-9257" target="_blank">ORCID</a>
-                <a href="mailto:ka203@st-andrews.ac.uk">Contact</a>
+                <a href="mailto:koichi.akashi@student.manchester.ac.uk">Contact</a>
             </div>
         </div>
     </div>
@@ -774,6 +808,7 @@ function toggleAwards() {
     const ctx = canvas.getContext('2d');
 
     let width, height;
+    let dpr = window.devicePixelRatio || 1;
     let nodes = [];
     let targetNodes = [];
     const nodeCount = 60;
@@ -805,8 +840,14 @@ function toggleAwards() {
     }
 
     function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
+        dpr = window.devicePixelRatio || 1;
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
     function createRandomPosition() {
@@ -915,6 +956,96 @@ function toggleAwards() {
     resize();
     initNodes();
     requestAnimationFrame(animate);
+})();
+
+// Morphing Triangles background animation for header and footer
+(function() {
+    const tiffany = { light: '#A8E6E2', mid: '#81D8D0', dark: '#0ABAB5' };
+
+    function createTriangleAnimation(canvasId, gradientReverse) {
+        const canvas = document.getElementById(canvasId);
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let dpr = window.devicePixelRatio || 1;
+        let triangles = [];
+
+        function resize() {
+            dpr = window.devicePixelRatio || 1;
+            const rect = canvas.parentElement.getBoundingClientRect();
+            width = rect.width;
+            height = rect.height;
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+
+        function initTriangles() {
+            triangles = [];
+            const count = Math.max(8, Math.floor((width * height) / 12000));
+            for (let i = 0; i < count; i++) {
+                const cx = Math.random() * width;
+                const cy = Math.random() * height;
+                const size = Math.random() * 35 + 15;
+                triangles.push({
+                    points: [
+                        { x: cx, y: cy - size, vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3 },
+                        { x: cx + size * 0.866, y: cy + size/2, vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3 },
+                        { x: cx - size * 0.866, y: cy + size/2, vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3 }
+                    ],
+                    opacity: Math.random() * 0.15 + 0.03
+                });
+            }
+        }
+
+        function animate() {
+            const grad = ctx.createLinearGradient(0, 0, width, height);
+            if (gradientReverse) {
+                grad.addColorStop(0, tiffany.light);
+                grad.addColorStop(0.5, tiffany.mid);
+                grad.addColorStop(1, tiffany.dark);
+            } else {
+                grad.addColorStop(0, tiffany.dark);
+                grad.addColorStop(0.5, tiffany.mid);
+                grad.addColorStop(1, tiffany.light);
+            }
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, width, height);
+
+            triangles.forEach(tri => {
+                tri.points.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    if (p.x < -30 || p.x > width + 30) p.vx *= -1;
+                    if (p.y < -30 || p.y > height + 30) p.vy *= -1;
+                });
+
+                ctx.beginPath();
+                ctx.moveTo(tri.points[0].x, tri.points[0].y);
+                ctx.lineTo(tri.points[1].x, tri.points[1].y);
+                ctx.lineTo(tri.points[2].x, tri.points[2].y);
+                ctx.closePath();
+                ctx.fillStyle = `rgba(255,255,255,${tri.opacity})`;
+                ctx.fill();
+                ctx.strokeStyle = `rgba(255,255,255,${tri.opacity + 0.1})`;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            resize();
+            initTriangles();
+        });
+
+        resize();
+        initTriangles();
+        animate();
+    }
+
+    createTriangleAnimation('header-bg', false);
+    createTriangleAnimation('footer-bg', true);
 })();
     </script>
 </body>
