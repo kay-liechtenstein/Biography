@@ -1544,15 +1544,24 @@ function togglePresentations() {
                 }
             }
 
-            // Damping
-            p.vx *= 0.99;
-            p.vy *= 0.99;
+            // Add very gentle random drift to keep particles moving smoothly
+            if (Math.random() < 0.005) {
+                p.vx += (Math.random() - 0.5) * 0.03;
+                p.vy += (Math.random() - 0.5) * 0.03;
+            }
 
-            // Speed limit
+            // Damping (lighter on mobile to keep movement)
+            p.vx *= isMobile ? 0.998 : 0.99;
+            p.vy *= isMobile ? 0.998 : 0.99;
+
+            // Minimum speed to prevent freezing (gentle nudge)
             const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-            if (speed > 2) {
-                p.vx = (p.vx / speed) * 2;
-                p.vy = (p.vy / speed) * 2;
+            if (speed < 0.05) {
+                p.vx += (Math.random() - 0.5) * 0.08;
+                p.vy += (Math.random() - 0.5) * 0.08;
+            } else if (speed > 1.5) {
+                p.vx = (p.vx / speed) * 1.5;
+                p.vy = (p.vy / speed) * 1.5;
             }
 
             // Boundary wrapping with buffer
@@ -1656,7 +1665,6 @@ function togglePresentations() {
         updateParticles();
         drawConnections();
         drawParticles(timestamp);
-        requestAnimationFrame(animate);
     }
 
     // Event listeners
@@ -1677,13 +1685,42 @@ function togglePresentations() {
         initParticles();
     });
 
+    // Handle page visibility changes to prevent animation freeze
+    let animationId;
+    function startAnimation() {
+        if (!animationId) {
+            animationId = requestAnimationFrame(function loop(timestamp) {
+                animate(timestamp);
+                animationId = requestAnimationFrame(loop);
+            });
+        }
+    }
+
+    function stopAnimation() {
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+            animationId = null;
+        }
+    }
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            stopAnimation();
+        } else {
+            startAnimation();
+        }
+    });
+
     resize();
     initParticles();
-    requestAnimationFrame(animate);
+    startAnimation();
 })();
 
-// Click Ripple Effect
+// Click Ripple Effect (desktop only)
 (function() {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) return; // Disable on mobile to prevent performance issues
+
     document.addEventListener('click', (e) => {
         const ripple = document.createElement('div');
         ripple.className = 'ripple';
