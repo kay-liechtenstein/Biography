@@ -1,0 +1,7 @@
+# robots.txt for Kay/Koichi Akashi Biography Site
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kay-liechtenstein.com/sitemap.xml

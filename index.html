@@ -3,16 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koichi Akashi</title>
+    <meta name="description" content="Kay/Koichi Akashi (明石晃一) - Medical Student at University of Manchester and Software Developer. Researcher in Eduinformatics with multiple peer-reviewed publications.">
+    <meta name="keywords" content="Kay Akashi, Koichi Akashi, 明石晃一, medical student, developer, eduinformatics, University of Manchester, St Andrews, software developer, researcher">
+    <meta name="author" content="Kay/Koichi Akashi (明石晃一)">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://kay-liechtenstein.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kay-liechtenstein.com/">
+    <meta property="og:title" content="Kay/Koichi Akashi (明石晃一) - Medical Student & Developer">
+    <meta property="og:description" content="Medical Student at University of Manchester and Software Developer. Researcher in Eduinformatics with multiple peer-reviewed publications.">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:locale:alternate" content="ja_JP">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Kay/Koichi Akashi (明石晃一)">
+    <meta name="twitter:description" content="Medical Student at University of Manchester and Software Developer. Researcher in Eduinformatics.">
+
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#0ABAB5">
+    <meta name="msapplication-TileColor" content="#0ABAB5">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Kay/Koichi Akashi",
+        "alternateName": ["明石晃一", "Koichi Akashi", "Kay Akashi"],
+        "description": "Medical Student and Software Developer",
+        "url": "https://kay-liechtenstein.com",
+        "sameAs": [
+            "https://researchmap.jp/K_StA"
+        ],
+        "jobTitle": "Medical Student",
+        "affiliation": {
+            "@type": "Organization",
+            "name": "University of Manchester"
+        },
+        "alumniOf": {
+            "@type": "Organization",
+            "name": "University of St Andrews"
+        },
+        "knowsAbout": ["Medicine", "Software Development", "Eduinformatics", "Natural Language Processing"]
+    }
+    </script>
+
+    <title>Kay/Koichi Akashi</title>
     <link rel="icon" href="cat.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* Tiffany Blue Palette */
+            --tiffany: #0ABAB5;
+            --tiffany-light: #81D8D0;
+            --tiffany-pale: #B8E8E5;
+            --tiffany-glow: rgba(10, 186, 181, 0.4);
+
+            /* Supporting Colors */
+            --navy: #1A2A3A;
+            --slate: #2D3E50;
+            --pearl: #F8FAFA;
+            --glass: rgba(255, 255, 255, 0.12);
+            --glass-border: rgba(255, 255, 255, 0.2);
+
+            /* Gradients */
+            --gradient-tiffany: linear-gradient(135deg, #0ABAB5 0%, #81D8D0 50%, #B8E8E5 100%);
+            --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+            --gradient-dark: linear-gradient(180deg, #1A2A3A 0%, #2D3E50 100%);
+        }
+
         body {
             font-family: 'Times New Roman', Times, serif;
             margin: 0;
             padding: 0;
-            color: #333;
-            background-color: #ffffff;
+            color: var(--navy);
+            background-color: var(--pearl);
+            overflow-x: hidden;
         }
 
         #network-bg {
@@ -49,7 +119,85 @@
             line-height: 1.8;
             text-align: justify;
             font-style: italic;
-            color: #333;
+            color: var(--navy);
+        }
+
+        .hero-content a:hover {
+            color: var(--tiffany-light);
+            text-shadow: 0 0 15px var(--tiffany-glow);
+        }
+
+        /* Click Ripple Effect */
+        .ripple {
+            position: fixed;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--tiffany-glow) 0%, transparent 70%);
+            transform: scale(0);
+            animation: rippleEffect 0.6s ease-out forwards;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        @keyframes rippleEffect {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Floating Geometric Shapes */
+        .geometric-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .geo-shape {
+            position: absolute;
+            opacity: 0.08;
+            animation: floatShape 20s ease-in-out infinite;
+        }
+
+        .geo-shape:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .geo-shape:nth-child(2) { top: 60%; left: 85%; animation-delay: -5s; }
+        .geo-shape:nth-child(3) { top: 30%; left: 70%; animation-delay: -10s; }
+        .geo-shape:nth-child(4) { top: 80%; left: 20%; animation-delay: -15s; }
+        .geo-shape:nth-child(5) { top: 45%; left: 40%; animation-delay: -8s; }
+
+        @keyframes floatShape {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-30px) rotate(90deg); }
+            50% { transform: translateY(0) rotate(180deg); }
+            75% { transform: translateY(30px) rotate(270deg); }
+        }
+
+        /* Glassmorphism Base */
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(10, 186, 181, 0.15);
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(10, 186, 181, 0.15), 0 0 30px var(--tiffany-glow);
+            border-color: var(--tiffany-light);
         }
 
         @keyframes fadeInClear {
@@ -83,22 +231,30 @@
             font-size: 12px;
             font-weight: 600;
             letter-spacing: 4px;
-            color: #B8860B;
+            color: var(--tiffany);
             margin-bottom: 10px;
+            text-shadow: 0 0 20px var(--tiffany-glow);
         }
 
         .discover-arrow {
             display: flex;
             justify-content: center;
             align-items: center;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
         }
 
         .discover-arrow svg {
             width: 24px;
             height: 24px;
-            stroke: #B8860B;
+            stroke: var(--tiffany);
             stroke-width: 2;
             fill: none;
+            filter: drop-shadow(0 0 8px var(--tiffany-glow));
         }
 
         .header {
@@ -112,6 +268,22 @@
             overflow: hidden;
             z-index: 100;
             box-sizing: border-box;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-tiffany);
+            animation: shimmerBorder 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmerBorder {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
         }
 
         .header canvas {
@@ -169,6 +341,8 @@
             position: relative;
             overflow: hidden;
             clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
+            box-shadow: 0 10px 40px rgba(10, 186, 181, 0.2);
+            background: transparent;
         }
 
         .profile .image-reveal img {
@@ -252,17 +426,17 @@
         .profile h2 {
             margin: 0;
             font-size: 40px;
-            color: #34495E;
+            color: var(--navy);
         }
 
         .shimmer {
             background: linear-gradient(
                 90deg,
-                #34495E 0%,
-                #34495E 40%,
-                #7f8c9a 50%,
-                #34495E 60%,
-                #34495E 100%
+                var(--navy) 0%,
+                var(--navy) 40%,
+                var(--tiffany) 50%,
+                var(--navy) 60%,
+                var(--navy) 100%
             );
             background-size: 200% 100%;
             -webkit-background-clip: text;
@@ -281,7 +455,7 @@
                 90deg,
                 #fff 0%,
                 #fff 40%,
-                #5c4a1f 50%,
+                var(--tiffany-light) 50%,
                 #fff 60%,
                 #fff 100%
             );
@@ -292,16 +466,21 @@
             animation: shimmer 8s ease-in-out infinite;
         }
 
+        /* Glowing text effect */
+        .glow-text {
+            text-shadow: 0 0 20px var(--tiffany-glow), 0 0 40px rgba(10, 186, 181, 0.2);
+        }
+
         .profile h3 {
             margin: 10px 0;
             font-size: 20px;
-            color: black;
+            color: var(--slate);
         }
 
         .profile p {
             margin: 5px 0;
             font-size: 16px;
-            color: #34495E;
+            color: var(--navy);
         }
 
         .education {
@@ -322,6 +501,7 @@
             position: relative;
             overflow: hidden;
             clip-path: polygon(0% 0%, 85% 0%, 100% 100%, 15% 100%);
+            background: transparent;
         }
 
         .education .image-reveal img {
@@ -391,29 +571,71 @@
 
         .education h2 {
             font-size: 28px;
-            color: #34495E;
-            margin-bottom: 10px;
+            color: var(--navy);
+            margin-bottom: 15px;
             text-align: left;
+            position: relative;
+            display: inline-block;
+        }
+
+        .education h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-tiffany);
+            border-radius: 2px;
         }
 
         .education p {
             font-size: 18px;
             line-height: 1.6;
-            margin: 0;
+            margin: 5px 0;
             text-align: left;
+            padding-left: 15px;
+            border-left: 3px solid var(--tiffany-light);
+            transition: all 0.3s ease;
+        }
+
+        .education p:hover {
+            border-left-color: var(--tiffany);
+            padding-left: 20px;
         }
 
         .publications {
-            padding: 10px;
+            padding: 10px 20px;
             max-width: 710px;
             margin: 0 auto;
         }
 
         .publications h2 {
             font-size: 28px;
-            color: #34495E;
+            color: var(--navy);
             margin-bottom: 20px;
             text-align: left;
+            position: relative;
+            display: inline-block;
+        }
+
+        .publications h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-tiffany);
+            border-radius: 2px;
+        }
+
+        .section-divider {
+            width: 100%;
+            max-width: 710px;
+            margin: 40px auto;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, var(--tiffany) 50%, transparent 100%);
         }
 
         .publications ul {
@@ -425,11 +647,77 @@
 
         .publications li {
             font-size: 18px;
-            line-height: 1.2;
-            margin-bottom: 10px;
-            transition: transform 0.5s ease, opacity 0.5s ease;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             transform: translateY(20px);
             opacity: 0;
+            background: linear-gradient(135deg, rgba(10, 186, 181, 0.03) 0%, rgba(129, 216, 208, 0.06) 100%);
+            border-left: 4px solid var(--tiffany);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pub-tags {
+            display: flex;
+            justify-content: flex-end;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .pub-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .tag-first-author {
+            background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%);
+            color: #1a1a1a;
+        }
+
+        .tag-co-first {
+            background: linear-gradient(135deg, #C0C0C0 0%, #E8E8E8 100%);
+            color: #1a1a1a;
+        }
+
+        .tag-peer-reviewed {
+            background: linear-gradient(135deg, var(--tiffany) 0%, var(--tiffany-light) 100%);
+            color: #fff;
+        }
+
+        .publications li a.pub-link {
+            display: block;
+            padding: 15px 20px;
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .publications li:not(:has(a.pub-link)) {
+            padding: 15px 20px;
+        }
+
+        .publications li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--tiffany) 0%, var(--tiffany-light) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .publications li:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 25px rgba(10, 186, 181, 0.2);
+            background: linear-gradient(135deg, rgba(10, 186, 181, 0.08) 0%, rgba(129, 216, 208, 0.12) 100%);
         }
 
         .hidden {
@@ -444,7 +732,7 @@
         .toggle-button {
             display: inline-block;
             padding: 12px 30px;
-            background-image: linear-gradient(to right, #2c3e50, #1b2838);
+            background: linear-gradient(135deg, var(--tiffany) 0%, var(--tiffany-light) 100%);
             color: white;
             font-weight: bold;
             text-align: center;
@@ -452,25 +740,41 @@
             border-radius: 30px;
             cursor: pointer;
             margin: 20px auto;
-            transition: background-image 0.3s, transform 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(10, 186, 181, 0.3);
+            border: none;
         }
 
         .toggle-button:hover {
-            background-image: linear-gradient(to right, #1b2838, #2c3e50);
-            transform: scale(1.05);
+            background: linear-gradient(135deg, var(--tiffany-light) 0%, var(--tiffany) 100%);
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 8px 25px rgba(10, 186, 181, 0.4), 0 0 20px var(--tiffany-glow);
         }
 
         .awards {
-            padding: 10px;
+            padding: 10px 20px;
             max-width: 710px;
             margin: 0 auto;
         }
 
         .awards h2 {
             font-size: 28px;
-            color: #34495E;
+            color: var(--navy);
             margin-bottom: 20px;
             text-align: left;
+            position: relative;
+            display: inline-block;
+        }
+
+        .awards h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-tiffany);
+            border-radius: 2px;
         }
 
         .awards ul {
@@ -482,11 +786,21 @@
 
         .awards li {
             font-size: 18px;
-            line-height: 1.2;
-            margin-bottom: 10px;
-            transition: transform 0.5s ease, opacity 0.5s ease;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             transform: translateY(20px);
             opacity: 0;
+            background: linear-gradient(135deg, rgba(10, 186, 181, 0.03) 0%, rgba(129, 216, 208, 0.06) 100%);
+            border-left: 4px solid var(--tiffany);
+        }
+
+        .awards li:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 25px rgba(10, 186, 181, 0.2);
+            background: linear-gradient(135deg, rgba(10, 186, 181, 0.08) 0%, rgba(129, 216, 208, 0.12) 100%);
         }
 
         .awards .visible li {
@@ -494,6 +808,63 @@
             opacity: 1;
         }
 
+        .presentations {
+            padding: 10px 20px;
+            max-width: 710px;
+            margin: 0 auto;
+        }
+
+        .presentations h2 {
+            font-size: 28px;
+            color: var(--navy);
+            margin-bottom: 20px;
+            text-align: left;
+            position: relative;
+            display: inline-block;
+        }
+
+        .presentations h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-tiffany);
+            border-radius: 2px;
+        }
+
+        .presentations ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: justify;
+        }
+
+        .presentations li {
+            font-size: 18px;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(20px);
+            opacity: 0;
+            background: linear-gradient(135deg, rgba(10, 186, 181, 0.03) 0%, rgba(129, 216, 208, 0.06) 100%);
+            border-left: 4px solid var(--tiffany);
+        }
+
+
+        .presentations li:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 25px rgba(10, 186, 181, 0.2);
+            background: linear-gradient(135deg, rgba(10, 186, 181, 0.08) 0%, rgba(129, 216, 208, 0.12) 100%);
+        }
+
+        .presentations .visible li {
+            transform: translateY(0);
+            opacity: 1;
+        }
 
         .footer {
             position: relative;
@@ -504,7 +875,7 @@
             font-weight: 600;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: #34495E;
+            color: white;
             padding: 20px;
             overflow: hidden;
         }
@@ -539,13 +910,13 @@
         }
 
         .footer a {
-            color: #2980B9;
+            color: white;
             text-decoration: none;
             margin: 5px 0;
             font-weight: bold;
-            color: #34495E;
             position: relative;
-            padding-bottom: 5px; 
+            padding-bottom: 5px;
+            transition: all 0.3s ease;
         }
 
         .footer a::after {
@@ -553,7 +924,7 @@
             position: absolute;
             width: 100%;
             height: 2px;
-            background-color: #34495E;
+            background: var(--tiffany-pale);
             left: 0;
             bottom: 0;
             transform: scaleX(0);
@@ -567,9 +938,8 @@
         }
 
         .footer a:hover {
-            color: #1b2838;
-            transform: translateY(-2px);
-            transition: transform 0.2s ease-out, color 0.2s ease-out;
+            color: var(--tiffany-pale);
+            text-shadow: 0 0 10px var(--tiffany-glow);
         }
 
         @media (max-width: 768px) {
@@ -663,13 +1033,22 @@
                 text-align: center;
             }
 
+            .presentations h2 {
+                font-size: 24px;
+                text-align: center;
+            }
+
+            .presentations ul {
+                text-align: left;
+            }
+
             .toggle-button {
                 width: auto !important;
                 display: inline-block !important;
                 padding: 10px 20px !important;
             }
 
-            .publications, .awards {
+            .publications, .awards, .presentations {
                 text-align: center;
             }
 
@@ -704,19 +1083,38 @@
 <body>
     <canvas id="network-bg"></canvas>
 
+    <!-- Floating Geometric Shapes -->
+    <div class="geometric-shapes">
+        <svg class="geo-shape" width="120" height="120" viewBox="0 0 120 120">
+            <polygon points="60,10 110,95 10,95" fill="none" stroke="var(--tiffany)" stroke-width="2"/>
+        </svg>
+        <svg class="geo-shape" width="100" height="100" viewBox="0 0 100 100">
+            <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="var(--tiffany-light)" stroke-width="2"/>
+        </svg>
+        <svg class="geo-shape" width="80" height="80" viewBox="0 0 80 80">
+            <rect x="10" y="10" width="60" height="60" fill="none" stroke="var(--tiffany)" stroke-width="2" transform="rotate(45 40 40)"/>
+        </svg>
+        <svg class="geo-shape" width="90" height="90" viewBox="0 0 90 90">
+            <circle cx="45" cy="45" r="35" fill="none" stroke="var(--tiffany-pale)" stroke-width="2"/>
+        </svg>
+        <svg class="geo-shape" width="110" height="110" viewBox="0 0 110 110">
+            <polygon points="55,5 105,40 85,100 25,100 5,40" fill="none" stroke="var(--tiffany-light)" stroke-width="2"/>
+        </svg>
+    </div>
+
     <!-- Fixed Header -->
     <div class="header">
         <canvas id="header-bg"></canvas>
-        <h1 class="shimmer-header">Informatics ushered into Medicine</h1>
+        <h1 class="shimmer-header">Informatics × Medicine</h1>
     </div>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="shimmer" style="font-size: 48px; margin-bottom: 10px;">Koichi Akashi</h1>
-            <p style="font-style: normal; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 14px; letter-spacing: 3px; color: #666; margin-bottom: 40px; font-weight: 600;">MEDICAL STUDENT &bull; RESEARCHER &bull; DEVELOPER</p>
+            <h1 class="shimmer" style="font-size: 48px; margin-bottom: 10px;">Kay/Koichi Akashi</h1>
+            <p style="font-style: normal; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 14px; letter-spacing: 3px; color: var(--slate); margin-bottom: 40px; font-weight: 600;">MEDICAL STUDENT &bull; DEVELOPER</p>
             <p>
-                Koichi is a third-year medical student at the University of Manchester, pursuing Bachelor of Medicine and Bachelor of Surgery (MBChB) degree. He graduated from the School of Medicine, University of St Andrews in July 2025 with Bachelor of Science Honours (Medicine). Along with his major in medicine he is a software developer and has designed & developed several systems in the past, notably <a href="https://shukuyaku.com" target="_blank" style="color: black;">ShukuYaku</a> and <a href="https://shukuyaku-lab.com" target="_blank" style="color: black;">ShukuYakuLAB</a>. He is a member of multiple research projects led by a professor at Institute of Science Tokyo, and has published <span id="pub-count"></span> conference and journal papers, with 2 awards at the world conferences.
+                Kay/Koichi is a third-year medical student at the University of Manchester, pursuing Bachelor of Medicine and Bachelor of Surgery (MBChB) degree. He graduated from the School of Medicine, University of St Andrews in July 2025 with Bachelor of Science Honours (Medicine). Along with his major in medicine he is a software developer and has designed & developed several systems in the past, notably <a href="https://shukuyaku.com" target="_blank" style="color: var(--tiffany); text-decoration: none; font-weight: 600; transition: all 0.3s;">ShukuYaku</a> and <a href="https://shukuyaku-lab.com" target="_blank" style="color: var(--tiffany); text-decoration: none; font-weight: 600; transition: all 0.3s;">ShukuYakuLAB</a>. He is a member of multiple research projects led by a professor at Institute of Science Tokyo, and has published <span id="pub-count"></span> conference and journal papers, with 2 awards at the world conferences.
             </p>
         </div>
         <div class="discover-btn" onclick="scrollToContent()">
@@ -743,11 +1141,13 @@
                 <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
             </div>
             <div>
-                <h2 class="shimmer">Koichi Akashi</h2>
+                <h2 class="shimmer">Kay/Koichi Akashi</h2>
                 <h3>Third-Year Medical Student at the University of Manchester</h3>
             </div>
         </div>
     </div>
+
+    <div class="section-divider"></div>
 
     <div class="education">
         <div>
@@ -766,8 +1166,9 @@
         </div>
     </div>
 
+    <div class="section-divider"></div>
+
     <div class="awards">
-        <br>
         <h2 class="shimmer">Awards</h2>
         <ul id="awards-list">
             <li style="transform: none; opacity: 1;">◉ Competitive Paper Award, Exploring the Modality of Network-Type Thinking in Young Children with Picture Books, 17th IIAI International Conference on Smart Learning Technologies and Learning Environments (Dec 2024).</li>
@@ -780,32 +1181,63 @@
         <div id="toggle-awards" class="toggle-button" onclick="toggleAwards()"></div>
     </div>
 
+    <div class="section-divider"></div>
+
     <div class="publications">
         <h2 class="shimmer">Publications</h2>
         <ul id="publication-list">
-            <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Amalgamating DP-LCS-Assisted Abridgement Assessment with BERT-Based Sentiment Analysis for Early Warning and Prediction of Academic Performance. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1441 151-161 (Oct 2025). doi: 10.1007/978-981-96-6938-7_13</li>
-            <li style="transform: none; opacity: 1;">◉ K. Takamatsu, S. Matsumoto, K. Murakami, K. Tsuruta, N. Honda, Y. Ishige, S. Matsumoto, H. Kawasaki, I Noda, K. Bannaka, T. Gozu, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, S. Hirokawa, M. Mori: Extended Lifelong Sustainable Inquiry-based Community Learning (LSiCL) for Human-LLM Learning Based on Eduinformatics. Proceeding for World Conference on Information Systems for Business Management (ISBM, 2025). In press.</li>
-            <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Fortifying Abridgement Assessment System against Student Collusions by Combining Fast Text Similarity Computation and Disjoint Set Union. 17th International Conference on Data Science and Institutional Research (DSIR 2024-Winter) IEEE 118-123. doi: https://doi.org/10.1109/IIAI-AAI-Winter65925.2024.00031</li>
+            <li style="transform: none; opacity: 1;">R. Kozaki, <b>K. Akashi</b>, K. Bannaka, H. Ito, K. Murakami, S. Matsumoto, Y. Kozaki, S. Kajiyama, M. Miyahara, E. Furusawa, K. Takamatsu: Demystification of Network-Type Knowledge Formation Mechanism of Pre-School Children through Picture Books. International Journal of Learning Technologies and Learning Environments 9(1) (Apr 2026).<div class="pub-tags"><span class="pub-tag tag-co-first">Co-First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></li>
+            <li style="transform: none; opacity: 1;">K. Takamatsu, S. Matsumoto, K. Murakami, K. Tsuruta, N. Honda, Y. Ishige, S. Matsumoto, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, S. Hirokawa, M. Mori: Extended Lifelong Sustainable Inquiry-based Community Learning (LSiCL) for Human-LLM Learning Based on Eduinformatics. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1758 390-399 (Jan 2026).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></li>
+            <li style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-96-6938-7_13" target="_blank" class="pub-link"><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Amalgamating DP-LCS-Assisted Abridgement Assessment with BERT-Based Sentiment Analysis for Early Warning and Prediction of Academic Performance. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1441 151-161 (Oct 2025).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
             <div id="hidden-publications" class="hidden">
-                <li style="transform: none; opacity: 1;">◉ K. Takamatsu, S. Matsumoto, N. Honda, S. Matsumoto, Y. Ishige, H. Kawasaki, I Noda, K. Bannaka, T. Gozu, K. Murakami, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, M. Mori: Lifelong Sustainable Inquiry-based Community Learning (LSiCL) Based on Eduinformatics. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1178 415-424 (Apr 2025). doi: 10.1007/978-981-97-9559-8_36</li>
-                <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu: Eduinformatics in Practice: Text Mining-Based Analysis of Contributing Factors to the Improvement of Reading Comprehension Assisted by Marking Scheme Employing DP-LCS Algorithm. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1178 403-414 (Apr 2025). doi: 10.1007/978-981-97-9559-8_35</li>
-                <li style="transform: none; opacity: 1;">◉ K. Takamatsu, <b>K. Akashi</b>, S. Matsumoto, A. Hidetani, G. Akashi, H. Ito, K. Murakami, K. Bannaka, R. Kozaki, A. Kishida, Y. Nakata, T. Inakura, S. Imai, M. Mori: Eduinformatics and the Universities’ Challenge for “Ri”: A 100-Year Vision of Higher Education Transcending Time, Place, and Culture through Shu-Ha-Ri. IIAI Letters on Institutional Research 5 (Mar 2025). doi: 10.52731/lir.v005.345</li>
-                <li style="transform: none; opacity: 1;">◉ R. Kozaki, <b>K. Akashi</b>, K. Bannaka, H. Ito, K. Murakami, S. Matsumoto, Y. Kozaki, K. Takamatsu: Exploring the Modality of Network-Type Thinking in Young Children with Picture Books. IIAI Letters on Informatics and Interdisciplinary Research 6 (Mar 2025). doi: 10.52731/liir.v006.343</li>
-                <li style="transform: none; opacity: 1;">◉ H. Ito, K. Bannaka, R. Kozaki, K. Murakami, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Leveraging Eduinformatics to Foster Network-Type Thinking in Early Childhood Education through Picture Books. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1177 173-182 (Mar 2025). doi: 10.1007/978-981-97-8695-4_16</li>
-                <li style="transform: none; opacity: 1;">◉ T. Sakai, N. Shiratori, S. Matsumoto, <b>K. Akashi</b>, H. Ito, K. Murakami, K. Takamatsu, T. Iiyoshi: Enhancing University Sustainability through Eduinformatics: a Collaborative Approach to Resolving Common Management Issues from a Macro Perspective. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1177 201-210 (Mar 2025). doi: 10.1007/978-981-97-8695-4_19</li>
-                <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu: Computerized Model of Assessment Procedures of Students’ Reading Capabilities Based on Abridgement Method Employing Two-Pointer Problem Solution and Dynamic Programming. 1International Journal of Learning Technologies and Learning Environments 8(1) (Feb 2025). doi: 10.52731/ijltle.v8.i1.873</li>
-                <li style="transform: none; opacity: 1;">◉ K. Takamatsu, S. Matsumoto, <b>K. Akashi</b>, H. Ito, T. Kirimura, T. Kunisaki, I. Noda, R. Kozaki, A. Kishida, K. Murakami, Y. Nakata, M. Mori: A Novel Balanced Reporting Innovation with Data Governance Evolution (BRIDGE) Method: IIAI Letters on Business and Decision Science 5 (Feb 2025). doi: 10.52731/lbds.v005.352</li>
-                <li style="transform: none; opacity: 1;">◉ H. Ito, <b>K. Akashi</b>, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: The First Step for Personalised Learning of Abridgement Education: The Character-Based Pyramid Method and Semi-Automatic Implementation. IEEJ Transactions on Electronics, Information and Systems. vol.144(10) 1005-1010 (Oct 2024). doi: 10.1541/ieejeiss.144.1005</li>
-                <li style="transform: none; opacity: 1;">◉ K. Bannaka, R. Kozaki, K. Murakami, H. Ito, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Enhancing Network-Type Thinking in Early Childhood: A Topic Model Approach to Picture Book Analysis based on Eduinformatics. Lecture Notes in Networks and Systems, Springer, Singapore. voo.1053 547-556 (Oct 2024). doi: 10.1007/978-981-97-5035-1_43</li>
-                <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: Fully automated system for the marking and quantitative assessment of reading skills of students on the basis of abridgement. 15th International Congress on Advanced Applied Informatics Winter (IIAI-AAI-Winter) 143-148 (Jan 2024). doi: 10.1109/IIAI-AAI-Winter61682.2023.00035</li>
+                <li style="transform: none; opacity: 1;"><a href="https://doi.org/10.1109/IIAI-AAI-Winter65925.2024.00031" target="_blank" class="pub-link"><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Fortifying Abridgement Assessment System against Student Collusions by Combining Fast Text Similarity Computation and Disjoint Set Union. 17th International Conference on Data Science and Institutional Research (DSIR 2024-Winter) IEEE 118-123 (Jul 2025).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                <li style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-9559-8_36" target="_blank" class="pub-link">K. Takamatsu, S. Matsumoto, N. Honda, S. Matsumoto, Y. Ishige, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, K. Murakami, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, M. Mori: Lifelong Sustainable Inquiry-based Community Learning (LSiCL) Based on Eduinformatics. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1178 415-424 (Apr 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                <li style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-9559-8_35" target="_blank" class="pub-link"><b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu: Eduinformatics in Practice: Text Mining-Based Analysis of Contributing Factors to the Improvement of Reading Comprehension Assisted by Marking Scheme Employing DP-LCS Algorithm. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1178 403-414 (Apr 2025).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                <li style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/lir.v005.345" target="_blank" class="pub-link">K. Takamatsu, <b>K. Akashi</b>, S. Matsumoto, A. Hidetani, G. Akashi, H. Ito, K. Murakami, K. Bannaka, R. Kozaki, A. Kishida, Y. Nakata, T. Inakura, S. Imai, M. Mori: Eduinformatics and the Universities' Challenge for "Ri": A 100-Year Vision of Higher Education Transcending Time, Place, and Culture through Shu-Ha-Ri. IIAI Letters on Institutional Research 5 (Mar 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                <li style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/liir.v006.343" target="_blank" class="pub-link">R. Kozaki, <b>K. Akashi</b>, K. Bannaka, H. Ito, K. Murakami, S. Matsumoto, Y. Kozaki, K. Takamatsu: Exploring the Modality of Network-Type Thinking in Young Children with Picture Books. IIAI Letters on Informatics and Interdisciplinary Research 6 (Mar 2025).<div class="pub-tags"><span class="pub-tag tag-co-first">Co-First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                <li style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-8695-4_16" target="_blank" class="pub-link">H. Ito, K. Bannaka, R. Kozaki, K. Murakami, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Leveraging Eduinformatics to Foster Network-Type Thinking in Early Childhood Education through Picture Books. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1177 173-182 (Mar 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                <li style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-8695-4_19" target="_blank" class="pub-link">T. Sakai, N. Shiratori, S. Matsumoto, <b>K. Akashi</b>, H. Ito, K. Murakami, K. Takamatsu, T. Iiyoshi: Enhancing University Sustainability through Eduinformatics: a Collaborative Approach to Resolving Common Management Issues from a Macro Perspective. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1177 201-210 (Mar 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                <li style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/ijltle.v8.i1.873" target="_blank" class="pub-link"><b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu: Computerized Model of Assessment Procedures of Students' Reading Capabilities Based on Abridgement Method Employing Two-Pointer Problem Solution and Dynamic Programming. International Journal of Learning Technologies and Learning Environments 8(1) (Feb 2025).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                <li style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/lbds.v005.352" target="_blank" class="pub-link">K. Takamatsu, S. Matsumoto, <b>K. Akashi</b>, H. Ito, T. Kirimura, T. Kunisaki, I. Noda, R. Kozaki, A. Kishida, K. Murakami, Y. Nakata, M. Mori: A Novel Balanced Reporting Innovation with Data Governance Evolution (BRIDGE) Method: IIAI Letters on Business and Decision Science 5 (Feb 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                <li style="transform: none; opacity: 1;"><a href="https://doi.org/10.1541/ieejeiss.144.1005" target="_blank" class="pub-link">H. Ito, <b>K. Akashi</b>, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: The First Step for Personalised Learning of Abridgement Education: The Character-Based Pyramid Method and Semi-Automatic Implementation. IEEJ Transactions on Electronics, Information and Systems. vol.144(10) 1005-1010 (Oct 2024).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                <li style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-5035-1_43" target="_blank" class="pub-link">K. Bannaka, R. Kozaki, K. Murakami, H. Ito, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Enhancing Network-Type Thinking in Early Childhood: A Topic Model Approach to Picture Book Analysis based on Eduinformatics. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1053 547-556 (Oct 2024).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                <li style="transform: none; opacity: 1;"><a href="https://doi.org/10.1109/IIAI-AAI-Winter61682.2023.00035" target="_blank" class="pub-link"><b>K. Akashi</b>, H. Ito, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: Fully automated system for the marking and quantitative assessment of reading skills of students on the basis of abridgement. 15th International Congress on Advanced Applied Informatics Winter (IIAI-AAI-Winter) 143-148 (Jan 2024).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
             </div>
         </ul>
         <div id="toggle-button" class="toggle-button" onclick="togglePublications()"></div>
     </div>
 
+    <div class="section-divider"></div>
+
+    <div class="presentations">
+        <h2 class="shimmer">Presentations</h2>
+        <ul id="presentation-list">
+            <li style="transform: none; opacity: 1;">◉ K. Takamatsu, S. Matsumoto, K. Murakami, K. Tsuruta, N. Honda, Y. Ishige, S. Matsumoto, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, S. Hirokawa, M. Mori: Extended Lifelong Sustainable Inquiry-based Community Learning (LSiCL) for Human-LLM Learning Based on Eduinformatics. 4th World Conference on Information Systems for Business Management (ISBM 2025) (Sep 2025).</li>
+            <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Redesigning of Marking and Feedback Architecture in Abridgement Assessment. Technical Meeting on Information Systems IS25013 (Feb 2025).</li>
+            <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Amalgamating DP-LCS-Assisted Abridgement Assessment with BERT-Based Sentiment Analysis. 10th International Congress on Information and Communication Technology (ICICT 2025), London (Feb 2025).</li>
+            <div id="hidden-presentations" class="hidden">
+                <li style="transform: none; opacity: 1;">◉ R. Kozaki, <b>K. Akashi</b>, K. Bannaka, H. Ito, K. Murakami, S. Matsumoto, Y. Kozaki, K. Takamatsu: Exploring the Modality of Network-Type Thinking in Young Children with Picture Books. 17th International Conference on Smart Learning Technologies and Learning Environments (LTLE 2024-Winter) (Dec 2024).</li>
+                <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Fortifying Abridgement Assessment System against Student Collusions. 17th International Conference on Data Science and Institutional Research (DSIR 2024-Winter) (Dec 2024).</li>
+                <li style="transform: none; opacity: 1;">◉ K. Takamatsu, <b>K. Akashi</b>, S. Matsumoto, A. Hidetani, G. Akashi, H. Ito, K. Murakami, K. Bannaka, R. Kozaki, A. Kishida, Y. Nakata, T. Inakura, S. Imai, M. Mori: Eduinformatics and the Universities' Challenge for "Ri": A 100-Year Vision. 17th International Conference on Data Science and Institutional Research (DSIR 2024-Winter) (Dec 2024).</li>
+                <li style="transform: none; opacity: 1;">◉ K. Takamatsu, S. Matsumoto, <b>K. Akashi</b>, H. Ito, T. Kirimura, T. Kunisaki, I. Noda, R. Kozaki, A. Kishida, K. Murakami, Y. Nakata, M. Mori: A Novel Balanced Reporting Innovation with Data Governance Evolution (BRIDGE) Method. 19th International Conference on Knowledge, Information and Creativity Support Systems (KICSS 2024) (Dec 2024).</li>
+                <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Fortification of Abridgement Assessment through Fine-Tuned RoBERTa. Technical Meeting on Information Systems IS24045 (Dec 2024).</li>
+                <li style="transform: none; opacity: 1;">◉ K. Takamatsu, S. Matsumoto, N. Honda, S. Matsumoto, Y. Ishige, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, K. Murakami, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, M. Mori: Lifelong Sustainable Inquiry-based Community Learning (LSiCL) Based on Eduinformatics. 8th World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4 2024) (Jul 2024).</li>
+                <li style="transform: none; opacity: 1;">◉ H. Ito, K. Bannaka, R. Kozaki, K. Murakami, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Leveraging Eduinformatics to Foster Network-Type Thinking in Early Childhood Education. 8th World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4 2024) (Jul 2024).</li>
+                <li style="transform: none; opacity: 1;">◉ T. Sakai, N. Shiratori, S. Matsumoto, <b>K. Akashi</b>, H. Ito, K. Murakami, K. Takamatsu, T. Iiyoshi: Enhancing University Sustainability through Eduinformatics. 8th World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4 2024) (Jul 2024).</li>
+                <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu: Eduinformatics in Practice: Text Mining-Based Analysis of Contributing Factors to Reading Comprehension. 8th World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4 2024) (Jul 2024).</li>
+                <li style="transform: none; opacity: 1;">◉ K. Bannaka, R. Kozaki, K. Murakami, H. Ito, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Enhancing Network-Type Thinking in Early Childhood: A Topic Model Approach. 9th International Congress on Information and Communication Technology (ICICT 2024) (Feb 2024).</li>
+                <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: Fully automated system for the marking and quantitative assessment of reading skills. 15th International Conference on Data Science and Institutional Research (DSIR 2023-Winter) (Dec 2023).</li>
+                <li style="transform: none; opacity: 1;">◉ H. Ito, <b>K. Akashi</b>, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: The Character-based Pyramid Method and Semi-automatic Abridgement for Scaling Up. Technical Meeting on Information Systems IS23026 (Oct 2023).</li>
+            </div>
+        </ul>
+        <div id="toggle-presentations" class="toggle-button" onclick="togglePresentations()"></div>
+    </div>
+
+    <div class="section-divider"></div>
+
     <div class="footer">
         <canvas id="footer-bg"></canvas>
-        <p>© 2026 Koichi Akashi</p>
+        <p>© 2026 Kay/Koichi Akashi</p>
         <div class="footer-grid">
             <div>
                 <a href="https://researchmap.jp/K_StA?cover-edit&lang=en" target="_blank">Researchmap</a>
@@ -849,9 +1281,11 @@ function scrollToContent() {
 function initCounts() {
     const publicationCount = document.getElementById('publication-list').querySelectorAll('li').length;
     const awardsCount = document.getElementById('awards-list').querySelectorAll('li').length;
+    const presentationCount = document.getElementById('presentation-list').querySelectorAll('li').length;
 
     document.getElementById('toggle-button').textContent = 'View All ' + publicationCount + ' Publications';
     document.getElementById('toggle-awards').textContent = 'View All ' + awardsCount + ' Awards';
+    document.getElementById('toggle-presentations').textContent = 'View All ' + presentationCount + ' Presentations';
     document.getElementById('pub-count').textContent = publicationCount;
 }
 
@@ -958,44 +1392,68 @@ function toggleAwards() {
     }
 }
 
-// Network background animation
+function togglePresentations() {
+    const hiddenPresentations = document.getElementById('hidden-presentations');
+    const togglePresentationsButton = document.getElementById('toggle-presentations');
+    const items = hiddenPresentations.querySelectorAll('li');
+    const totalCount = document.getElementById('presentation-list').querySelectorAll('li').length;
+
+    if (hiddenPresentations.classList.contains('hidden')) {
+        hiddenPresentations.classList.remove('hidden');
+
+        items.forEach((item) => {
+            item.style.transform = 'translateY(20px)';
+            item.style.opacity = '0';
+        });
+
+        setTimeout(() => {
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.transform = 'translateY(0)';
+                    item.style.opacity = '1';
+                }, index * 100);
+            });
+        }, 100);
+        togglePresentationsButton.textContent = 'Collapse';
+    } else {
+        items.forEach((item, index) => {
+            setTimeout(() => {
+                item.style.transform = 'translateY(20px)';
+                item.style.opacity = '0';
+            }, (items.length - index - 1) * 100);
+        });
+
+        setTimeout(() => {
+            hiddenPresentations.classList.add('hidden');
+        }, items.length * 100);
+        togglePresentationsButton.textContent = 'View All ' + totalCount + ' Presentations';
+    }
+}
+
+// Enhanced Interactive Constellation Network
 (function() {
     const canvas = document.getElementById('network-bg');
     const ctx = canvas.getContext('2d');
 
+    // Tiffany Blue color palette
+    const colors = {
+        tiffany: { r: 10, g: 186, b: 181 },
+        tiffanyLight: { r: 129, g: 216, b: 208 },
+        tiffanyPale: { r: 184, g: 232, b: 229 }
+    };
+
     let width, height;
     let dpr = window.devicePixelRatio || 1;
-    let nodes = [];
-    let targetNodes = [];
-    const nodeCount = 60;
-    const connectionDistance = 180;
-    const nodeRadius = 6;
+    let particles = [];
+    const particleCount = 150;
+    const connectionDistance = 150;
+    const mouseInfluenceRadius = 200;
+    const mouseAttractionStrength = 0.03;
+    const mouseRepulsionRadius = 80;
+    const mouseRepulsionStrength = 0.8;
 
-    const morphDuration = 2000;
-    const morphCooldown = 500;
-    let lastMorphTime = 0;
-    let morphEndTime = 0;
-    let isMorphing = false;
-    let morphProgress = 0;
-    let scrollTriggered = false;
-
-    const nodeColor = 'rgba(200, 200, 200, 0.8)';
-
-    let clusters = [];
-
-    function generateClusters() {
-        clusters = [
-            { x: width * 0.2, y: height * 0.25 },
-            { x: width * 0.75, y: height * 0.2 },
-            { x: width * 0.5, y: height * 0.5 },
-            { x: width * 0.25, y: height * 0.75 },
-            { x: width * 0.8, y: height * 0.7 }
-        ];
-        clusters = clusters.map(c => ({
-            x: c.x + (Math.random() - 0.5) * width * 0.15,
-            y: c.y + (Math.random() - 0.5) * height * 0.15
-        }));
-    }
+    let mouse = { x: null, y: null };
+    let isMouseInCanvas = false;
 
     function resize() {
         dpr = window.devicePixelRatio || 1;
@@ -1008,127 +1466,216 @@ function toggleAwards() {
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    function createRandomPosition() {
-        const cluster = clusters[Math.floor(Math.random() * clusters.length)];
-        const spread = Math.min(width, height) * 0.22;
-        const angle = Math.random() * Math.PI * 2;
-        const distance = Math.random() * spread;
+    function createParticle() {
+        const colorChoice = Math.random();
+        let color;
+        if (colorChoice < 0.5) color = colors.tiffany;
+        else if (colorChoice < 0.8) color = colors.tiffanyLight;
+        else color = colors.tiffanyPale;
+
         return {
-            x: cluster.x + Math.cos(angle) * distance,
-            y: cluster.y + Math.sin(angle) * distance
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            radius: Math.random() * 2.5 + 1,
+            color: color,
+            opacity: Math.random() * 0.5 + 0.3,
+            pulseOffset: Math.random() * Math.PI * 2
         };
     }
 
-    function initNodes() {
-        generateClusters();
-        nodes = [];
-        for (let i = 0; i < nodeCount; i++) {
-            const pos = createRandomPosition();
-            nodes.push({ x: pos.x, y: pos.y, startX: pos.x, startY: pos.y });
-        }
-        generateNewTargets();
-    }
-
-    function generateNewTargets() {
-        generateClusters();
-        targetNodes = [];
-        for (let i = 0; i < nodeCount; i++) {
-            const pos = createRandomPosition();
-            targetNodes.push({ x: pos.x, y: pos.y });
+    function initParticles() {
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(createParticle());
         }
     }
 
-    function easeInOutCubic(t) {
-        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
+    function updateParticles() {
+        particles.forEach(p => {
+            // Base movement
+            p.x += p.vx;
+            p.y += p.vy;
 
-    function startMorph(timestamp) {
-        if (isMorphing) return;
-        isMorphing = true;
-        lastMorphTime = timestamp || performance.now();
-        nodes.forEach(node => {
-            node.startX = node.x;
-            node.startY = node.y;
-        });
-        generateNewTargets();
-    }
+            // Mouse interaction
+            if (isMouseInCanvas && mouse.x !== null) {
+                const dx = mouse.x - p.x;
+                const dy = mouse.y - p.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
 
-    function updateNodes(timestamp) {
-        if (!lastMorphTime) lastMorphTime = timestamp;
-
-        if (scrollTriggered && !isMorphing && timestamp - morphEndTime > morphCooldown) {
-            scrollTriggered = false;
-            startMorph(timestamp);
-        }
-
-        if (isMorphing) {
-            morphProgress = Math.min((timestamp - lastMorphTime) / morphDuration, 1);
-            const easedProgress = easeInOutCubic(morphProgress);
-            nodes.forEach((node, i) => {
-                node.x = node.startX + (targetNodes[i].x - node.startX) * easedProgress;
-                node.y = node.startY + (targetNodes[i].y - node.startY) * easedProgress;
-            });
-            if (morphProgress >= 1) {
-                isMorphing = false;
-                morphEndTime = timestamp;
-                scrollTriggered = false;
+                // Repulsion zone (close to cursor)
+                if (dist < mouseRepulsionRadius && dist > 0) {
+                    const force = (mouseRepulsionRadius - dist) / mouseRepulsionRadius * mouseRepulsionStrength;
+                    p.vx -= (dx / dist) * force;
+                    p.vy -= (dy / dist) * force;
+                }
+                // Attraction zone (medium distance)
+                else if (dist < mouseInfluenceRadius && dist > mouseRepulsionRadius) {
+                    const force = mouseAttractionStrength;
+                    p.vx += (dx / dist) * force;
+                    p.vy += (dy / dist) * force;
+                }
             }
-        }
-    }
 
-    window.addEventListener('scroll', () => {
-        scrollTriggered = true;
-    }, { passive: true });
+            // Damping
+            p.vx *= 0.99;
+            p.vy *= 0.99;
+
+            // Speed limit
+            const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+            if (speed > 2) {
+                p.vx = (p.vx / speed) * 2;
+                p.vy = (p.vy / speed) * 2;
+            }
+
+            // Boundary wrapping with buffer
+            const buffer = 50;
+            if (p.x < -buffer) p.x = width + buffer;
+            if (p.x > width + buffer) p.x = -buffer;
+            if (p.y < -buffer) p.y = height + buffer;
+            if (p.y > height + buffer) p.y = -buffer;
+        });
+    }
 
     function drawConnections() {
-        ctx.lineWidth = 1;
-        for (let i = 0; i < nodes.length; i++) {
-            for (let j = i + 1; j < nodes.length; j++) {
-                const dx = nodes[i].x - nodes[j].x;
-                const dy = nodes[i].y - nodes[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < connectionDistance) {
-                    const opacity = 1 - (distance / connectionDistance);
-                    ctx.strokeStyle = `rgba(200, 200, 200, ${opacity * 0.5})`;
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < connectionDistance) {
+                    const opacity = (1 - dist / connectionDistance) * 0.4;
+
+                    // Gradient line
+                    const gradient = ctx.createLinearGradient(
+                        particles[i].x, particles[i].y,
+                        particles[j].x, particles[j].y
+                    );
+                    const c1 = particles[i].color;
+                    const c2 = particles[j].color;
+                    gradient.addColorStop(0, `rgba(${c1.r}, ${c1.g}, ${c1.b}, ${opacity})`);
+                    gradient.addColorStop(1, `rgba(${c2.r}, ${c2.g}, ${c2.b}, ${opacity})`);
+
+                    ctx.strokeStyle = gradient;
+                    ctx.lineWidth = 1;
                     ctx.beginPath();
-                    ctx.moveTo(nodes[i].x, nodes[i].y);
-                    ctx.lineTo(nodes[j].x, nodes[j].y);
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
                     ctx.stroke();
                 }
             }
         }
+
+        // Draw connections to mouse
+        if (isMouseInCanvas && mouse.x !== null) {
+            particles.forEach(p => {
+                const dx = mouse.x - p.x;
+                const dy = mouse.y - p.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < mouseInfluenceRadius) {
+                    const opacity = (1 - dist / mouseInfluenceRadius) * 0.3;
+                    ctx.strokeStyle = `rgba(10, 186, 181, ${opacity})`;
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(mouse.x, mouse.y);
+                    ctx.stroke();
+                }
+            });
+        }
     }
 
-    function drawNodes() {
-        ctx.fillStyle = nodeColor;
-        nodes.forEach(node => {
+    function drawParticles(timestamp) {
+        particles.forEach(p => {
+            // Pulsing glow effect
+            const pulse = Math.sin(timestamp * 0.002 + p.pulseOffset) * 0.3 + 0.7;
+            const glowRadius = p.radius * 3 * pulse;
+
+            // Outer glow
+            const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowRadius);
+            glow.addColorStop(0, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${p.opacity * 0.5})`);
+            glow.addColorStop(1, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, 0)`);
+
+            ctx.fillStyle = glow;
             ctx.beginPath();
-            ctx.arc(node.x, node.y, nodeRadius, 0, Math.PI * 2);
+            ctx.arc(p.x, p.y, glowRadius, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Core particle
+            ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${p.opacity})`;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
             ctx.fill();
         });
+
+        // Mouse glow
+        if (isMouseInCanvas && mouse.x !== null) {
+            const mouseGlow = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, mouseRepulsionRadius);
+            mouseGlow.addColorStop(0, 'rgba(10, 186, 181, 0.15)');
+            mouseGlow.addColorStop(0.5, 'rgba(10, 186, 181, 0.05)');
+            mouseGlow.addColorStop(1, 'rgba(10, 186, 181, 0)');
+
+            ctx.fillStyle = mouseGlow;
+            ctx.beginPath();
+            ctx.arc(mouse.x, mouse.y, mouseRepulsionRadius, 0, Math.PI * 2);
+            ctx.fill();
+        }
     }
 
     function animate(timestamp) {
         ctx.clearRect(0, 0, width, height);
-        updateNodes(timestamp);
+        updateParticles();
         drawConnections();
-        drawNodes();
+        drawParticles(timestamp);
         requestAnimationFrame(animate);
     }
 
+    // Event listeners
+    canvas.style.pointerEvents = 'none';
+
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        isMouseInCanvas = true;
+    }, { passive: true });
+
+    window.addEventListener('mouseout', () => {
+        isMouseInCanvas = false;
+    }, { passive: true });
+
     window.addEventListener('resize', () => {
         resize();
-        initNodes();
+        initParticles();
     });
 
     resize();
-    initNodes();
+    initParticles();
     requestAnimationFrame(animate);
+})();
+
+// Click Ripple Effect
+(function() {
+    document.addEventListener('click', (e) => {
+        const ripple = document.createElement('div');
+        ripple.className = 'ripple';
+        ripple.style.left = (e.clientX - 50) + 'px';
+        ripple.style.top = (e.clientY - 50) + 'px';
+        ripple.style.width = '100px';
+        ripple.style.height = '100px';
+        document.body.appendChild(ripple);
+
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    });
 })();
 
 // Morphing Triangles background animation for header and footer
 (function() {
-    const gold = { light: '#F5E6C8', mid: '#D4AF37', dark: '#B8860B' };
+    const tiffany = { light: '#B8E8E5', mid: '#81D8D0', dark: '#0ABAB5' };
 
     function createTriangleAnimation(canvasId, gradientReverse) {
         const canvas = document.getElementById(canvasId);
@@ -1168,13 +1715,13 @@ function toggleAwards() {
         function animate() {
             const grad = ctx.createLinearGradient(0, 0, width, height);
             if (gradientReverse) {
-                grad.addColorStop(0, gold.light);
-                grad.addColorStop(0.5, gold.mid);
-                grad.addColorStop(1, gold.dark);
+                grad.addColorStop(0, tiffany.light);
+                grad.addColorStop(0.5, tiffany.mid);
+                grad.addColorStop(1, tiffany.dark);
             } else {
-                grad.addColorStop(0, gold.dark);
-                grad.addColorStop(0.5, gold.mid);
-                grad.addColorStop(1, gold.light);
+                grad.addColorStop(0, tiffany.dark);
+                grad.addColorStop(0.5, tiffany.mid);
+                grad.addColorStop(1, tiffany.light);
             }
             ctx.fillStyle = grad;
             ctx.fillRect(0, 0, width, height);
