@@ -93,6 +93,11 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            will-change: contents;
         }
 
         .hero {
@@ -102,7 +107,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            padding: 80px 20px 40px;
+            padding: 40px 20px;
             box-sizing: border-box;
         }
 
@@ -257,57 +262,63 @@
             filter: drop-shadow(0 0 8px var(--tiffany-glow));
         }
 
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            overflow: hidden;
-            z-index: 100;
-            box-sizing: border-box;
-        }
-
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--gradient-tiffany);
-            animation: shimmerBorder 3s ease-in-out infinite;
-        }
-
-        @keyframes shimmerBorder {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-
-        .header canvas {
+        .footer canvas {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: 0;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
-        .header h1 {
-            position: relative;
-            z-index: 1;
-            margin: 0;
+        /* Circular Text Around Name */
+        .circular-text-wrapper {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .circular-text {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: rotateText 30s linear infinite;
+        }
+
+        @keyframes rotateText {
+            to { transform: rotate(360deg); }
+        }
+
+        .circular-text svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .circular-text text {
             font-family: 'Montserrat', sans-serif;
-            font-size: 24px;
-            font-weight: 400;
-            letter-spacing: 4px;
-            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            fill: var(--tiffany);
+            opacity: 0.6;
         }
 
         #main-content {
-            padding-top: 70px;
+            padding-top: 20px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
         }
 
         .content {
@@ -448,22 +459,6 @@
         @keyframes shimmer {
             0% { background-position: 100% 0; }
             100% { background-position: -100% 0; }
-        }
-
-        .shimmer-header {
-            background: linear-gradient(
-                90deg,
-                #fff 0%,
-                #fff 40%,
-                var(--tiffany-light) 50%,
-                #fff 60%,
-                #fff 100%
-            );
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 8s ease-in-out infinite;
         }
 
         /* Glowing text effect */
@@ -961,8 +956,14 @@
                 bottom: 30px;
             }
 
-            .header h1 {
-                font-size: 28px;
+            .circular-text-wrapper {
+                width: 320px;
+                height: 320px;
+            }
+
+            .circular-text text {
+                font-size: 11px;
+                letter-spacing: 0.2em;
             }
 
             .profile {
@@ -971,13 +972,12 @@
             }
 
             .profile .image-reveal {
-                width: 100%;
+                width: 60%;
+                max-width: 280px;
                 height: auto;
                 aspect-ratio: 3/4;
-                margin: 10px;
+                margin: 10px auto;
                 margin-bottom: 20px;
-                margin-left: 0;
-                margin-right: 0;
             }
 
             .profile h2 {
@@ -1001,13 +1001,11 @@
             }
 
             .education .image-reveal {
-                width: 100%;
+                width: 85%;
+                max-width: 400px;
                 height: auto;
                 aspect-ratio: 350/250;
-                margin: 0;
-                margin-top: 10px;
-                margin-left: 0;
-                margin-right: 0;
+                margin: 10px auto;
             }
 
             .education h2 {
@@ -1062,21 +1060,31 @@
                 align-items: center;
                 margin: 10px 0;
             }
-        }
 
-        @media (max-width: 768px) {
-            .profile .image-reveal {
-                width: 60%;
-                height: auto;
-                max-width: 250px;
+            .publications li,
+            .presentations li {
+                font-size: 14px;
+                line-height: 1.4;
             }
 
-            .education .image-reveal {
-                width: 70%;
-                height: auto;
-                max-width: 300px;
+            .education p {
+                font-size: 15px;
+            }
+
+            .awards li {
+                font-size: 14px;
+            }
+
+            .pub-tags {
+                margin-top: 8px;
+            }
+
+            .pub-tag {
+                font-size: 9px;
+                padding: 2px 6px;
             }
         }
+
 
     </style>
 </head>
@@ -1102,14 +1110,22 @@
         </svg>
     </div>
 
-    <!-- Fixed Header -->
-    <div class="header">
-        <canvas id="header-bg"></canvas>
-        <h1 class="shimmer-header">Informatics × Medicine</h1>
-    </div>
-
     <!-- Hero Section -->
     <section class="hero">
+        <!-- Circular Text Around Name -->
+        <div class="circular-text-wrapper">
+            <div class="circular-text">
+                <svg viewBox="0 0 420 420">
+                    <defs>
+                        <path id="circlePath" d="M 210, 210 m -180, 0 a 180,180 0 1,1 360,0 a 180,180 0 1,1 -360,0"/>
+                    </defs>
+                    <text>
+                        <textPath href="#circlePath">INFORMATICS × MEDICINE • INFORMATICS × MEDICINE • INFORMATICS × MEDICINE • </textPath>
+                    </text>
+                </svg>
+            </div>
+        </div>
+
         <div class="hero-content">
             <h1 class="shimmer" style="font-size: 48px; margin-bottom: 10px;">Kay/Koichi Akashi</h1>
             <p style="font-style: normal; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 14px; letter-spacing: 3px; color: var(--slate); margin-bottom: 40px; font-weight: 600;">MEDICAL STUDENT &bull; DEVELOPER</p>
@@ -1443,10 +1459,16 @@ function togglePresentations() {
     };
 
     let width, height;
-    let dpr = window.devicePixelRatio || 1;
+    let isMobile = window.innerWidth <= 768;
+    // Reduce canvas resolution on mobile for smoother animation
+    let dpr = isMobile ? 1 : (window.devicePixelRatio || 1);
     let particles = [];
-    const particleCount = 150;
-    const connectionDistance = 150;
+    let particleCount = isMobile ? 50 : 150;
+    let connectionDistance = isMobile ? 80 : 150;
+    let opacityMultiplier = isMobile ? 0.35 : 1;
+    let lastFrameTime = 0;
+    const targetFPS = isMobile ? 30 : 60;
+    const frameInterval = 1000 / targetFPS;
     const mouseInfluenceRadius = 200;
     const mouseAttractionStrength = 0.03;
     const mouseRepulsionRadius = 80;
@@ -1456,7 +1478,12 @@ function togglePresentations() {
     let isMouseInCanvas = false;
 
     function resize() {
-        dpr = window.devicePixelRatio || 1;
+        // Update mobile settings
+        isMobile = window.innerWidth <= 768;
+        dpr = isMobile ? 1 : (window.devicePixelRatio || 1);
+        connectionDistance = isMobile ? 80 : 150;
+        opacityMultiplier = isMobile ? 0.35 : 1;
+
         width = window.innerWidth;
         height = window.innerHeight;
         canvas.width = width * dpr;
@@ -1480,7 +1507,7 @@ function togglePresentations() {
             vy: (Math.random() - 0.5) * 0.5,
             radius: Math.random() * 2.5 + 1,
             color: color,
-            opacity: Math.random() * 0.5 + 0.3,
+            opacity: (Math.random() * 0.5 + 0.3) * opacityMultiplier,
             pulseOffset: Math.random() * Math.PI * 2
         };
     }
@@ -1546,7 +1573,7 @@ function togglePresentations() {
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
                 if (dist < connectionDistance) {
-                    const opacity = (1 - dist / connectionDistance) * 0.4;
+                    const opacity = (1 - dist / connectionDistance) * 0.4 * opacityMultiplier;
 
                     // Gradient line
                     const gradient = ctx.createLinearGradient(
@@ -1576,7 +1603,7 @@ function togglePresentations() {
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
                 if (dist < mouseInfluenceRadius) {
-                    const opacity = (1 - dist / mouseInfluenceRadius) * 0.3;
+                    const opacity = (1 - dist / mouseInfluenceRadius) * 0.3 * opacityMultiplier;
                     ctx.strokeStyle = `rgba(10, 186, 181, ${opacity})`;
                     ctx.lineWidth = 1;
                     ctx.beginPath();
@@ -1596,7 +1623,7 @@ function togglePresentations() {
 
             // Outer glow
             const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowRadius);
-            glow.addColorStop(0, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${p.opacity * 0.5})`);
+            glow.addColorStop(0, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${p.opacity * 0.5 * opacityMultiplier})`);
             glow.addColorStop(1, `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, 0)`);
 
             ctx.fillStyle = glow;
@@ -1614,8 +1641,8 @@ function togglePresentations() {
         // Mouse glow
         if (isMouseInCanvas && mouse.x !== null) {
             const mouseGlow = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, mouseRepulsionRadius);
-            mouseGlow.addColorStop(0, 'rgba(10, 186, 181, 0.15)');
-            mouseGlow.addColorStop(0.5, 'rgba(10, 186, 181, 0.05)');
+            mouseGlow.addColorStop(0, `rgba(10, 186, 181, ${0.15 * opacityMultiplier})`);
+            mouseGlow.addColorStop(0.5, `rgba(10, 186, 181, ${0.05 * opacityMultiplier})`);
             mouseGlow.addColorStop(1, 'rgba(10, 186, 181, 0)');
 
             ctx.fillStyle = mouseGlow;
@@ -1626,11 +1653,19 @@ function togglePresentations() {
     }
 
     function animate(timestamp) {
+        requestAnimationFrame(animate);
+
+        // Throttle frame rate on mobile for smoother performance
+        if (isMobile) {
+            const elapsed = timestamp - lastFrameTime;
+            if (elapsed < frameInterval) return;
+            lastFrameTime = timestamp - (elapsed % frameInterval);
+        }
+
         ctx.clearRect(0, 0, width, height);
         updateParticles();
         drawConnections();
         drawParticles(timestamp);
-        requestAnimationFrame(animate);
     }
 
     // Event listeners
@@ -1676,16 +1711,20 @@ function togglePresentations() {
 // Morphing Triangles background animation for header and footer
 (function() {
     const tiffany = { light: '#B8E8E5', mid: '#81D8D0', dark: '#0ABAB5' };
+    const isMobile = window.innerWidth <= 768;
+    const targetFPS = isMobile ? 30 : 60;
+    const frameInterval = 1000 / targetFPS;
 
     function createTriangleAnimation(canvasId, gradientReverse) {
         const canvas = document.getElementById(canvasId);
         const ctx = canvas.getContext('2d');
         let width, height;
-        let dpr = window.devicePixelRatio || 1;
+        let dpr = isMobile ? 1 : (window.devicePixelRatio || 1);
         let triangles = [];
+        let lastFrameTime = 0;
 
         function resize() {
-            dpr = window.devicePixelRatio || 1;
+            dpr = isMobile ? 1 : (window.devicePixelRatio || 1);
             const rect = canvas.parentElement.getBoundingClientRect();
             width = rect.width;
             height = rect.height;
@@ -1696,7 +1735,8 @@ function togglePresentations() {
 
         function initTriangles() {
             triangles = [];
-            const count = Math.max(8, Math.floor((width * height) / 12000));
+            const baseCount = Math.max(8, Math.floor((width * height) / 12000));
+            const count = isMobile ? Math.min(baseCount, 6) : baseCount;
             for (let i = 0; i < count; i++) {
                 const cx = Math.random() * width;
                 const cy = Math.random() * height;
@@ -1712,7 +1752,16 @@ function togglePresentations() {
             }
         }
 
-        function animate() {
+        function animate(timestamp) {
+            requestAnimationFrame(animate);
+
+            // Throttle frame rate on mobile
+            if (isMobile) {
+                const elapsed = timestamp - lastFrameTime;
+                if (elapsed < frameInterval) return;
+                lastFrameTime = timestamp - (elapsed % frameInterval);
+            }
+
             const grad = ctx.createLinearGradient(0, 0, width, height);
             if (gradientReverse) {
                 grad.addColorStop(0, tiffany.light);
@@ -1745,8 +1794,6 @@ function togglePresentations() {
                 ctx.lineWidth = 1;
                 ctx.stroke();
             });
-
-            requestAnimationFrame(animate);
         }
 
         window.addEventListener('resize', () => {
@@ -1756,10 +1803,9 @@ function togglePresentations() {
 
         resize();
         initTriangles();
-        animate();
+        requestAnimationFrame(animate);
     }
 
-    createTriangleAnimation('header-bg', false);
     createTriangleAnimation('footer-bg', true);
 })();
     </script>
