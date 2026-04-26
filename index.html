@@ -966,6 +966,10 @@
                 letter-spacing: 0.2em;
             }
 
+            .geometric-shapes {
+                display: none;
+            }
+
             .profile {
                 flex-direction: column;
                 align-items: center;
@@ -1461,11 +1465,11 @@ function togglePresentations() {
     // Reduce canvas resolution on mobile for smoother animation
     let dpr = isMobile ? 1 : (window.devicePixelRatio || 1);
     let particles = [];
-    let particleCount = isMobile ? 50 : 150;
-    let connectionDistance = isMobile ? 80 : 150;
-    let opacityMultiplier = isMobile ? 0.35 : 1;
+    let particleCount = isMobile ? 120 : 150;
+    let connectionDistance = isMobile ? 130 : 150;
+    let opacityMultiplier = isMobile ? 0.5 : 1;
     let lastFrameTime = 0;
-    const targetFPS = isMobile ? 30 : 60;
+    const targetFPS = isMobile ? 45 : 60;
     const frameInterval = 1000 / targetFPS;
     const mouseInfluenceRadius = 200;
     const mouseAttractionStrength = 0.03;
@@ -1479,8 +1483,8 @@ function togglePresentations() {
         // Update mobile settings
         isMobile = window.innerWidth <= 768;
         dpr = isMobile ? 1 : (window.devicePixelRatio || 1);
-        connectionDistance = isMobile ? 80 : 150;
-        opacityMultiplier = isMobile ? 0.35 : 1;
+        connectionDistance = isMobile ? 130 : 150;
+        opacityMultiplier = isMobile ? 0.5 : 1;
 
         width = window.innerWidth;
         height = window.innerHeight;
@@ -1706,11 +1710,11 @@ function togglePresentations() {
     });
 })();
 
-// Morphing Triangles background animation for header and footer
+// Morphing Triangles background animation for footer
 (function() {
     const tiffany = { light: '#B8E8E5', mid: '#81D8D0', dark: '#0ABAB5' };
     const isMobile = window.innerWidth <= 768;
-    const targetFPS = isMobile ? 30 : 60;
+    const targetFPS = isMobile ? 45 : 60;
     const frameInterval = 1000 / targetFPS;
 
     function createTriangleAnimation(canvasId, gradientReverse) {
@@ -1734,7 +1738,7 @@ function togglePresentations() {
         function initTriangles() {
             triangles = [];
             const baseCount = Math.max(8, Math.floor((width * height) / 12000));
-            const count = isMobile ? Math.min(baseCount, 6) : baseCount;
+            const count = isMobile ? Math.max(baseCount - 2, 6) : baseCount;
             for (let i = 0; i < count; i++) {
                 const cx = Math.random() * width;
                 const cy = Math.random() * height;
