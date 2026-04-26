@@ -1462,15 +1462,12 @@ function togglePresentations() {
 
     let width, height;
     let isMobile = window.innerWidth <= 768;
-    // Reduce canvas resolution on mobile for smoother animation
-    let dpr = isMobile ? 1 : (window.devicePixelRatio || 1);
+    // Use capped DPR for mobile (max 2) for good resolution without performance hit
+    let dpr = isMobile ? Math.min(window.devicePixelRatio || 1, 2) : (window.devicePixelRatio || 1);
     let particles = [];
-    let particleCount = isMobile ? 120 : 150;
-    let connectionDistance = isMobile ? 130 : 150;
+    let particleCount = isMobile ? 100 : 150;
+    let connectionDistance = isMobile ? 120 : 150;
     let opacityMultiplier = isMobile ? 0.5 : 1;
-    let lastFrameTime = 0;
-    const targetFPS = isMobile ? 45 : 60;
-    const frameInterval = 1000 / targetFPS;
     const mouseInfluenceRadius = 200;
     const mouseAttractionStrength = 0.03;
     const mouseRepulsionRadius = 80;
@@ -1482,8 +1479,8 @@ function togglePresentations() {
     function resize() {
         // Update mobile settings
         isMobile = window.innerWidth <= 768;
-        dpr = isMobile ? 1 : (window.devicePixelRatio || 1);
-        connectionDistance = isMobile ? 130 : 150;
+        dpr = isMobile ? Math.min(window.devicePixelRatio || 1, 2) : (window.devicePixelRatio || 1);
+        connectionDistance = isMobile ? 120 : 150;
         opacityMultiplier = isMobile ? 0.5 : 1;
 
         width = window.innerWidth;
@@ -1655,19 +1652,11 @@ function togglePresentations() {
     }
 
     function animate(timestamp) {
-        requestAnimationFrame(animate);
-
-        // Throttle frame rate on mobile for smoother performance
-        if (isMobile) {
-            const elapsed = timestamp - lastFrameTime;
-            if (elapsed < frameInterval) return;
-            lastFrameTime = timestamp - (elapsed % frameInterval);
-        }
-
         ctx.clearRect(0, 0, width, height);
         updateParticles();
         drawConnections();
         drawParticles(timestamp);
+        requestAnimationFrame(animate);
     }
 
     // Event listeners
@@ -1714,19 +1703,16 @@ function togglePresentations() {
 (function() {
     const tiffany = { light: '#B8E8E5', mid: '#81D8D0', dark: '#0ABAB5' };
     const isMobile = window.innerWidth <= 768;
-    const targetFPS = isMobile ? 45 : 60;
-    const frameInterval = 1000 / targetFPS;
 
     function createTriangleAnimation(canvasId, gradientReverse) {
         const canvas = document.getElementById(canvasId);
         const ctx = canvas.getContext('2d');
         let width, height;
-        let dpr = isMobile ? 1 : (window.devicePixelRatio || 1);
+        let dpr = isMobile ? Math.min(window.devicePixelRatio || 1, 2) : (window.devicePixelRatio || 1);
         let triangles = [];
-        let lastFrameTime = 0;
 
         function resize() {
-            dpr = isMobile ? 1 : (window.devicePixelRatio || 1);
+            dpr = isMobile ? Math.min(window.devicePixelRatio || 1, 2) : (window.devicePixelRatio || 1);
             const rect = canvas.parentElement.getBoundingClientRect();
             width = rect.width;
             height = rect.height;
@@ -1754,16 +1740,7 @@ function togglePresentations() {
             }
         }
 
-        function animate(timestamp) {
-            requestAnimationFrame(animate);
-
-            // Throttle frame rate on mobile
-            if (isMobile) {
-                const elapsed = timestamp - lastFrameTime;
-                if (elapsed < frameInterval) return;
-                lastFrameTime = timestamp - (elapsed % frameInterval);
-            }
-
+        function animate() {
             const grad = ctx.createLinearGradient(0, 0, width, height);
             if (gradientReverse) {
                 grad.addColorStop(0, tiffany.light);
@@ -1796,6 +1773,7 @@ function togglePresentations() {
                 ctx.lineWidth = 1;
                 ctx.stroke();
             });
+            requestAnimationFrame(animate);
         }
 
         window.addEventListener('resize', () => {
