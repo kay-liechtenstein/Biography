@@ -739,6 +739,11 @@
             transition: all 0.3s ease;
         }
 
+        .publications li.filter-collapsed {
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
         .publications li a.pub-link {
             display: block;
             padding: 15px 20px;
@@ -1377,44 +1382,90 @@ document.addEventListener('DOMContentLoaded', initCounts);
 function togglePublications() {
     const hiddenPublications = document.getElementById('hidden-publications');
     const toggleButton = document.getElementById('toggle-button');
-    const items = hiddenPublications.querySelectorAll('li');
     const totalCount = document.getElementById('publication-list').querySelectorAll('li').length;
 
-    if (hiddenPublications.classList.contains('hidden')) {
-        hiddenPublications.classList.remove('hidden');
+    // Determine the count to display based on current filter
+    const displayCount = (currentFilter === 'all') ? totalCount : currentFilteredCount;
+    const buttonText = (currentFilter === 'all')
+        ? 'View All ' + displayCount + ' Publications'
+        : 'View ' + displayCount + ' Publications';
 
-        items.forEach((item) => {
-            item.style.transform = 'translateY(20px)';
-            item.style.opacity = '0';
-        });
+    if (currentFilter === 'all') {
+        // Original behavior for "All" filter
+        const items = hiddenPublications.querySelectorAll('li');
 
-        setTimeout(() => {
-            items.forEach((item, index) => {
-                setTimeout(() => {
-                    item.style.transform = 'translateY(0)';
-                    item.style.opacity = '1';
-                }, index * 100);
-            });
-        }, 100);
-        toggleButton.textContent = 'Collapse';
-    } else {
-        items.forEach((item, index) => {
-            setTimeout(() => {
+        if (hiddenPublications.classList.contains('hidden')) {
+            hiddenPublications.classList.remove('hidden');
+
+            items.forEach((item) => {
                 item.style.transform = 'translateY(20px)';
                 item.style.opacity = '0';
-            }, (items.length - index - 1) * 100);
-        });
+            });
 
-        setTimeout(() => {
-            hiddenPublications.classList.add('hidden');
-        }, items.length * 100);
-        toggleButton.textContent = 'View All ' + totalCount + ' Publications';
+            setTimeout(() => {
+                items.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.transform = 'translateY(0)';
+                        item.style.opacity = '1';
+                    }, index * 100);
+                });
+            }, 100);
+            toggleButton.textContent = 'Collapse';
+        } else {
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.transform = 'translateY(20px)';
+                    item.style.opacity = '0';
+                }, (items.length - index - 1) * 100);
+            });
+
+            setTimeout(() => {
+                hiddenPublications.classList.add('hidden');
+            }, items.length * 100);
+            toggleButton.textContent = buttonText;
+        }
+    } else {
+        // Filtered view: toggle collapsed items
+        const collapsedItems = document.querySelectorAll('#publication-list li.filter-collapsed');
+        const isCollapsed = collapsedItems.length > 0 && collapsedItems[0].style.opacity === '0';
+
+        if (isCollapsed) {
+            // Expand: show all matching
+            let delay = 0;
+            collapsedItems.forEach((item) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.maxHeight = '';
+                    item.style.marginBottom = '';
+                    item.style.padding = '';
+                    item.style.pointerEvents = '';
+                }, delay);
+                delay += 100;
+            });
+            toggleButton.textContent = 'Collapse';
+        } else {
+            // Collapse: hide items beyond first 3
+            let delay = 0;
+            const itemsArray = Array.from(collapsedItems).reverse();
+            itemsArray.forEach((item) => {
+                setTimeout(() => {
+                    item.style.opacity = '0';
+                    item.style.maxHeight = '0';
+                    item.style.marginBottom = '0';
+                    item.style.padding = '0';
+                    item.style.pointerEvents = 'none';
+                }, delay);
+                delay += 100;
+            });
+            toggleButton.textContent = buttonText;
+        }
     }
 }
 
 // Publication Filter System
 let currentFilter = 'all';
 let wasExpandedBeforeFilter = false;
+let currentFilteredCount = 0;
 
 function initFilterCounts() {
     const publications = document.querySelectorAll('#publication-list li');
@@ -1468,7 +1519,7 @@ function filterPublications(filter, btn) {
 
         // Show all publications
         publications.forEach(pub => {
-            pub.classList.remove('filter-hidden', 'filter-visible');
+            pub.classList.remove('filter-hidden', 'filter-visible', 'filter-collapsed');
             pub.style.opacity = '1';
             pub.style.maxHeight = '';
             pub.style.marginBottom = '';
@@ -1476,28 +1527,58 @@ function filterPublications(filter, btn) {
             pub.style.pointerEvents = '';
         });
     } else {
-        // Expand to show all matching items
-        hiddenPublications.classList.remove('hidden');
-        toggleButton.style.display = 'none';
+        // Collect all matching publications
+        const matchingPubs = [];
+        publications.forEach(pub => {
+            if (pub.dataset.authorType === filter) {
+                matchingPubs.push(pub);
+            }
+        });
 
-        // Filter publications
+        currentFilteredCount = matchingPubs.length;
+
+        // Need to show hidden-publications container to access items inside
+        hiddenPublications.classList.remove('hidden');
+
+        // Apply visibility based on filter and position
+        let visibleMatchCount = 0;
         publications.forEach(pub => {
             const type = pub.dataset.authorType;
-            const shouldShow = type === filter;
+            const isMatch = type === filter;
 
-            pub.classList.remove('filter-hidden', 'filter-visible');
+            pub.classList.remove('filter-hidden', 'filter-visible', 'filter-collapsed');
 
-            if (shouldShow) {
-                pub.classList.add('filter-visible');
-                pub.style.opacity = '1';
-                pub.style.maxHeight = '';
-                pub.style.marginBottom = '';
-                pub.style.padding = '';
-                pub.style.pointerEvents = '';
+            if (isMatch) {
+                visibleMatchCount++;
+                if (visibleMatchCount <= 3 || currentFilteredCount <= 3) {
+                    // Show first 3 matching, or all if total ≤ 3
+                    pub.classList.add('filter-visible');
+                    pub.style.opacity = '1';
+                    pub.style.maxHeight = '';
+                    pub.style.marginBottom = '';
+                    pub.style.padding = '';
+                    pub.style.pointerEvents = '';
+                } else {
+                    // Hide matching pubs beyond the first 3 (collapsed state)
+                    pub.classList.add('filter-collapsed');
+                    pub.style.opacity = '0';
+                    pub.style.maxHeight = '0';
+                    pub.style.marginBottom = '0';
+                    pub.style.padding = '0';
+                    pub.style.pointerEvents = 'none';
+                }
             } else {
                 pub.classList.add('filter-hidden');
             }
         });
+
+        // Show button only if there are more than 3 matching publications
+        if (currentFilteredCount > 3) {
+            toggleButton.style.display = '';
+            toggleButton.textContent = 'View ' + currentFilteredCount + ' Publications';
+        } else {
+            toggleButton.style.display = 'none';
+        }
     }
 }
 
