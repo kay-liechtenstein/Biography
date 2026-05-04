@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Kay/Koichi Akashi (明石晃一) - Medical Student at University of Manchester and Software Developer. Researcher in Eduinformatics with multiple peer-reviewed publications.">
-    <meta name="keywords" content="Kay Akashi, Koichi Akashi, 明石晃一, medical student, developer, eduinformatics, University of Manchester, St Andrews, software developer, researcher">
+    <meta name="description" lang="ja" content="明石晃一 (Koichi Akashi) - マンチェスター大学医学生、ソフトウェア開発者。エデュインフォマティクス研究者。査読付き論文多数。">
+    <meta name="keywords" content="Kay Akashi, Koichi Akashi, 明石晃一, あかしこういち, アカシコウイチ, 明石 晃一, medical student, developer, eduinformatics, University of Manchester, St Andrews, software developer, researcher, マンチェスター大学, 医学生, ソフトウェア開発者, エデュインフォマティクス, 研究者, セントアンドリュース大学">
     <meta name="author" content="Kay/Koichi Akashi (明石晃一)">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://kay-liechtenstein.com/">
+
+    <!-- Language alternates for SEO -->
+    <link rel="alternate" hreflang="en" href="https://kay-liechtenstein.com/">
+    <link rel="alternate" hreflang="ja" href="https://kay-liechtenstein.com/">
+    <link rel="alternate" hreflang="x-default" href="https://kay-liechtenstein.com/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -33,29 +39,75 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Kay/Koichi Akashi",
-        "alternateName": ["明石晃一", "Koichi Akashi", "Kay Akashi"],
+        "alternateName": ["明石晃一", "Koichi Akashi", "Kay Akashi", "あかしこういち", "アカシコウイチ", "明石 晃一"],
         "description": "Medical Student and Software Developer",
         "url": "https://kay-liechtenstein.com",
         "sameAs": [
             "https://researchmap.jp/K_StA"
         ],
-        "jobTitle": "Medical Student",
+        "jobTitle": ["Medical Student", "医学生"],
         "affiliation": {
             "@type": "Organization",
-            "name": "University of Manchester"
+            "name": "University of Manchester",
+            "alternateName": "マンチェスター大学"
         },
         "alumniOf": {
             "@type": "Organization",
-            "name": "University of St Andrews"
+            "name": "University of St Andrews",
+            "alternateName": "セントアンドリュース大学"
         },
-        "knowsAbout": ["Medicine", "Software Development", "Eduinformatics", "Natural Language Processing"]
+        "knowsAbout": ["Medicine", "Software Development", "Eduinformatics", "Natural Language Processing", "医学", "ソフトウェア開発", "エデュインフォマティクス", "自然言語処理"],
+        "nationality": {
+            "@type": "Country",
+            "name": "Japan",
+            "alternateName": "日本"
+        }
     }
     </script>
 
-    <title>Kay/Koichi Akashi</title>
+    <!-- Japanese-specific structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://kay-liechtenstein.com/#person-ja",
+        "name": "明石晃一",
+        "alternateName": ["Kay Akashi", "Koichi Akashi", "あかしこういち"],
+        "description": "マンチェスター大学医学生、ソフトウェア開発者、エデュインフォマティクス研究者",
+        "url": "https://kay-liechtenstein.com",
+        "sameAs": [
+            "https://researchmap.jp/K_StA"
+        ],
+        "jobTitle": "医学生",
+        "affiliation": {
+            "@type": "Organization",
+            "name": "マンチェスター大学"
+        },
+        "alumniOf": {
+            "@type": "Organization",
+            "name": "セントアンドリュース大学"
+        },
+        "knowsAbout": ["医学", "ソフトウェア開発", "エデュインフォマティクス", "自然言語処理"]
+    }
+    </script>
+
+    <title>Kay/Koichi Akashi (明石晃一) - Medical Student & Developer</title>
     <link rel="icon" href="cat.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
+        /* Screen reader only - hidden visually but accessible to search engines */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         :root {
             /* Tiffany Blue Palette */
             --tiffany: #0ABAB5;
@@ -779,6 +831,16 @@
             display: none;
         }
 
+        #publication-list li.initially-hidden {
+            display: none;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        #publication-list li.initially-hidden.show-hidden {
+            display: list-item;
+        }
+
         .visible li {
             transform: translateY(0);
             opacity: 1;
@@ -1151,6 +1213,10 @@
     </style>
 </head>
 <body>
+    <!-- Japanese SEO content for search engines -->
+    <noscript>
+        <p lang="ja">明石晃一（あかしこういち）はマンチェスター大学医学生であり、ソフトウェア開発者です。エデュインフォマティクス分野で複数の査読付き論文を発表しています。</p>
+    </noscript>
     <canvas id="network-bg"></canvas>
 
     <!-- Floating Geometric Shapes -->
@@ -1190,6 +1256,7 @@
 
         <div class="hero-content">
             <h1 class="shimmer" style="font-size: 48px; margin-bottom: 10px;">Kay/Koichi Akashi</h1>
+            <span class="sr-only" lang="ja">明石晃一（あかしこういち）- マンチェスター大学医学生、ソフトウェア開発者、エデュインフォマティクス研究者。セントアンドリュース大学卒業。査読付き論文多数発表。</span>
             <p style="font-style: normal; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 14px; letter-spacing: 3px; color: var(--slate); margin-bottom: 40px; font-weight: 600;">MEDICAL STUDENT &bull; DEVELOPER</p>
             <p>
                 Kay/Koichi is a third-year medical student at the University of Manchester, pursuing Bachelor of Medicine and Bachelor of Surgery (MBChB) degree. He graduated from the School of Medicine, University of St Andrews in July 2025 with Bachelor of Science Honours (Medicine). Along with his major in medicine he is a software developer and has designed & developed several systems in the past, notably <a href="https://shukuyaku.com" target="_blank" style="color: var(--tiffany); text-decoration: none; font-weight: 600; transition: all 0.3s;">ShukuYaku</a> and <a href="https://shukuyaku-lab.com" target="_blank" style="color: var(--tiffany); text-decoration: none; font-weight: 600; transition: all 0.3s;">ShukuYakuLAB</a>. He is a member of multiple research projects led by a professor at Institute of Science Tokyo, and has published <span id="pub-count"></span> conference and journal papers, with 2 awards at the world conferences.
@@ -1276,20 +1343,18 @@
             <li data-author-type="co-first" style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/ijltle.v9.i1.935" target="_blank" class="pub-link">R. Kozaki, <b>K. Akashi</b>, K. Bannaka, H. Ito, K. Murakami, S. Matsumoto, Y. Kozaki, S. Kajiyama, M. Miyahara, E. Furusawa, K. Takamatsu: Demystification of Network-Type Knowledge Formation Mechanism of Pre-School Children through Picture Books. International Journal of Learning Technologies and Learning Environments 9(1) (Apr 2026).<div class="pub-tags"><span class="pub-tag tag-co-first">Co-First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
             <li data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-3-032-13419-6_37" target="_blank" class="pub-link">K. Takamatsu, S. Matsumoto, K. Murakami, K. Tsuruta, N. Honda, Y. Ishige, S. Matsumoto, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, S. Hirokawa, M. Mori: Extended Lifelong Sustainable Inquiry-based Community Learning (LSiCL) for Human-LLM Learning Based on Eduinformatics. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1758 390-399 (Jan 2026).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
             <li data-author-type="first-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-96-6938-7_13" target="_blank" class="pub-link"><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Amalgamating DP-LCS-Assisted Abridgement Assessment with BERT-Based Sentiment Analysis for Early Warning and Prediction of Academic Performance. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1441 151-161 (Oct 2025).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-            <div id="hidden-publications" class="hidden">
-                <li data-author-type="first-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1109/IIAI-AAI-Winter65925.2024.00031" target="_blank" class="pub-link"><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Fortifying Abridgement Assessment System against Student Collusions by Combining Fast Text Similarity Computation and Disjoint Set Union. 17th International Conference on Data Science and Institutional Research (DSIR 2024-Winter) IEEE 118-123 (Jul 2025).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-                <li data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-9559-8_36" target="_blank" class="pub-link">K. Takamatsu, S. Matsumoto, N. Honda, S. Matsumoto, Y. Ishige, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, K. Murakami, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, M. Mori: Lifelong Sustainable Inquiry-based Community Learning (LSiCL) Based on Eduinformatics. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1178 415-424 (Apr 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-                <li data-author-type="first-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-9559-8_35" target="_blank" class="pub-link"><b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu: Eduinformatics in Practice: Text Mining-Based Analysis of Contributing Factors to the Improvement of Reading Comprehension Assisted by Marking Scheme Employing DP-LCS Algorithm. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1178 403-414 (Apr 2025).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-                <li data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/lir.v005.345" target="_blank" class="pub-link">K. Takamatsu, <b>K. Akashi</b>, S. Matsumoto, A. Hidetani, G. Akashi, H. Ito, K. Murakami, K. Bannaka, R. Kozaki, A. Kishida, Y. Nakata, T. Inakura, S. Imai, M. Mori: Eduinformatics and the Universities' Challenge for "Ri": A 100-Year Vision of Higher Education Transcending Time, Place, and Culture through Shu-Ha-Ri. IIAI Letters on Institutional Research 5 (Mar 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-                <li data-author-type="co-first" style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/liir.v006.343" target="_blank" class="pub-link">R. Kozaki, <b>K. Akashi</b>, K. Bannaka, H. Ito, K. Murakami, S. Matsumoto, Y. Kozaki, K. Takamatsu: Exploring the Modality of Network-Type Thinking in Young Children with Picture Books. IIAI Letters on Informatics and Interdisciplinary Research 6 (Mar 2025).<div class="pub-tags"><span class="pub-tag tag-co-first">Co-First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-                <li data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-8695-4_16" target="_blank" class="pub-link">H. Ito, K. Bannaka, R. Kozaki, K. Murakami, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Leveraging Eduinformatics to Foster Network-Type Thinking in Early Childhood Education through Picture Books. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1177 173-182 (Mar 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-                <li data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-8695-4_19" target="_blank" class="pub-link">T. Sakai, N. Shiratori, S. Matsumoto, <b>K. Akashi</b>, H. Ito, K. Murakami, K. Takamatsu, T. Iiyoshi: Enhancing University Sustainability through Eduinformatics: a Collaborative Approach to Resolving Common Management Issues from a Macro Perspective. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1177 201-210 (Mar 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-                <li data-author-type="first-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/ijltle.v8.i1.873" target="_blank" class="pub-link"><b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu: Computerized Model of Assessment Procedures of Students' Reading Capabilities Based on Abridgement Method Employing Two-Pointer Problem Solution and Dynamic Programming. International Journal of Learning Technologies and Learning Environments 8(1) (Feb 2025).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-                <li data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/lbds.v005.352" target="_blank" class="pub-link">K. Takamatsu, S. Matsumoto, <b>K. Akashi</b>, H. Ito, T. Kirimura, T. Kunisaki, I. Noda, R. Kozaki, A. Kishida, K. Murakami, Y. Nakata, M. Mori: A Novel Balanced Reporting Innovation with Data Governance Evolution (BRIDGE) Method: IIAI Letters on Business and Decision Science 5 (Feb 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-                <li data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1541/ieejeiss.144.1005" target="_blank" class="pub-link">H. Ito, <b>K. Akashi</b>, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: The First Step for Personalised Learning of Abridgement Education: The Character-Based Pyramid Method and Semi-Automatic Implementation. IEEJ Transactions on Electronics, Information and Systems. vol.144(10) 1005-1010 (Oct 2024).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-                <li data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-5035-1_43" target="_blank" class="pub-link">K. Bannaka, R. Kozaki, K. Murakami, H. Ito, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Enhancing Network-Type Thinking in Early Childhood: A Topic Model Approach to Picture Book Analysis based on Eduinformatics. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1053 547-556 (Oct 2024).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-                <li data-author-type="first-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1109/IIAI-AAI-Winter61682.2023.00035" target="_blank" class="pub-link"><b>K. Akashi</b>, H. Ito, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: Fully automated system for the marking and quantitative assessment of reading skills of students on the basis of abridgement. 15th International Congress on Advanced Applied Informatics Winter (IIAI-AAI-Winter) 143-148 (Jan 2024).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-            </div>
+            <li class="initially-hidden" data-author-type="first-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1109/IIAI-AAI-Winter65925.2024.00031" target="_blank" class="pub-link"><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Fortifying Abridgement Assessment System against Student Collusions by Combining Fast Text Similarity Computation and Disjoint Set Union. 17th International Conference on Data Science and Institutional Research (DSIR 2024-Winter) IEEE 118-123 (Jul 2025).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+            <li class="initially-hidden" data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-9559-8_36" target="_blank" class="pub-link">K. Takamatsu, S. Matsumoto, N. Honda, S. Matsumoto, Y. Ishige, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, K. Murakami, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, M. Mori: Lifelong Sustainable Inquiry-based Community Learning (LSiCL) Based on Eduinformatics. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1178 415-424 (Apr 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+            <li class="initially-hidden" data-author-type="first-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-9559-8_35" target="_blank" class="pub-link"><b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu: Eduinformatics in Practice: Text Mining-Based Analysis of Contributing Factors to the Improvement of Reading Comprehension Assisted by Marking Scheme Employing DP-LCS Algorithm. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1178 403-414 (Apr 2025).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+            <li class="initially-hidden" data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/lir.v005.345" target="_blank" class="pub-link">K. Takamatsu, <b>K. Akashi</b>, S. Matsumoto, A. Hidetani, G. Akashi, H. Ito, K. Murakami, K. Bannaka, R. Kozaki, A. Kishida, Y. Nakata, T. Inakura, S. Imai, M. Mori: Eduinformatics and the Universities' Challenge for "Ri": A 100-Year Vision of Higher Education Transcending Time, Place, and Culture through Shu-Ha-Ri. IIAI Letters on Institutional Research 5 (Mar 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+            <li class="initially-hidden" data-author-type="co-first" style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/liir.v006.343" target="_blank" class="pub-link">R. Kozaki, <b>K. Akashi</b>, K. Bannaka, H. Ito, K. Murakami, S. Matsumoto, Y. Kozaki, K. Takamatsu: Exploring the Modality of Network-Type Thinking in Young Children with Picture Books. IIAI Letters on Informatics and Interdisciplinary Research 6 (Mar 2025).<div class="pub-tags"><span class="pub-tag tag-co-first">Co-First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+            <li class="initially-hidden" data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-8695-4_16" target="_blank" class="pub-link">H. Ito, K. Bannaka, R. Kozaki, K. Murakami, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Leveraging Eduinformatics to Foster Network-Type Thinking in Early Childhood Education through Picture Books. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1177 173-182 (Mar 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+            <li class="initially-hidden" data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-8695-4_19" target="_blank" class="pub-link">T. Sakai, N. Shiratori, S. Matsumoto, <b>K. Akashi</b>, H. Ito, K. Murakami, K. Takamatsu, T. Iiyoshi: Enhancing University Sustainability through Eduinformatics: a Collaborative Approach to Resolving Common Management Issues from a Macro Perspective. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1177 201-210 (Mar 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+            <li class="initially-hidden" data-author-type="first-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/ijltle.v8.i1.873" target="_blank" class="pub-link"><b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu: Computerized Model of Assessment Procedures of Students' Reading Capabilities Based on Abridgement Method Employing Two-Pointer Problem Solution and Dynamic Programming. International Journal of Learning Technologies and Learning Environments 8(1) (Feb 2025).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+            <li class="initially-hidden" data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/lbds.v005.352" target="_blank" class="pub-link">K. Takamatsu, S. Matsumoto, <b>K. Akashi</b>, H. Ito, T. Kirimura, T. Kunisaki, I. Noda, R. Kozaki, A. Kishida, K. Murakami, Y. Nakata, M. Mori: A Novel Balanced Reporting Innovation with Data Governance Evolution (BRIDGE) Method: IIAI Letters on Business and Decision Science 5 (Feb 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+            <li class="initially-hidden" data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1541/ieejeiss.144.1005" target="_blank" class="pub-link">H. Ito, <b>K. Akashi</b>, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: The First Step for Personalised Learning of Abridgement Education: The Character-Based Pyramid Method and Semi-Automatic Implementation. IEEJ Transactions on Electronics, Information and Systems. vol.144(10) 1005-1010 (Oct 2024).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+            <li class="initially-hidden" data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-5035-1_43" target="_blank" class="pub-link">K. Bannaka, R. Kozaki, K. Murakami, H. Ito, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Enhancing Network-Type Thinking in Early Childhood: A Topic Model Approach to Picture Book Analysis based on Eduinformatics. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1053 547-556 (Oct 2024).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+            <li class="initially-hidden" data-author-type="first-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1109/IIAI-AAI-Winter61682.2023.00035" target="_blank" class="pub-link"><b>K. Akashi</b>, H. Ito, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: Fully automated system for the marking and quantitative assessment of reading skills of students on the basis of abridgement. 15th International Congress on Advanced Applied Informatics Winter (IIAI-AAI-Winter) 143-148 (Jan 2024).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
         </ul>
         <div id="toggle-button" class="toggle-button" onclick="togglePublications()"></div>
     </div>
@@ -1325,6 +1390,7 @@
     <div class="footer">
         <canvas id="footer-bg"></canvas>
         <p>© 2026 Kay/Koichi Akashi</p>
+        <span class="sr-only" lang="ja">明石晃一 - マンチェスター大学医学生・ソフトウェア開発者・エデュインフォマティクス研究者</span>
         <div class="footer-grid">
             <div>
                 <a href="https://researchmap.jp/K_StA?cover-edit&lang=en" target="_blank">Researchmap</a>
@@ -1380,9 +1446,9 @@ function initCounts() {
 document.addEventListener('DOMContentLoaded', initCounts);
 
 function togglePublications() {
-    const hiddenPublications = document.getElementById('hidden-publications');
     const toggleButton = document.getElementById('toggle-button');
     const totalCount = document.getElementById('publication-list').querySelectorAll('li').length;
+    const hiddenItems = document.querySelectorAll('#publication-list li.initially-hidden');
 
     // Determine the count to display based on current filter
     const displayCount = (currentFilter === 'all') ? totalCount : currentFilteredCount;
@@ -1391,19 +1457,19 @@ function togglePublications() {
         : 'View ' + displayCount + ' Publications';
 
     if (currentFilter === 'all') {
-        // Original behavior for "All" filter
-        const items = hiddenPublications.querySelectorAll('li');
+        // Check if currently collapsed by looking at first hidden item
+        const isCollapsed = hiddenItems.length > 0 && !hiddenItems[0].classList.contains('show-hidden');
 
-        if (hiddenPublications.classList.contains('hidden')) {
-            hiddenPublications.classList.remove('hidden');
-
-            items.forEach((item) => {
+        if (isCollapsed) {
+            // Expand: show all hidden items
+            hiddenItems.forEach((item) => {
+                item.classList.add('show-hidden');
                 item.style.transform = 'translateY(20px)';
                 item.style.opacity = '0';
             });
 
             setTimeout(() => {
-                items.forEach((item, index) => {
+                hiddenItems.forEach((item, index) => {
                     setTimeout(() => {
                         item.style.transform = 'translateY(0)';
                         item.style.opacity = '1';
@@ -1412,16 +1478,19 @@ function togglePublications() {
             }, 100);
             toggleButton.textContent = 'Collapse';
         } else {
-            items.forEach((item, index) => {
+            // Collapse: hide all hidden items
+            hiddenItems.forEach((item, index) => {
                 setTimeout(() => {
                     item.style.transform = 'translateY(20px)';
                     item.style.opacity = '0';
-                }, (items.length - index - 1) * 100);
+                }, (hiddenItems.length - index - 1) * 100);
             });
 
             setTimeout(() => {
-                hiddenPublications.classList.add('hidden');
-            }, items.length * 100);
+                hiddenItems.forEach((item) => {
+                    item.classList.remove('show-hidden');
+                });
+            }, hiddenItems.length * 100);
             toggleButton.textContent = buttonText;
         }
     } else {
@@ -1473,7 +1542,7 @@ function initFilterCounts() {
 
     publications.forEach(pub => {
         total++;
-        const type = pub.dataset.authorType;
+        const type = pub.getAttribute('data-author-type');
         if (type === 'first-author') firstAuthor++;
         else if (type === 'co-first') coFirst++;
     });
@@ -1488,13 +1557,14 @@ document.addEventListener('DOMContentLoaded', initFilterCounts);
 function filterPublications(filter, btn) {
     if (currentFilter === filter) return;
 
-    const hiddenPublications = document.getElementById('hidden-publications');
     const toggleButton = document.getElementById('toggle-button');
-    const totalCount = document.getElementById('publication-list').querySelectorAll('li').length;
+    const publications = document.querySelectorAll('#publication-list li');
+    const totalCount = publications.length;
+    const hiddenItems = document.querySelectorAll('#publication-list li.initially-hidden');
 
     // When leaving 'all' filter, remember if it was expanded
     if (currentFilter === 'all') {
-        wasExpandedBeforeFilter = !hiddenPublications.classList.contains('hidden');
+        wasExpandedBeforeFilter = hiddenItems.length > 0 && hiddenItems[0].classList.contains('show-hidden');
     }
 
     currentFilter = filter;
@@ -1503,21 +1573,18 @@ function filterPublications(filter, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
-    // Get all publications and apply filter
-    const publications = document.querySelectorAll('#publication-list li');
-
     if (filter === 'all') {
         // Restore to previous expanded/collapsed state
         if (wasExpandedBeforeFilter) {
-            hiddenPublications.classList.remove('hidden');
+            hiddenItems.forEach(item => item.classList.add('show-hidden'));
             toggleButton.textContent = 'Collapse';
         } else {
-            hiddenPublications.classList.add('hidden');
+            hiddenItems.forEach(item => item.classList.remove('show-hidden'));
             toggleButton.textContent = 'View All ' + totalCount + ' Publications';
         }
         toggleButton.style.display = '';
 
-        // Show all publications
+        // Show all publications and reset filter classes
         publications.forEach(pub => {
             pub.classList.remove('filter-hidden', 'filter-visible', 'filter-collapsed');
             pub.style.opacity = '1';
@@ -1527,23 +1594,23 @@ function filterPublications(filter, btn) {
             pub.style.pointerEvents = '';
         });
     } else {
+        // Make all initially-hidden items visible for filtering
+        hiddenItems.forEach(item => item.classList.add('show-hidden'));
+
         // Collect all matching publications
         const matchingPubs = [];
         publications.forEach(pub => {
-            if (pub.dataset.authorType === filter) {
+            if (pub.getAttribute('data-author-type') === filter) {
                 matchingPubs.push(pub);
             }
         });
 
         currentFilteredCount = matchingPubs.length;
 
-        // Need to show hidden-publications container to access items inside
-        hiddenPublications.classList.remove('hidden');
-
         // Apply visibility based on filter and position
         let visibleMatchCount = 0;
         publications.forEach(pub => {
-            const type = pub.dataset.authorType;
+            const type = pub.getAttribute('data-author-type');
             const isMatch = type === filter;
 
             pub.classList.remove('filter-hidden', 'filter-visible', 'filter-collapsed');
@@ -1551,7 +1618,7 @@ function filterPublications(filter, btn) {
             if (isMatch) {
                 visibleMatchCount++;
                 if (visibleMatchCount <= 3 || currentFilteredCount <= 3) {
-                    // Show first 3 matching, or all if total ≤ 3
+                    // Show first 3 matching, or all if total <= 3
                     pub.classList.add('filter-visible');
                     pub.style.opacity = '1';
                     pub.style.maxHeight = '';
