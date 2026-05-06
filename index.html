@@ -833,6 +833,10 @@
             display: none;
         }
 
+        .toggle-button.toggle-hidden {
+            display: none !important;
+        }
+
         #publication-list li.initially-hidden {
             display: none;
             transform: translateY(20px);
@@ -1170,7 +1174,6 @@
 
             .toggle-button {
                 width: auto !important;
-                display: inline-block !important;
                 padding: 10px 20px !important;
             }
 
@@ -1600,7 +1603,7 @@ function filterPublications(filter, btn) {
 
         // Use requestAnimationFrame for reliable Safari rendering
         pendingFilterRAF = requestAnimationFrame(() => {
-            toggleButton.style.display = '';
+            toggleButton.classList.remove('toggle-hidden');
             void toggleButton.offsetWidth;
             pendingFilterRAF = null;
         });
@@ -1662,15 +1665,11 @@ function filterPublications(filter, btn) {
 
         // Hide button IMMEDIATELY if count <= 3 (no delay)
         if (currentFilteredCount <= 3) {
-            toggleButton.style.display = 'none';
+            toggleButton.classList.add('toggle-hidden');
         } else {
             // Update text and show button
             toggleButton.textContent = 'View ' + currentFilteredCount + ' Publications';
-            pendingFilterRAF = requestAnimationFrame(() => {
-                toggleButton.style.display = '';
-                void toggleButton.offsetWidth;
-                pendingFilterRAF = null;
-            });
+            toggleButton.classList.remove('toggle-hidden');
         }
     }
 }
