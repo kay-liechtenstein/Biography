@@ -1660,24 +1660,18 @@ function filterPublications(filter, btn) {
             }
         });
 
-        // Always update button text first, then control visibility
-        // This prevents Safari from briefly showing stale text
-        toggleButton.textContent = 'View ' + currentFilteredCount + ' Publications';
-
-        // Capture count value to avoid race conditions with rapid clicks
-        const countForRAF = currentFilteredCount;
-
-        // Use requestAnimationFrame for reliable Safari rendering
-        pendingFilterRAF = requestAnimationFrame(() => {
-            if (countForRAF > 3) {
+        // Hide button IMMEDIATELY if count <= 3 (no delay)
+        if (currentFilteredCount <= 3) {
+            toggleButton.style.display = 'none';
+        } else {
+            // Update text and show button
+            toggleButton.textContent = 'View ' + currentFilteredCount + ' Publications';
+            pendingFilterRAF = requestAnimationFrame(() => {
                 toggleButton.style.display = '';
-            } else {
-                toggleButton.style.display = 'none';
-            }
-            // Force repaint
-            void toggleButton.offsetWidth;
-            pendingFilterRAF = null;
-        });
+                void toggleButton.offsetWidth;
+                pendingFilterRAF = null;
+            });
+        }
     }
 }
 
