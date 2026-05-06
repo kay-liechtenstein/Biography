@@ -1022,7 +1022,6 @@
         .footer-icons {
             display: flex;
             justify-content: center;
-            gap: 32px;
             margin: 20px auto;
         }
 
@@ -1032,6 +1031,7 @@
             align-items: center;
             text-decoration: none;
             transition: all 0.3s ease;
+            width: 110px;
         }
 
         .footer-icon-link span {
@@ -1088,7 +1088,7 @@
             }
 
             .discover-btn {
-                bottom: 30px;
+                bottom: 60px;
             }
 
             .circular-text-wrapper {
@@ -1186,22 +1186,32 @@
                 text-align: center;
             }
 
-            .footer-icons {
-                gap: 20px;
+            .footer-icon-link {
+                width: 72px;
             }
 
             .footer-icon {
-                width: 48px;
-                height: 48px;
+                width: 36px;
+                height: 36px;
             }
 
             .footer-icon svg {
-                width: 22px;
-                height: 22px;
+                width: 18px;
+                height: 18px;
             }
 
             .footer-icon-link span {
-                font-size: 10px;
+                font-size: 6px;
+                margin-top: 4px;
+            }
+
+            .rights-text {
+                display: block;
+            }
+
+            .footer {
+                padding-top: 5px;
+                margin-top: 0;
             }
 
             .publications li,
@@ -1408,7 +1418,7 @@
 
     <div class="footer">
         <canvas id="footer-bg"></canvas>
-        <p>© 2026 Kay/Koichi Akashi. All rights reserved.</p>
+        <p>© 2026 Kay/Koichi Akashi.<span class="rights-text"> All rights reserved.</span></p>
         <span class="sr-only" lang="ja">明石晃一 - マンチェスター大学医学生・ソフトウェア開発者・エデュインフォマティクス研究者</span>
         <div class="footer-icons">
             <a href="https://researchmap.jp/K_StA?cover-edit&lang=en" target="_blank" class="footer-icon-link">
