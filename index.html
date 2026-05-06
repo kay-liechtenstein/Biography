@@ -759,6 +759,8 @@
             cursor: pointer;
             border-radius: 20px;
             transition: all 0.25s ease;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
 
         .filter-btn:hover:not(.active) {
@@ -860,6 +862,8 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 15px rgba(10, 186, 181, 0.3);
             border: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
 
         .toggle-button:hover {
@@ -1259,7 +1263,7 @@
             <span class="sr-only" lang="ja">明石晃一（あかしこういち）- マンチェスター大学医学生、ソフトウェア開発者、エデュインフォマティクス研究者。セントアンドリュース大学卒業。査読付き論文多数発表。</span>
             <p style="font-style: normal; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 14px; letter-spacing: 3px; color: var(--slate); margin-bottom: 40px; font-weight: 600;">MEDICAL STUDENT &bull; DEVELOPER</p>
             <p>
-                Kay/Koichi is a third-year medical student at the University of Manchester, pursuing Bachelor of Medicine and Bachelor of Surgery (MBChB) degree. He graduated from the School of Medicine, University of St Andrews in July 2025 with Bachelor of Science Honours (Medicine). Along with his major in medicine he is a software developer and has designed & developed several systems in the past, notably <a href="https://shukuyaku.com" target="_blank" style="color: var(--tiffany); text-decoration: none; font-weight: 600; transition: all 0.3s;">ShukuYaku</a> and <a href="https://shukuyaku-lab.com" target="_blank" style="color: var(--tiffany); text-decoration: none; font-weight: 600; transition: all 0.3s;">ShukuYakuLAB</a>. He is a member of multiple research projects led by a professor at Institute of Science Tokyo, and has published <span id="pub-count"></span> conference and journal papers, with 2 awards at the world conferences.
+                Kay/Koichi is a third-year medical student at the University of Manchester, pursuing Bachelor of Medicine and Bachelor of Surgery (MBChB) degree. He graduated from the School of Medicine, University of St Andrews in July 2025 with Bachelor of Science Honours (Medicine). Along with his major in medicine he is a software developer and has designed & developed several systems in the past, notably <a href="https://shukuyaku.com" target="_blank" style="color: var(--tiffany); text-decoration: none; font-weight: 600; transition: all 0.3s;">ShukuYaku</a>, <a href="https://shukuyaku-lab.com" target="_blank" style="color: var(--tiffany); text-decoration: none; font-weight: 600; transition: all 0.3s;">ShukuYakuLAB</a>, and <a href="https://concerota.com" target="_blank" style="color: var(--tiffany); text-decoration: none; font-weight: 600; transition: all 0.3s;">Concerota</a>. He is a member of multiple research projects led by a professor at Institute of Science Tokyo, and has published <span id="pub-count"></span> conference and journal papers, with 2 awards at the world conferences.
             </p>
         </div>
         <div class="discover-btn" onclick="scrollToContent()">
@@ -1477,6 +1481,7 @@ function togglePublications() {
                 });
             }, 100);
             toggleButton.textContent = 'Collapse';
+            void toggleButton.offsetWidth;
         } else {
             // Collapse: hide all hidden items
             hiddenItems.forEach((item, index) => {
@@ -1492,6 +1497,7 @@ function togglePublications() {
                 });
             }, hiddenItems.length * 100);
             toggleButton.textContent = buttonText;
+            void toggleButton.offsetWidth;
         }
     } else {
         // Filtered view: toggle collapsed items
@@ -1512,6 +1518,7 @@ function togglePublications() {
                 delay += 100;
             });
             toggleButton.textContent = 'Collapse';
+            void toggleButton.offsetWidth;
         } else {
             // Collapse: hide items beyond first 3
             let delay = 0;
@@ -1527,6 +1534,7 @@ function togglePublications() {
                 delay += 100;
             });
             toggleButton.textContent = buttonText;
+            void toggleButton.offsetWidth;
         }
     }
 }
@@ -1583,6 +1591,8 @@ function filterPublications(filter, btn) {
             toggleButton.textContent = 'View All ' + totalCount + ' Publications';
         }
         toggleButton.style.display = '';
+        // Force Safari to repaint immediately
+        void toggleButton.offsetWidth;
 
         // Show all publications and reset filter classes
         publications.forEach(pub => {
@@ -1643,6 +1653,8 @@ function filterPublications(filter, btn) {
         if (currentFilteredCount > 3) {
             toggleButton.style.display = '';
             toggleButton.textContent = 'View ' + currentFilteredCount + ' Publications';
+            // Force Safari to repaint immediately
+            void toggleButton.offsetWidth;
         } else {
             toggleButton.style.display = 'none';
         }
