@@ -1362,6 +1362,182 @@
         }
 
 
+        /* =====================================================================
+           BORROWED ELEMENTS (cherry-picked from redesign explorations)
+           These rules are appended last so they override earlier definitions.
+        ===================================================================== */
+
+        /* --- From "Minimal Atelier": photos shown greyscale, colour on hover --- */
+        .profile .image-reveal,
+        .education .image-reveal {
+            clip-path: none !important;
+            overflow: hidden;
+            border: 1px solid rgba(10, 186, 181, 0.18);
+            background: var(--pearl);
+            box-shadow: 0 14px 44px rgba(10, 186, 181, 0.16);
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+        .profile .image-reveal.animate,
+        .education .image-reveal.animate {
+            opacity: 1;
+            transform: none;
+        }
+        /* hide the old tile-reveal mechanism */
+        .profile .image-reveal .tile,
+        .education .image-reveal .tile {
+            display: none !important;
+        }
+        /* show the real photo, desaturated until hover */
+        .profile .image-reveal img,
+        .education .image-reveal img {
+            display: block !important;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.03);
+            transform: scale(1.04);
+            transition: filter 0.8s ease, transform 1.4s ease;
+        }
+        .profile .image-reveal:hover img,
+        .education .image-reveal:hover img {
+            filter: grayscale(0%);
+            transform: scale(1);
+        }
+        /* repurpose ::before / ::after as tiffany corner brackets */
+        .profile .image-reveal::before,
+        .education .image-reveal::before,
+        .profile .image-reveal::after,
+        .education .image-reveal::after {
+            content: "" !important;
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border: 1px solid var(--tiffany);
+            background: none !important;
+            background-image: none !important;
+            animation: none !important;
+            opacity: 1 !important;
+            z-index: 12;
+            pointer-events: none;
+        }
+        .profile .image-reveal::before,
+        .education .image-reveal::before {
+            top: 8px;
+            left: 8px;
+            border-right: none;
+            border-bottom: none;
+        }
+        .profile .image-reveal::after,
+        .education .image-reveal::after {
+            top: auto;
+            left: auto;
+            bottom: 8px;
+            right: 8px;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* --- From "Minimal Atelier": rectangular filter box --- */
+        .filter-btn {
+            border-radius: 0 !important;
+            border: 1px solid rgba(10, 186, 181, 0.3);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 9px 16px;
+        }
+        .filter-btn:hover:not(.active) {
+            border-color: var(--tiffany);
+            color: var(--tiffany);
+        }
+        .filter-btn.active {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: #fff;
+        }
+
+        /* --- From "Minimal Atelier": rectangular badge box
+               (keeping the current gold / silver / tiffany colours) --- */
+        .pub-tag {
+            border-radius: 0 !important;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 9px;
+        }
+
+        /* --- From "Liquid Chrome": glittering education timeline path --- */
+        .timeline {
+            position: relative;
+            margin-top: 18px;
+            text-align: left;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: linear-gradient(var(--tiffany), rgba(10, 186, 181, 0.15));
+        }
+        .t-item {
+            position: relative;
+            padding-left: 38px;
+            padding-bottom: 1.8rem;
+        }
+        .t-item:last-child { padding-bottom: 0; }
+        .t-node {
+            position: absolute;
+            box-sizing: border-box;
+            left: 0;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 1px solid var(--tiffany);
+            background: rgba(10, 186, 181, 0.15);
+            box-shadow: 0 0 0 4px rgba(10, 186, 181, 0.08), 0 0 16px var(--tiffany-glow);
+        }
+        .t-node::after {
+            content: "";
+            position: absolute;
+            inset: 3px;
+            border-radius: 50%;
+            background: var(--tiffany);
+            box-shadow: 0 0 10px var(--tiffany-glow);
+            animation: nodePulse 3s ease infinite;
+        }
+        @keyframes nodePulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(0.5); opacity: 0.5; }
+        }
+        .t-content .t-school {
+            font-size: 18px;
+            color: var(--navy);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        .t-content .t-date {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            color: var(--slate);
+            margin-top: 0.2rem;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .t-node::after { animation: none !important; }
+            .profile .image-reveal img,
+            .education .image-reveal img { transition: none !important; }
+        }
+
     </style>
 </head>
 <body>
@@ -1449,10 +1625,22 @@
     <div class="education">
         <div>
             <h2 class="shimmer">Education</h2>
-            <p>◉ School of Medicine, University of St Andrews</p>
-            <p>(Sep 2022 - Jul 2025)</p>
-            <p>◉ School of Medical Sciences, The University of Manchester</p>
-            <p>(Sep 2025 - Present)</p>
+            <div class="timeline">
+                <div class="t-item">
+                    <span class="t-node" aria-hidden="true"></span>
+                    <div class="t-content">
+                        <div class="t-school">School of Medicine, University of St Andrews</div>
+                        <div class="t-date">Sep 2022 – Jul 2025</div>
+                    </div>
+                </div>
+                <div class="t-item">
+                    <span class="t-node" aria-hidden="true"></span>
+                    <div class="t-content">
+                        <div class="t-school">School of Medical Sciences, The University of Manchester</div>
+                        <div class="t-date">Sep 2025 – Present</div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="image-reveal" id="education-reveal" style="--bg-image: url('kay-oral.jpeg')">
             <img src="kay-oral.jpeg" alt="Education Picture">
