@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kay/Koichi Akashi (明石晃一) - Medical Student at University of Manchester and Software Developer. Researcher in Eduinformatics with multiple peer-reviewed publications.">
+    <meta name="description" lang="ja" content="明石晃一 (Koichi Akashi) - マンチェスター大学医学生、ソフトウェア開発者。査読付き論文多数。">
+    <meta name="keywords" content="Kay Akashi, Koichi Akashi, 明石晃一, あかしこういち, アカシコウイチ, 明石 晃一, medical student, developer, eduinformatics, University of Manchester, St Andrews, software developer, researcher, マンチェスター大学, 医学生, ソフトウェア開発者, エデュインフォマティクス, 研究者, セントアンドリュース大学">
+    <meta name="author" content="Kay/Koichi Akashi (明石晃一)">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0ABAB5">
+    <meta name="msapplication-TileColor" content="#0ABAB5">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Kay/Koichi Akashi",
+        "alternateName": ["明石晃一", "Koichi Akashi", "Kay Akashi", "あかしこういち", "アカシコウイチ", "明石 晃一"],
+        "description": "Medical Student and Software Developer",
+        "url": "https://kay-liechtenstein.com",
+        "sameAs": ["https://researchmap.jp/K_StA"],
+        "jobTitle": ["Medical Student", "医学生"],
+        "affiliation": {"@type": "Organization", "name": "University of Manchester", "alternateName": "マンチェスター大学"},
+        "alumniOf": {"@type": "Organization", "name": "University of St Andrews", "alternateName": "セントアンドリュース大学"},
+        "knowsAbout": ["Medicine", "Software Development", "Eduinformatics", "Natural Language Processing"],
+        "nationality": {"@type": "Country", "name": "Japan", "alternateName": "日本"}
+    }
+    </script>
+
+    <title>Kay/Koichi Akashi (明石晃一) - Medical Student &amp; Software Developer</title>
+    <link rel="icon" href="cat.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            /* SACRED Tiffany identity */
+            --tiffany:#0ABAB5;
+            --tiffany-light:#81D8D0;
+            --tiffany-pale:#B8E8E5;
+            --tiffany-glow:rgba(10,186,181,0.45);
+            /* supporting neutrals adapted for dark */
+            --navy:#1A2A3A;
+            --slate:#2D3E50;
+            --pearl:#F8FAFA;
+            /* liquid-chrome dark base */
+            --bg:#0a0e0f;
+            --bg-2:#0c1213;
+            --panel:rgba(14,22,24,0.6);
+            --ink:#eaf6f5;
+            --ink-soft:#a6bdbc;
+            --ink-faint:#6c8281;
+            --line:rgba(10,186,181,0.18);
+            --line-strong:rgba(129,216,208,0.35);
+            --serif:"Cormorant Garamond", Georgia, serif;
+            --sans:"Space Grotesk", system-ui, sans-serif;
+            --mono:"JetBrains Mono", ui-monospace, monospace;
+            --ease:cubic-bezier(.22,.61,.36,1);
+            --gradient-tiffany:linear-gradient(135deg,#0ABAB5 0%,#81D8D0 50%,#B8E8E5 100%);
+        }
+
+        *{box-sizing:border-box;}
+        html{scroll-behavior:smooth;}
+        body{
+            margin:0;
+            background:var(--bg);
+            color:var(--ink);
+            font-family:var(--sans);
+            font-weight:300;
+            line-height:1.7;
+            -webkit-font-smoothing:antialiased;
+            overflow-x:hidden;
+        }
+        a{color:inherit;}
+        ::selection{background:rgba(10,186,181,0.3);color:#fff;}
+
+        .sr-only{
+            position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+            overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+        }
+
+        /* ---------- background canvas + ambience ---------- */
+        #grid-canvas{
+            position:fixed;inset:0;width:100%;height:100%;
+            z-index:0;pointer-events:none;
+        }
+        .ambient{
+            position:fixed;inset:0;z-index:0;pointer-events:none;
+            background:
+              radial-gradient(120vw 80vh at 82% -12%, rgba(10,186,181,0.12), transparent 60%),
+              radial-gradient(95vw 70vh at -5% 108%, rgba(129,216,208,0.08), transparent 55%),
+              linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+        }
+        .grain{
+            position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.04;
+            background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+        }
+
+        /* floating geometric line-shapes (geometry through-line) */
+        .geo-field{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+        .geo-shape{position:absolute;opacity:.10;animation:floatShape 22s ease-in-out infinite;}
+        .geo-shape svg{display:block;}
+        .geo-shape:nth-child(1){top:12%;left:6%;animation-delay:0s;}
+        .geo-shape:nth-child(2){top:62%;left:86%;animation-delay:-5s;}
+        .geo-shape:nth-child(3){top:34%;left:74%;animation-delay:-10s;}
+        .geo-shape:nth-child(4){top:82%;left:16%;animation-delay:-15s;}
+        .geo-shape:nth-child(5){top:48%;left:42%;animation-delay:-8s;}
+        @keyframes floatShape{
+            0%,100%{transform:translateY(0) rotate(0deg);}
+            25%{transform:translateY(-30px) rotate(90deg);}
+            50%{transform:translateY(0) rotate(180deg);}
+            75%{transform:translateY(30px) rotate(270deg);}
+        }
+
+        .wrap{position:relative;z-index:2;}
+        .container{width:min(1080px,92vw);margin-inline:auto;}
+
+        /* ---------- micro labels / chrome text ---------- */
+        .eyebrow{
+            font-family:var(--mono);
+            font-size:.72rem;letter-spacing:.40em;text-transform:uppercase;
+            color:var(--tiffany);
+            display:inline-flex;align-items:center;gap:.8em;
+            margin:0 0 1.4rem;
+        }
+        .eyebrow::before{
+            content:"";width:34px;height:1px;
+            background:linear-gradient(90deg,transparent,var(--tiffany));
+        }
+        .chrome{
+            background:linear-gradient(100deg,#dff6f3 0%,var(--tiffany-pale) 20%,#ffffff 36%,var(--tiffany-light) 52%,var(--tiffany) 70%,#9fe7e2 100%);
+            background-size:280% 100%;
+            -webkit-background-clip:text;background-clip:text;
+            color:transparent;
+            animation:chromeShift 9s linear infinite;
+        }
+        @keyframes chromeShift{to{background-position:280% 0;}}
+
+        /* ---------- top nav ---------- */
+        header.nav{
+            position:fixed;top:0;left:0;right:0;z-index:40;
+            display:flex;align-items:center;justify-content:space-between;
+            padding:1rem clamp(1.1rem,4vw,2.4rem);
+            backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+            background:linear-gradient(180deg,rgba(10,14,15,.78),rgba(10,14,15,0));
+            border-bottom:1px solid transparent;
+            transition:border-color .4s var(--ease);
+        }
+        header.nav.scrolled{border-bottom:1px solid var(--line);}
+        header.nav .brand{
+            font-family:var(--mono);font-size:.76rem;letter-spacing:.26em;
+            text-transform:uppercase;color:var(--ink);text-decoration:none;
+            display:flex;align-items:center;gap:.6rem;
+        }
+        header.nav .brand .dot{
+            width:8px;height:8px;border-radius:50%;
+            background:var(--tiffany);box-shadow:0 0 12px var(--tiffany-glow);
+            animation:pulseDot 2.6s var(--ease) infinite;
+        }
+        @keyframes pulseDot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.55}}
+        header.nav nav{display:flex;gap:1.7rem;}
+        header.nav nav a{
+            font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;
+            text-transform:uppercase;color:var(--ink-soft);text-decoration:none;
+            position:relative;transition:color .3s var(--ease);
+        }
+        header.nav nav a::after{
+            content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;
+            background:var(--tiffany);box-shadow:0 0 8px var(--tiffany-glow);
+            transition:width .35s var(--ease);
+        }
+        header.nav nav a:hover{color:var(--tiffany);}
+        header.nav nav a:hover::after{width:100%;}
+        @media(max-width:760px){header.nav nav{display:none;}}
+
+        /* ---------- hero ---------- */
+        .hero{
+            min-height:100svh;
+            display:flex;flex-direction:column;justify-content:center;
+            padding:8rem 0 5rem;position:relative;
+        }
+        .hero .eyebrow{
+            opacity:0;transform:translateY(16px);
+            transition:all .9s var(--ease) .15s;
+        }
+        .hero.in .eyebrow{opacity:1;transform:none;}
+        .hero h1{
+            font-family:var(--serif);font-weight:600;
+            font-size:clamp(3rem,11vw,8.5rem);
+            line-height:.95;letter-spacing:-.01em;margin:0;
+        }
+        .hero h1 .ln{display:block;overflow:hidden;}
+        .hero h1 .ln span{display:block;transform:translateY(110%);transition:transform 1s var(--ease);}
+        .hero.in h1 .ln span{transform:translateY(0);}
+        .hero h1 .ln:nth-child(2) span{transition-delay:.12s;}
+        .hero .intro{
+            font-family:var(--serif);
+            font-size:clamp(1.15rem,2.3vw,1.5rem);
+            line-height:1.6;color:var(--ink-soft);
+            margin:2.2rem 0 0;max-width:64ch;text-align:justify;font-style:italic;
+            opacity:0;transform:translateY(20px);
+            transition:all 1s var(--ease) .45s;
+        }
+        .hero.in .intro{opacity:1;transform:none;}
+        .hero .intro a{
+            color:var(--tiffany);text-decoration:none;font-style:italic;font-weight:500;
+            border-bottom:1px solid var(--line);
+            transition:color .3s var(--ease),border-color .3s var(--ease),text-shadow .3s var(--ease);
+        }
+        .hero .intro a:hover{color:var(--tiffany-light);border-color:var(--tiffany);text-shadow:0 0 14px var(--tiffany-glow);}
+
+        .scroll-cue{
+            position:absolute;left:0;bottom:-1rem;
+            font-family:var(--mono);font-size:.64rem;letter-spacing:.32em;text-transform:uppercase;
+            color:var(--ink-faint);display:flex;align-items:center;gap:.8rem;
+            opacity:0;transition:opacity 1s ease .9s;
+            background:none;border:none;cursor:pointer;padding:0;
+        }
+        .hero.in .scroll-cue{opacity:1;}
+        .scroll-cue .bar{width:1px;height:40px;background:linear-gradient(var(--tiffany),transparent);position:relative;overflow:hidden;}
+        .scroll-cue .bar::after{content:"";position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--tiffany);box-shadow:0 0 10px var(--tiffany-glow);animation:cue 2.2s var(--ease) infinite;}
+        @keyframes cue{to{top:100%;}}
+
+        /* ---------- section scaffolding ---------- */
+        section{padding:clamp(4.5rem,10vw,8rem) 0;position:relative;}
+        .section-head{margin-bottom:3rem;max-width:780px;}
+        h2.title{
+            font-family:var(--serif);font-weight:600;
+            font-size:clamp(2rem,5.5vw,3.8rem);
+            line-height:1.04;margin:0;letter-spacing:-.01em;
+        }
+        .reveal{opacity:0;transform:translateY(32px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+        .reveal.in{opacity:1;transform:none;}
+        .reveal[data-d="1"]{transition-delay:.07s;}
+        .reveal[data-d="2"]{transition-delay:.14s;}
+        .reveal[data-d="3"]{transition-delay:.21s;}
+
+        /* ---------- neon-edge photo frame ---------- */
+        .photo-frame{
+            position:relative;border-radius:16px;overflow:hidden;
+            border:1px solid var(--line-strong);
+            box-shadow:0 0 0 1px rgba(10,186,181,.12), 0 18px 50px -18px rgba(0,0,0,.8), 0 0 34px -10px var(--tiffany-glow);
+            transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease);
+            background:var(--bg-2);
+        }
+        .photo-frame img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(1.02) contrast(1.02);}
+        .photo-frame::after{
+            content:"";position:absolute;inset:0;pointer-events:none;
+            background:linear-gradient(150deg,rgba(10,186,181,.10),transparent 45%);
+        }
+        .photo-frame:hover{
+            transform:translateY(-6px);
+            border-color:var(--tiffany);
+            box-shadow:0 0 0 1px var(--tiffany), 0 24px 60px -18px rgba(0,0,0,.85), 0 0 44px -6px var(--tiffany-glow);
+        }
+        .corner{position:absolute;width:18px;height:18px;border:1px solid var(--tiffany);z-index:3;opacity:.85;}
+        .corner.tl{top:10px;left:10px;border-right:none;border-bottom:none;}
+        .corner.tr{top:10px;right:10px;border-left:none;border-bottom:none;}
+        .corner.bl{bottom:10px;left:10px;border-right:none;border-top:none;}
+        .corner.br{bottom:10px;right:10px;border-left:none;border-top:none;}
+
+        /* ---------- profile ---------- */
+        .profile-grid{
+            display:grid;grid-template-columns:300px 1fr;gap:clamp(2rem,5vw,4rem);align-items:center;
+        }
+        .profile-grid .photo-frame{width:300px;height:400px;}
+        .profile-grid h3.name{
+            font-family:var(--serif);font-weight:600;
+            font-size:clamp(2.4rem,6vw,3.6rem);line-height:1;margin:0 0 1rem;
+        }
+        .profile-grid .role{
+            font-family:var(--sans);font-weight:400;font-size:1.15rem;color:var(--ink-soft);margin:0;max-width:30ch;
+        }
+        @media(max-width:760px){
+            .profile-grid{grid-template-columns:1fr;justify-items:center;text-align:center;}
+            .profile-grid .photo-frame{width:min(260px,80vw);height:auto;aspect-ratio:3/4;}
+            .profile-grid .role{margin-inline:auto;}
+        }
+
+        /* ---------- education timeline ---------- */
+        .edu-wrap{display:grid;grid-template-columns:1fr 360px;gap:clamp(2rem,5vw,4rem);align-items:center;}
+        @media(max-width:820px){.edu-wrap{grid-template-columns:1fr;}}
+        .edu-wrap .photo-frame{width:100%;aspect-ratio:7/5;}
+        .timeline{position:relative;margin-top:.5rem;}
+        .timeline::before{
+            content:"";position:absolute;left:7px;top:8px;bottom:8px;width:1px;
+            background:linear-gradient(var(--tiffany),rgba(10,186,181,.05));
+        }
+        .t-item{position:relative;padding:0 0 2.4rem 2.4rem;}
+        .t-item:last-child{padding-bottom:0;}
+        .t-node{
+            position:absolute;top:4px;left:0;width:16px;height:16px;border-radius:50%;
+            background:var(--bg);border:1px solid var(--tiffany);
+            box-shadow:0 0 0 4px rgba(10,186,181,.08), 0 0 16px var(--tiffany-glow);
+        }
+        .t-node::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--tiffany);box-shadow:0 0 10px var(--tiffany-glow);animation:nodePulse 3s var(--ease) infinite;}
+        @keyframes nodePulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.5);opacity:.5}}
+        .t-text{font-family:var(--serif);font-size:1.4rem;color:var(--ink);line-height:1.25;}
+        .t-year{font-family:var(--mono);font-size:.82rem;letter-spacing:.16em;color:var(--tiffany);display:block;margin-top:.3rem;}
+
+        /* ---------- shared card list ---------- */
+        .card-list{list-style:none;padding:0;margin:0;}
+        .card{
+            position:relative;border:1px solid var(--line);border-radius:14px;
+            background:linear-gradient(150deg,rgba(10,186,181,0.05),rgba(13,19,20,0.25));
+            margin-bottom:1rem;overflow:hidden;
+            transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);
+        }
+        .card::before{
+            content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+            background:var(--gradient-tiffany);opacity:.7;transition:opacity .4s var(--ease),box-shadow .4s var(--ease);
+        }
+        .card:hover{
+            transform:translateX(6px);
+            border-color:var(--line-strong);
+            box-shadow:0 14px 40px -18px rgba(0,0,0,.8), 0 0 30px -10px var(--tiffany-glow);
+            background:linear-gradient(150deg,rgba(10,186,181,0.09),rgba(13,19,20,0.3));
+        }
+        .card:hover::before{opacity:1;box-shadow:0 0 14px var(--tiffany-glow);}
+        .card a.card-link,.card .card-body{display:block;padding:1.1rem 1.3rem;text-decoration:none;color:inherit;}
+
+        /* products */
+        .product-name{
+            font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--ink);
+            display:inline-flex;align-items:center;gap:.5rem;
+            transition:color .3s var(--ease),text-shadow .3s var(--ease);
+        }
+        .product-name .arr{font-family:var(--sans);font-size:1rem;color:var(--tiffany);transition:transform .35s var(--ease);}
+        .card:hover .product-name{color:var(--tiffany-light);text-shadow:0 0 18px var(--tiffany-glow);}
+        .card:hover .product-name .arr{transform:translate(4px,-4px);}
+        .product-desc{font-size:.98rem;color:var(--ink-soft);margin-top:.5rem;line-height:1.6;}
+
+        /* awards / pubs / presentations text */
+        .entry{font-size:.98rem;color:var(--ink-soft);line-height:1.6;}
+        .entry b{color:var(--ink);font-weight:600;}
+        .marker{color:var(--tiffany);margin-right:.45rem;}
+
+        /* publication tags */
+        .pub-tags{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px;margin-top:.8rem;}
+        .pub-tag{
+            display:inline-block;padding:3px 9px;border-radius:5px;
+            font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;font-weight:500;text-transform:uppercase;
+        }
+        .tag-first-author{background:linear-gradient(135deg,#D4AF37 0%,#F4D03F 100%);color:#1a1a1a;}
+        .tag-co-first{background:linear-gradient(135deg,#C0C0C0 0%,#E8E8E8 100%);color:#1a1a1a;}
+        .tag-peer-reviewed{background:linear-gradient(135deg,var(--tiffany) 0%,var(--tiffany-light) 100%);color:#04201f;}
+
+        /* filter pills */
+        .filters{display:flex;justify-content:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:1.6rem;}
+        .filter-btn{
+            padding:7px 16px;border:1px solid var(--line);background:rgba(10,186,181,0.04);
+            color:var(--ink-soft);font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+            cursor:pointer;border-radius:999px;transition:all .25s var(--ease);
+            -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+        }
+        .filter-btn:hover:not(.active){border-color:var(--tiffany);color:var(--tiffany);}
+        .filter-btn.active{
+            background:var(--tiffany);border-color:var(--tiffany);color:#04201f;
+            box-shadow:0 0 20px -4px var(--tiffany-glow);
+        }
+        .filter-count{opacity:.7;}
+
+        /* filter / collapse transitions on cards */
+        .card.filter-hidden{opacity:0!important;max-height:0!important;margin-bottom:0!important;border-width:0!important;pointer-events:none;overflow:hidden;transition:all .35s var(--ease);}
+        .card.is-collapsed{opacity:0;max-height:0;margin-bottom:0;border-width:0;pointer-events:none;overflow:hidden;transition:all .35s var(--ease);}
+        .card{will-change:transform;}
+
+        .initially-hidden{display:none;}
+        .initially-hidden.show-hidden{display:block;}
+
+        /* toggle button */
+        .toggle-wrap{display:flex;justify-content:center;margin-top:1.8rem;}
+        .toggle-button{
+            display:inline-flex;align-items:center;gap:.6rem;
+            padding:.85rem 1.8rem;
+            font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+            color:var(--tiffany);text-decoration:none;cursor:pointer;
+            border:1px solid var(--line);border-radius:999px;
+            background:rgba(10,186,181,0.05);
+            transition:all .4s var(--ease);
+            -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+        }
+        .toggle-button::after{content:"↓";transition:transform .35s var(--ease);}
+        .toggle-button.is-open::after{transform:rotate(180deg);}
+        .toggle-button:hover{
+            border-color:var(--tiffany);color:var(--tiffany-light);
+            box-shadow:0 0 0 1px var(--tiffany), 0 0 26px var(--tiffany-glow), inset 0 0 20px rgba(10,186,181,.1);
+        }
+        .toggle-button.toggle-hidden{display:none!important;}
+
+        /* divider */
+        .divider{width:100%;max-width:1080px;margin:0 auto;height:1px;
+            background:linear-gradient(90deg,transparent,var(--tiffany),transparent);opacity:.4;}
+
+        /* ---------- footer ---------- */
+        footer.site-footer{
+            position:relative;padding:4rem 0 3rem;border-top:1px solid var(--line);
+            overflow:hidden;
+        }
+        footer.site-footer canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+        footer .container{position:relative;z-index:1;}
+        .footer-icons{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin:0 auto 2rem;}
+        .footer-icon-link{
+            display:flex;flex-direction:column;align-items:center;gap:.6rem;
+            text-decoration:none;width:96px;transition:transform .3s var(--ease);
+        }
+        .footer-icon{
+            display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:50%;
+            background:rgba(10,186,181,0.06);border:1px solid var(--line);
+            transition:all .3s var(--ease);
+        }
+        .footer-icon svg{width:24px;height:24px;fill:var(--tiffany-light);transition:fill .3s var(--ease);}
+        .footer-icon-link span{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);transition:color .3s var(--ease);}
+        .footer-icon-link:hover .footer-icon{background:var(--tiffany);border-color:var(--tiffany);transform:translateY(-4px);box-shadow:0 10px 24px -6px var(--tiffany-glow),0 0 22px var(--tiffany-glow);}
+        .footer-icon-link:hover .footer-icon svg{fill:#04201f;}
+        .footer-icon-link:hover span{color:var(--tiffany-light);}
+        .footer-copy{text-align:center;font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;color:var(--ink-faint);}
+
+        /* ---------- reduced motion ---------- */
+        @media(prefers-reduced-motion:reduce){
+            *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+            .reveal{opacity:1!important;transform:none!important;}
+            .hero .eyebrow,.hero h1 .ln span,.hero .intro,.scroll-cue{opacity:1!important;transform:none!important;}
+            #grid-canvas,.geo-field{display:none;}
+        }
+    </style>
+</head>
+<body>
+    <h1 class="sr-only">Kay/Koichi Akashi — Medical Student &amp; Software Developer</h1>
+    <span class="sr-only" lang="ja">明石晃一（あかしこういち）- マンチェスター大学医学生、ソフトウェア開発者。セントアンドリュース大学卒業。査読付き論文多数発表。</span>
+    <noscript><p lang="ja">明石晃一（あかしこういち）はマンチェスター大学医学生であり、ソフトウェア開発者です。複数の査読付き論文を発表しています。</p></noscript>
+
+    <canvas id="grid-canvas" aria-hidden="true"></canvas>
+    <div class="ambient" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- floating geometric line shapes -->
+    <div class="geo-field" aria-hidden="true">
+        <div class="geo-shape"><svg width="120" height="120" viewBox="0 0 120 120"><polygon points="60,10 110,95 10,95" fill="none" stroke="#0ABAB5" stroke-width="1.5"/></svg></div>
+        <div class="geo-shape"><svg width="100" height="100" viewBox="0 0 100 100"><polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="#81D8D0" stroke-width="1.5"/></svg></div>
+        <div class="geo-shape"><svg width="80" height="80" viewBox="0 0 80 80"><rect x="10" y="10" width="60" height="60" fill="none" stroke="#0ABAB5" stroke-width="1.5" transform="rotate(45 40 40)"/></svg></div>
+        <div class="geo-shape"><svg width="90" height="90" viewBox="0 0 90 90"><circle cx="45" cy="45" r="35" fill="none" stroke="#B8E8E5" stroke-width="1.5"/></svg></div>
+        <div class="geo-shape"><svg width="110" height="110" viewBox="0 0 110 110"><polygon points="55,5 105,40 85,100 25,100 5,40" fill="none" stroke="#81D8D0" stroke-width="1.5"/></svg></div>
+    </div>
+
+    <div class="wrap">
+        <header class="nav" id="nav">
+            <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span>Kay / Koichi Akashi</a>
+            <nav aria-label="Primary">
+                <a href="#profile">Profile</a>
+                <a href="#education">Education</a>
+                <a href="#products">Products</a>
+                <a href="#awards">Awards</a>
+                <a href="#publications">Publications</a>
+                <a href="#presentations">Talks</a>
+            </nav>
+        </header>
+
+        <main id="top">
+
+            <!-- HERO -->
+            <section class="hero" id="hero">
+                <div class="container">
+                    <p class="eyebrow">Medical Student &bull; Software Developer</p>
+                    <div class="title-h1">
+                        <span class="sr-only">Kay/Koichi Akashi</span>
+                        <p aria-hidden="true" style="margin:0;font-family:var(--serif);font-weight:600;font-size:clamp(3rem,11vw,8.5rem);line-height:.95;letter-spacing:-.01em;">
+                            <span style="display:block;overflow:hidden;"><span class="chrome heroline">Kay/Koichi</span></span>
+                            <span style="display:block;overflow:hidden;"><span class="chrome heroline" style="transition-delay:.12s;">Akashi</span></span>
+                        </p>
+                    </div>
+                    <p class="intro">
+                        Kay/Koichi is a third-year medical student at the University of Manchester, pursuing Bachelor of Medicine and Bachelor of Surgery (MBChB) degree. He graduated from the School of Medicine, University of St Andrews in July 2025 with Bachelor of Science Honours (Medicine). Along with his major in medicine he is a lead software developer at <a href="https://larry-education.com" target="_blank" rel="noopener">Larry Education Inc.</a>, and developed several systems and apps. He is a member of multiple research projects led by a professor at Institute of Science Tokyo, and has published <span id="pub-count"></span> conference and journal papers, with 2 awards at the world conferences.
+                    </p>
+                    <button class="scroll-cue" type="button" id="scrollCue" aria-label="Scroll to content"><span class="bar"></span>Discover</button>
+                </div>
+            </section>
+
+            <!-- PROFILE -->
+            <section id="profile">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <p class="eyebrow">01 — Profile</p>
+                        <h2 class="title">The maker <span class="chrome">behind the work.</span></h2>
+                    </div>
+                    <div class="profile-grid">
+                        <div class="photo-frame reveal" data-d="1">
+                            <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+                            <img src="kay.jpeg" alt="Portrait of Kay/Koichi Akashi" loading="lazy">
+                        </div>
+                        <div class="reveal" data-d="2">
+                            <h3 class="name chrome">Kay/Koichi Akashi</h3>
+                            <p class="role">Third-Year Medical Student at the University of Manchester</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- EDUCATION -->
+            <section id="education">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <p class="eyebrow">02 — Education</p>
+                        <h2 class="title">A path, <span class="chrome">in milestones.</span></h2>
+                    </div>
+                    <div class="edu-wrap">
+                        <div class="timeline reveal" data-d="1">
+                            <div class="t-item">
+                                <span class="t-node" aria-hidden="true"></span>
+                                <div class="t-text">School of Medicine, University of St Andrews</div>
+                                <span class="t-year">Sep 2022 — Jul 2025</span>
+                            </div>
+                            <div class="t-item">
+                                <span class="t-node" aria-hidden="true"></span>
+                                <div class="t-text">School of Medical Sciences, The University of Manchester</div>
+                                <span class="t-year">Sep 2025 — Present</span>
+                            </div>
+                        </div>
+                        <div class="photo-frame reveal" data-d="2">
+                            <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+                            <img src="kay-oral.jpeg" alt="Kay/Koichi Akashi presenting at a conference" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- PRODUCTS -->
+            <section id="products">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <p class="eyebrow">03 — Products</p>
+                        <h2 class="title">Systems &amp; <span class="chrome">apps, shipped.</span></h2>
+                    </div>
+                    <ul class="card-list">
+                        <li class="card reveal" data-d="1">
+                            <a class="card-link" href="https://shukuyaku.com" target="_blank" rel="noopener">
+                                <span class="product-name">ShukuYaku<span class="arr" aria-hidden="true">↗</span></span>
+                                <p class="product-desc">A reading comprehension evaluation method with an educational platform providing auto-grading capabilities alongside comprehensive data management tools for educators, featuring grade databases, statistical analysis, and collusion detection.</p>
+                            </a>
+                        </li>
+                        <li class="card reveal" data-d="2">
+                            <a class="card-link" href="https://shukuyaku-lab.com" target="_blank" rel="noopener">
+                                <span class="product-name">ShukuYakuLAB<span class="arr" aria-hidden="true">↗</span></span>
+                                <p class="product-desc">A platform for practicing and preparing ShukuYaku submissions, enabling users to create condensed answers, check submissions, track practice progress, and maintain records through an integrated system.</p>
+                            </a>
+                        </li>
+                        <li class="card reveal" data-d="3">
+                            <a class="card-link" href="https://concerota.com" target="_blank" rel="noopener">
+                                <span class="product-name">Concerota<span class="arr" aria-hidden="true">↗</span></span>
+                                <p class="product-desc">A staff shift management application for kindergartens, designed to simplify scheduling operations, create rotas, track attendance, and manage employee schedules through an intuitive interface.</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- AWARDS -->
+            <section id="awards">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <p class="eyebrow">04 — Awards</p>
+                        <h2 class="title">Recognition <span class="chrome">earned.</span></h2>
+                    </div>
+                    <ul class="card-list" id="awards-list">
+                        <li class="card reveal"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span>Competitive Paper Award, Exploring the Modality of Network-Type Thinking in Young Children with Picture Books, 17th IIAI International Conference on Smart Learning Technologies and Learning Environments (Dec 2024).</span></div></li>
+                        <li class="card reveal" data-d="1"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span>Best Paper Award, A Novel Balanced Reporting Innovation with Data Governance Evolution (BRIDGE) Method: An Eduinformatics Integration of Creativity, Abduction and Organizational Knowledge Acceptance, The 19th International Conference on Knowledge, Information and Creativity Support Systems (Dec 2024).</span></div></li>
+                        <li class="card initially-hidden" data-extra="award"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span>Funai Overseas Scholarships, Funai Foundation for Information Technology (Sep 2021).</span></div></li>
+                        <li class="card initially-hidden" data-extra="award"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span>Scholarships of Student Exchange Support Program, Japan Student Services Organization (Sep 2021).</span></div></li>
+                    </ul>
+                    <div class="toggle-wrap"><button class="toggle-button" id="toggle-awards" type="button" data-target="awards"></button></div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- PUBLICATIONS -->
+            <section id="publications">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <p class="eyebrow">05 — Publications</p>
+                        <h2 class="title">Peer-reviewed <span class="chrome">research.</span></h2>
+                    </div>
+                    <div class="filters reveal" data-d="1" role="group" aria-label="Filter publications">
+                        <button class="filter-btn active" data-filter="all" type="button">All <span class="filter-count" id="count-all"></span></button>
+                        <button class="filter-btn" data-filter="first-author" type="button">First Author <span class="filter-count" id="count-first"></span></button>
+                        <button class="filter-btn" data-filter="co-first" type="button">Co-First Author <span class="filter-count" id="count-co-first"></span></button>
+                    </div>
+                    <ul class="card-list" id="publication-list">
+                        <li class="card" data-author-type="co-first"><a class="card-link" href="https://doi.org/10.52731/ijltle.v9.i1.935" target="_blank" rel="noopener"><span class="entry"><span class="marker" aria-hidden="true">◈</span>R. Kozaki, <b>K. Akashi</b>, K. Bannaka, H. Ito, K. Murakami, S. Matsumoto, Y. Kozaki, S. Kajiyama, M. Miyahara, E. Furusawa, K. Takamatsu: Demystification of Network-Type Knowledge Formation Mechanism of Pre-School Children through Picture Books. International Journal of Learning Technologies and Learning Environments 9(1) (Apr 2026).</span><div class="pub-tags"><span class="pub-tag tag-co-first">Co-First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                        <li class="card" data-author-type="co-author"><a class="card-link" href="https://doi.org/10.1007/978-3-032-13419-6_37" target="_blank" rel="noopener"><span class="entry"><span class="marker" aria-hidden="true">◈</span>K. Takamatsu, S. Matsumoto, K. Murakami, K. Tsuruta, N. Honda, Y. Ishige, S. Matsumoto, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, S. Hirokawa, M. Mori: Extended Lifelong Sustainable Inquiry-based Community Learning (LSiCL) for Human-LLM Learning Based on Eduinformatics. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1758 390-399 (Jan 2026).</span><div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                        <li class="card" data-author-type="first-author"><a class="card-link" href="https://doi.org/10.1007/978-981-96-6938-7_13" target="_blank" rel="noopener"><span class="entry"><span class="marker" aria-hidden="true">◈</span><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Amalgamating DP-LCS-Assisted Abridgement Assessment with BERT-Based Sentiment Analysis for Early Warning and Prediction of Academic Performance. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1441 151-161 (Oct 2025).</span><div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                        <li class="card initially-hidden" data-author-type="first-author"><a class="card-link" href="https://doi.org/10.1109/IIAI-AAI-Winter65925.2024.00031" target="_blank" rel="noopener"><span class="entry"><span class="marker" aria-hidden="true">◈</span><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Fortifying Abridgement Assessment System against Student Collusions by Combining Fast Text Similarity Computation and Disjoint Set Union. 17th International Conference on Data Science and Institutional Research (DSIR 2024-Winter) IEEE 118-123 (Jul 2025).</span><div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                        <li class="card initially-hidden" data-author-type="co-author"><a class="card-link" href="https://doi.org/10.1007/978-981-97-9559-8_36" target="_blank" rel="noopener"><span class="entry"><span class="marker" aria-hidden="true">◈</span>K. Takamatsu, S. Matsumoto, N. Honda, S. Matsumoto, Y. Ishige, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, K. Murakami, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, M. Mori: Lifelong Sustainable Inquiry-based Community Learning (LSiCL) Based on Eduinformatics. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1178 415-424 (Apr 2025).</span><div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                        <li class="card initially-hidden" data-author-type="first-author"><a class="card-link" href="https://doi.org/10.1007/978-981-97-9559-8_35" target="_blank" rel="noopener"><span class="entry"><span class="marker" aria-hidden="true">◈</span><b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu: Eduinformatics in Practice: Text Mining-Based Analysis of Contributing Factors to the Improvement of Reading Comprehension Assisted by Marking Scheme Employing DP-LCS Algorithm. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1178 403-414 (Apr 2025).</span><div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                        <li class="card initially-hidden" data-author-type="co-author"><a class="card-link" href="https://doi.org/10.52731/lir.v005.345" target="_blank" rel="noopener"><span class="entry"><span class="marker" aria-hidden="true">◈</span>K. Takamatsu, <b>K. Akashi</b>, S. Matsumoto, A. Hidetani, G. Akashi, H. Ito, K. Murakami, K. Bannaka, R. Kozaki, A. Kishida, Y. Nakata, T. Inakura, S. Imai, M. Mori: Eduinformatics and the Universities' Challenge for "Ri": A 100-Year Vision of Higher Education Transcending Time, Place, and Culture through Shu-Ha-Ri. IIAI Letters on Institutional Research 5 (Mar 2025).</span><div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                        <li class="card initially-hidden" data-author-type="co-first"><a class="card-link" href="https://doi.org/10.52731/liir.v006.343" target="_blank" rel="noopener"><span class="entry"><span class="marker" aria-hidden="true">◈</span>R. Kozaki, <b>K. Akashi</b>, K. Bannaka, H. Ito, K. Murakami, S. Matsumoto, Y. Kozaki, K. Takamatsu: Exploring the Modality of Network-Type Thinking in Young Children with Picture Books. IIAI Letters on Informatics and Interdisciplinary Research 6 (Mar 2025).</span><div class="pub-tags"><span class="pub-tag tag-co-first">Co-First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                        <li class="card initially-hidden" data-author-type="co-author"><a class="card-link" href="https://doi.org/10.1007/978-981-97-8695-4_16" target="_blank" rel="noopener"><span class="entry"><span class="marker" aria-hidden="true">◈</span>H. Ito, K. Bannaka, R. Kozaki, K. Murakami, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Leveraging Eduinformatics to Foster Network-Type Thinking in Early Childhood Education through Picture Books. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1177 173-182 (Mar 2025).</span><div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                        <li class="card initially-hidden" data-author-type="co-author"><a class="card-link" href="https://doi.org/10.1007/978-981-97-8695-4_19" target="_blank" rel="noopener"><span class="entry"><span class="marker" aria-hidden="true">◈</span>T. Sakai, N. Shiratori, S. Matsumoto, <b>K. Akashi</b>, H. Ito, K. Murakami, K. Takamatsu, T. Iiyoshi: Enhancing University Sustainability through Eduinformatics: a Collaborative Approach to Resolving Common Management Issues from a Macro Perspective. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1177 201-210 (Mar 2025).</span><div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                        <li class="card initially-hidden" data-author-type="first-author"><a class="card-link" href="https://doi.org/10.52731/ijltle.v8.i1.873" target="_blank" rel="noopener"><span class="entry"><span class="marker" aria-hidden="true">◈</span><b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu: Computerized Model of Assessment Procedures of Students' Reading Capabilities Based on Abridgement Method Employing Two-Pointer Problem Solution and Dynamic Programming. International Journal of Learning Technologies and Learning Environments 8(1) (Feb 2025).</span><div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                        <li class="card initially-hidden" data-author-type="co-author"><a class="card-link" href="https://doi.org/10.52731/lbds.v005.352" target="_blank" rel="noopener"><span class="entry"><span class="marker" aria-hidden="true">◈</span>K. Takamatsu, S. Matsumoto, <b>K. Akashi</b>, H. Ito, T. Kirimura, T. Kunisaki, I. Noda, R. Kozaki, A. Kishida, K. Murakami, Y. Nakata, M. Mori: A Novel Balanced Reporting Innovation with Data Governance Evolution (BRIDGE) Method: IIAI Letters on Business and Decision Science 5 (Feb 2025).</span><div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                        <li class="card initially-hidden" data-author-type="co-author"><a class="card-link" href="https://doi.org/10.1541/ieejeiss.144.1005" target="_blank" rel="noopener"><span class="entry"><span class="marker" aria-hidden="true">◈</span>H. Ito, <b>K. Akashi</b>, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: The First Step for Personalised Learning of Abridgement Education: The Character-Based Pyramid Method and Semi-Automatic Implementation. IEEJ Transactions on Electronics, Information and Systems. vol.144(10) 1005-1010 (Oct 2024).</span><div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                        <li class="card initially-hidden" data-author-type="co-author"><a class="card-link" href="https://doi.org/10.1007/978-981-97-5035-1_43" target="_blank" rel="noopener"><span class="entry"><span class="marker" aria-hidden="true">◈</span>K. Bannaka, R. Kozaki, K. Murakami, H. Ito, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Enhancing Network-Type Thinking in Early Childhood: A Topic Model Approach to Picture Book Analysis based on Eduinformatics. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1053 547-556 (Oct 2024).</span><div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                        <li class="card initially-hidden" data-author-type="first-author"><a class="card-link" href="https://doi.org/10.1109/IIAI-AAI-Winter61682.2023.00035" target="_blank" rel="noopener"><span class="entry"><span class="marker" aria-hidden="true">◈</span><b>K. Akashi</b>, H. Ito, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: Fully automated system for the marking and quantitative assessment of reading skills of students on the basis of abridgement. 15th International Congress on Advanced Applied Informatics Winter (IIAI-AAI-Winter) 143-148 (Jan 2024).</span><div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
+                    </ul>
+                    <div class="toggle-wrap"><button class="toggle-button" id="toggle-pubs" type="button"></button></div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- PRESENTATIONS -->
+            <section id="presentations">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <p class="eyebrow">06 — Presentations</p>
+                        <h2 class="title">On the <span class="chrome">world stage.</span></h2>
+                    </div>
+                    <ul class="card-list" id="presentation-list">
+                        <li class="card reveal"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span>K. Takamatsu, S. Matsumoto, K. Murakami, K. Tsuruta, N. Honda, Y. Ishige, S. Matsumoto, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, S. Hirokawa, M. Mori: Extended Lifelong Sustainable Inquiry-based Community Learning (LSiCL) for Human-LLM Learning Based on Eduinformatics. 4th World Conference on Information Systems for Business Management (ISBM 2025) (Sep 2025).</span></div></li>
+                        <li class="card reveal" data-d="1"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Redesigning of Marking and Feedback Architecture in Abridgement Assessment. Technical Meeting on Information Systems IS25013 (Feb 2025).</span></div></li>
+                        <li class="card reveal" data-d="2"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Amalgamating DP-LCS-Assisted Abridgement Assessment with BERT-Based Sentiment Analysis. 10th International Congress on Information and Communication Technology (ICICT 2025), London (Feb 2025).</span></div></li>
+                        <li class="card initially-hidden" data-extra="pres"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span>R. Kozaki, <b>K. Akashi</b>, K. Bannaka, H. Ito, K. Murakami, S. Matsumoto, Y. Kozaki, K. Takamatsu: Exploring the Modality of Network-Type Thinking in Young Children with Picture Books. 17th International Conference on Smart Learning Technologies and Learning Environments (LTLE 2024-Winter) (Dec 2024).</span></div></li>
+                        <li class="card initially-hidden" data-extra="pres"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Fortifying Abridgement Assessment System against Student Collusions. 17th International Conference on Data Science and Institutional Research (DSIR 2024-Winter) (Dec 2024).</span></div></li>
+                        <li class="card initially-hidden" data-extra="pres"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span>K. Takamatsu, <b>K. Akashi</b>, S. Matsumoto, A. Hidetani, G. Akashi, H. Ito, K. Murakami, K. Bannaka, R. Kozaki, A. Kishida, Y. Nakata, T. Inakura, S. Imai, M. Mori: Eduinformatics and the Universities' Challenge for "Ri": A 100-Year Vision. 17th International Conference on Data Science and Institutional Research (DSIR 2024-Winter) (Dec 2024).</span></div></li>
+                        <li class="card initially-hidden" data-extra="pres"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span>K. Takamatsu, S. Matsumoto, <b>K. Akashi</b>, H. Ito, T. Kirimura, T. Kunisaki, I. Noda, R. Kozaki, A. Kishida, K. Murakami, Y. Nakata, M. Mori: A Novel Balanced Reporting Innovation with Data Governance Evolution (BRIDGE) Method. 19th International Conference on Knowledge, Information and Creativity Support Systems (KICSS 2024) (Dec 2024).</span></div></li>
+                        <li class="card initially-hidden" data-extra="pres"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Fortification of Abridgement Assessment through Fine-Tuned RoBERTa. Technical Meeting on Information Systems IS24045 (Dec 2024).</span></div></li>
+                        <li class="card initially-hidden" data-extra="pres"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span>K. Takamatsu, S. Matsumoto, N. Honda, S. Matsumoto, Y. Ishige, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, K. Murakami, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, M. Mori: Lifelong Sustainable Inquiry-based Community Learning (LSiCL) Based on Eduinformatics. 8th World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4 2024) (Jul 2024).</span></div></li>
+                        <li class="card initially-hidden" data-extra="pres"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span>H. Ito, K. Bannaka, R. Kozaki, K. Murakami, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Leveraging Eduinformatics to Foster Network-Type Thinking in Early Childhood Education. 8th World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4 2024) (Jul 2024).</span></div></li>
+                        <li class="card initially-hidden" data-extra="pres"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span>T. Sakai, N. Shiratori, S. Matsumoto, <b>K. Akashi</b>, H. Ito, K. Murakami, K. Takamatsu, T. Iiyoshi: Enhancing University Sustainability through Eduinformatics. 8th World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4 2024) (Jul 2024).</span></div></li>
+                        <li class="card initially-hidden" data-extra="pres"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span><b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu: Eduinformatics in Practice: Text Mining-Based Analysis of Contributing Factors to Reading Comprehension. 8th World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4 2024) (Jul 2024).</span></div></li>
+                        <li class="card initially-hidden" data-extra="pres"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span>K. Bannaka, R. Kozaki, K. Murakami, H. Ito, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Enhancing Network-Type Thinking in Early Childhood: A Topic Model Approach. 9th International Congress on Information and Communication Technology (ICICT 2024) (Feb 2024).</span></div></li>
+                        <li class="card initially-hidden" data-extra="pres"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span><b>K. Akashi</b>, H. Ito, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: Fully automated system for the marking and quantitative assessment of reading skills. 15th International Conference on Data Science and Institutional Research (DSIR 2023-Winter) (Dec 2023).</span></div></li>
+                        <li class="card initially-hidden" data-extra="pres"><div class="card-body"><span class="entry"><span class="marker" aria-hidden="true">◈</span>H. Ito, <b>K. Akashi</b>, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: The Character-based Pyramid Method and Semi-automatic Abridgement for Scaling Up. Technical Meeting on Information Systems IS23026 (Oct 2023).</span></div></li>
+                    </ul>
+                    <div class="toggle-wrap"><button class="toggle-button" id="toggle-pres" type="button" data-target="pres"></button></div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer" id="contact">
+            <canvas id="footer-canvas" aria-hidden="true"></canvas>
+            <div class="container">
+                <div class="footer-icons">
+                    <a href="https://researchmap.jp/K_StA?cover-edit&lang=en" target="_blank" rel="noopener" class="footer-icon-link">
+                        <div class="footer-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
+                        <span>Researchmap</span>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=jAi8qPQAAAAJ&hl=en&oi=sra" target="_blank" rel="noopener" class="footer-icon-link">
+                        <div class="footer-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg></div>
+                        <span>Scholar</span>
+                    </a>
+                    <a href="https://orcid.org/0009-0005-6979-9257" target="_blank" rel="noopener" class="footer-icon-link">
+                        <div class="footer-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM7.07 17.5c-.41 0-.75-.34-.75-.75V7.25c0-.41.34-.75.75-.75s.75.34.75.75v9.5c0 .41-.34.75-.75.75zm2.68-.75V9.5h1.5v7.25h-1.5zm.75-8.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm6.5 8.5h-1.5v-4c0-1.1-.9-2-2-2h-.5v-1.5h.5c1.93 0 3.5 1.57 3.5 3.5v4z"/></svg></div>
+                        <span>ORCID</span>
+                    </a>
+                    <a href="mailto:koichi.akashi@student.manchester.ac.uk" class="footer-icon-link">
+                        <div class="footer-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+                        <span>Email</span>
+                    </a>
+                </div>
+                <p class="footer-copy">© 2026 Kay/Koichi Akashi. All rights reserved.</p>
+                <span class="sr-only" lang="ja">明石晃一 - マンチェスター大学医学生・ソフトウェア開発者</span>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+    (function(){
+        "use strict";
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        /* ---- hero entrance + chrome heroline rise ---- */
+        document.querySelectorAll(".heroline").forEach(function(el){
+            el.style.transform = "translateY(110%)";
+            el.style.transition = "transform 1s var(--ease)";
+        });
+        requestAnimationFrame(function(){
+            var hero = document.getElementById("hero");
+            hero.classList.add("in");
+            document.querySelectorAll(".heroline").forEach(function(el){ el.style.transform = "translateY(0)"; });
+        });
+
+        /* ---- scroll reveal ---- */
+        if("IntersectionObserver" in window){
+            var io = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+                });
+            }, {threshold:0.14, rootMargin:"0px 0px -8% 0px"});
+            document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+        } else {
+            document.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("in"); });
+        }
+
+        /* ---- nav scrolled state ---- */
+        var nav = document.getElementById("nav");
+        window.addEventListener("scroll", function(){
+            if(window.scrollY > 40) nav.classList.add("scrolled");
+            else nav.classList.remove("scrolled");
+        }, {passive:true});
+
+        /* ---- smooth scroll cue ---- */
+        document.getElementById("scrollCue").addEventListener("click", function(){
+            var t = document.getElementById("profile");
+            if(t) t.scrollIntoView({behavior: reduce ? "auto" : "smooth"});
+        });
+
+        /* ---- counts ---- */
+        var pubItems = Array.prototype.slice.call(document.querySelectorAll("#publication-list .card"));
+        var pubTotal = pubItems.length;
+        var firstCount = pubItems.filter(function(p){return p.getAttribute("data-author-type")==="first-author";}).length;
+        var coFirstCount = pubItems.filter(function(p){return p.getAttribute("data-author-type")==="co-first";}).length;
+        document.getElementById("pub-count").textContent = pubTotal;
+        document.getElementById("count-all").textContent = "(" + pubTotal + ")";
+        document.getElementById("count-first").textContent = "(" + firstCount + ")";
+        document.getElementById("count-co-first").textContent = "(" + coFirstCount + ")";
+
+        var awardsTotal = document.querySelectorAll("#awards-list .card").length;
+        var presTotal = document.querySelectorAll("#presentation-list .card").length;
+
+        /* ---- generic expand/collapse for awards & presentations ---- */
+        function setupToggle(btnId, listSel, label, total){
+            var btn = document.getElementById(btnId);
+            var hiddenItems = document.querySelectorAll(listSel + " .card.initially-hidden");
+            var collapsedText = "View All " + total + " " + label;
+            btn.textContent = collapsedText;
+            var open = false;
+            btn.addEventListener("click", function(){
+                open = !open;
+                if(open){
+                    hiddenItems.forEach(function(item, i){
+                        item.classList.add("show-hidden");
+                        item.style.opacity = "0";
+                        item.style.transform = "translateY(16px)";
+                        setTimeout(function(){
+                            item.style.transition = "opacity .4s var(--ease), transform .4s var(--ease)";
+                            item.style.opacity = "1";
+                            item.style.transform = "none";
+                        }, reduce ? 0 : 30 + i*60);
+                    });
+                    btn.textContent = "Collapse";
+                    btn.classList.add("is-open");
+                } else {
+                    hiddenItems.forEach(function(item){
+                        item.classList.remove("show-hidden");
+                        item.style.opacity = "";
+                        item.style.transform = "";
+                        item.style.transition = "";
+                    });
+                    btn.textContent = collapsedText;
+                    btn.classList.remove("is-open");
+                    var sec = btn.closest("section");
+                    if(sec) sec.scrollIntoView({behavior: reduce ? "auto" : "smooth", block:"start"});
+                }
+            });
+        }
+        setupToggle("toggle-awards", "#awards-list", "Awards", awardsTotal);
+        setupToggle("toggle-pres", "#presentation-list", "Presentations", presTotal);
+
+        /* ---- publications: filter pills + expand/collapse ---- */
+        var pubBtn = document.getElementById("toggle-pubs");
+        var currentFilter = "all";
+        var pubsOpen = false;
+
+        function applyPubState(){
+            var matching = pubItems.filter(function(p){
+                return currentFilter === "all" || p.getAttribute("data-author-type") === currentFilter;
+            });
+            var shownCount = 0;
+            pubItems.forEach(function(p){
+                var isMatch = (currentFilter === "all") || (p.getAttribute("data-author-type") === currentFilter);
+                p.classList.remove("filter-hidden","is-collapsed");
+                if(!isMatch){
+                    p.classList.add("filter-hidden");
+                    return;
+                }
+                shownCount++;
+                if(!pubsOpen && shownCount > 3){
+                    p.classList.add("is-collapsed");
+                }
+            });
+
+            var matchTotal = matching.length;
+            if(matchTotal <= 3){
+                pubBtn.classList.add("toggle-hidden");
+            } else {
+                pubBtn.classList.remove("toggle-hidden");
+                if(pubsOpen){
+                    pubBtn.textContent = "Collapse";
+                    pubBtn.classList.add("is-open");
+                } else {
+                    pubBtn.textContent = (currentFilter === "all" ? "View All " : "View ") + matchTotal + " Publications";
+                    pubBtn.classList.remove("is-open");
+                }
+            }
+        }
+
+        document.querySelectorAll('#publications .filter-btn').forEach(function(b){
+            b.addEventListener("click", function(){
+                if(b.classList.contains("active")) return;
+                document.querySelectorAll('#publications .filter-btn').forEach(function(x){x.classList.remove("active");});
+                b.classList.add("active");
+                currentFilter = b.getAttribute("data-filter");
+                pubsOpen = false;
+                applyPubState();
+            });
+        });
+        pubBtn.addEventListener("click", function(){
+            pubsOpen = !pubsOpen;
+            applyPubState();
+            if(!pubsOpen){
+                var sec = document.getElementById("publications");
+                if(sec) sec.scrollIntoView({behavior: reduce ? "auto" : "smooth", block:"start"});
+            }
+        });
+        applyPubState();
+
+        if(reduce) return;
+
+        /* ================= signature canvas: drifting tiffany constellation + perspective grid ================= */
+        var canvas = document.getElementById("grid-canvas");
+        var ctx = canvas.getContext("2d");
+        var W,H,DPR,t=0,nodes=[],NODE_COUNT=0;
+
+        function size(){
+            DPR = Math.min(window.devicePixelRatio || 1, 2);
+            W = window.innerWidth; H = window.innerHeight;
+            canvas.width = W*DPR; canvas.height = H*DPR;
+            canvas.style.width = W+"px"; canvas.style.height = H+"px";
+            ctx.setTransform(DPR,0,0,DPR,0,0);
+            NODE_COUNT = Math.max(28, Math.min(70, Math.round((W*H)/30000)));
+            nodes = [];
+            for(var i=0;i<NODE_COUNT;i++){
+                nodes.push({
+                    x:Math.random()*W, y:Math.random()*H,
+                    vx:(Math.random()-.5)*0.18, vy:(Math.random()-.5)*0.18,
+                    r:Math.random()*1.7+0.5,
+                    pal:Math.random()
+                });
+            }
+        }
+        size();
+        window.addEventListener("resize", size);
+
+        var mouse = {x:-9999,y:-9999};
+        window.addEventListener("pointermove", function(e){ mouse.x=e.clientX; mouse.y=e.clientY; }, {passive:true});
+        window.addEventListener("pointerleave", function(){ mouse.x=-9999; mouse.y=-9999; });
+
+        function nodeColor(pal, a){
+            if(pal < 0.5) return "rgba(10,186,181," + a + ")";          /* tiffany */
+            if(pal < 0.8) return "rgba(129,216,208," + a + ")";         /* tiffany-light */
+            return "rgba(184,232,229," + a + ")";                        /* tiffany-pale */
+        }
+
+        var rafId;
+        function draw(){
+            t += 0.0016;
+            ctx.clearRect(0,0,W,H);
+
+            /* faint perspective grid drifting toward viewer */
+            var horizon = H*0.28, vx = W*0.5;
+            ctx.lineWidth = 1;
+            var cols = 16;
+            for(var c=0;c<=cols;c++){
+                var fx = (c/cols - 0.5);
+                var baseX = vx + fx*W*1.85;
+                var grad = ctx.createLinearGradient(vx, horizon, baseX, H);
+                grad.addColorStop(0,"rgba(10,186,181,0)");
+                grad.addColorStop(1,"rgba(10,186,181,0.09)");
+                ctx.strokeStyle = grad;
+                ctx.beginPath(); ctx.moveTo(vx, horizon); ctx.lineTo(baseX, H); ctx.stroke();
+            }
+            var rows = 14;
+            for(var r=0;r<rows;r++){
+                var p = ((r + (t*6 % 1))/rows);
+                var y = horizon + Math.pow(p,2.2)*(H-horizon);
+                var spread = Math.pow(p,2.2);
+                var alpha = 0.09*p;
+                ctx.strokeStyle = "rgba(10,186,181," + alpha.toFixed(3) + ")";
+                ctx.beginPath(); ctx.moveTo(vx - W*0.9*spread, y); ctx.lineTo(vx + W*0.9*spread, y); ctx.stroke();
+            }
+
+            /* drifting node field + constellation links reacting to pointer */
+            for(var i=0;i<nodes.length;i++){
+                var n = nodes[i];
+                n.x += n.vx; n.y += n.vy;
+                var dxm = mouse.x-n.x, dym = mouse.y-n.y, dm2 = dxm*dxm+dym*dym;
+                if(dm2 < 28000){ var f=(1-dm2/28000)*0.022; n.x+=dxm*f; n.y+=dym*f; }
+                if(n.x<-20)n.x=W+20; if(n.x>W+20)n.x=-20;
+                if(n.y<-20)n.y=H+20; if(n.y>H+20)n.y=-20;
+
+                for(var j=i+1;j<nodes.length;j++){
+                    var m = nodes[j];
+                    var dx=n.x-m.x, dy=n.y-m.y, d2=dx*dx+dy*dy;
+                    if(d2 < 18000){
+                        var a=(1-d2/18000)*0.16;
+                        ctx.strokeStyle = "rgba(10,186,181," + a.toFixed(3) + ")";
+                        ctx.beginPath(); ctx.moveTo(n.x,n.y); ctx.lineTo(m.x,m.y); ctx.stroke();
+                    }
+                }
+                /* link to pointer */
+                if(dm2 < 40000){
+                    var la = (1 - dm2/40000)*0.28;
+                    ctx.strokeStyle = "rgba(129,216,208," + la.toFixed(3) + ")";
+                    ctx.beginPath(); ctx.moveTo(n.x,n.y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke();
+                }
+                var pulse = 0.5 + 0.5*Math.sin(t*9 + i);
+                /* glow bloom */
+                var gr = ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,n.r*4*(0.7+pulse*0.5));
+                gr.addColorStop(0, nodeColor(n.pal, (0.18+pulse*0.22).toFixed(3)));
+                gr.addColorStop(1, nodeColor(n.pal, "0"));
+                ctx.fillStyle = gr;
+                ctx.beginPath(); ctx.arc(n.x,n.y,n.r*4,0,Math.PI*2); ctx.fill();
+                /* core */
+                ctx.fillStyle = nodeColor(n.pal, (0.45+pulse*0.4).toFixed(3));
+                ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2); ctx.fill();
+            }
+            rafId = requestAnimationFrame(draw);
+        }
+        rafId = requestAnimationFrame(draw);
+        document.addEventListener("visibilitychange", function(){
+            if(document.hidden){ if(rafId){cancelAnimationFrame(rafId); rafId=null;} }
+            else if(!rafId){ rafId = requestAnimationFrame(draw); }
+        });
+
+        /* ================= footer triangle/constellation accent ================= */
+        var fc = document.getElementById("footer-canvas");
+        var fctx = fc.getContext("2d");
+        var fW,fH,ft=0,fnodes=[],fraf;
+        function fsize(){
+            var rect = fc.parentElement.getBoundingClientRect();
+            var d = Math.min(window.devicePixelRatio||1,2);
+            fW = rect.width; fH = rect.height;
+            fc.width = fW*d; fc.height = fH*d;
+            fc.style.width = fW+"px"; fc.style.height = fH+"px";
+            fctx.setTransform(d,0,0,d,0,0);
+            fnodes = [];
+            var cnt = Math.max(14, Math.min(40, Math.round(fW/30)));
+            for(var i=0;i<cnt;i++){
+                fnodes.push({x:Math.random()*fW,y:Math.random()*fH,vx:(Math.random()-.5)*0.25,vy:(Math.random()-.5)*0.25,r:Math.random()*1.4+0.4});
+            }
+        }
+        fsize();
+        window.addEventListener("resize", fsize);
+        function fdraw(){
+            ft += 0.004;
+            fctx.clearRect(0,0,fW,fH);
+            for(var i=0;i<fnodes.length;i++){
+                var n=fnodes[i];
+                n.x+=n.vx; n.y+=n.vy;
+                if(n.x<0||n.x>fW)n.vx*=-1; if(n.y<0||n.y>fH)n.vy*=-1;
+                for(var j=i+1;j<fnodes.length;j++){
+                    var m=fnodes[j], dx=n.x-m.x, dy=n.y-m.y, d2=dx*dx+dy*dy;
+                    if(d2<10000){
+                        var a=(1-d2/10000)*0.18;
+                        fctx.strokeStyle="rgba(10,186,181,"+a.toFixed(3)+")";
+                        fctx.beginPath(); fctx.moveTo(n.x,n.y); fctx.lineTo(m.x,m.y); fctx.stroke();
+                    }
+                }
+                var pulse=0.5+0.5*Math.sin(ft*6+i);
+                fctx.fillStyle="rgba(129,216,208,"+(0.3+pulse*0.4).toFixed(3)+")";
+                fctx.beginPath(); fctx.arc(n.x,n.y,n.r,0,Math.PI*2); fctx.fill();
+            }
+            fraf = requestAnimationFrame(fdraw);
+        }
+        fraf = requestAnimationFrame(fdraw);
+    })();
+    </script>
+</body>
+</html>
