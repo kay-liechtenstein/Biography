@@ -685,50 +685,12 @@
             border-radius: 2px;
         }
 
-        .products ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
 
-        .products li {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, rgba(10, 186, 181, 0.03) 0%, rgba(129, 216, 208, 0.06) 100%);
-            border-left: 4px solid var(--tiffany);
-            transition: all 0.3s ease;
-        }
 
-        .products li:hover {
-            border-left-color: var(--navy);
-            transform: translateX(5px);
-        }
 
-        .products li a.product-link {
-            display: block;
-            padding: 15px 20px;
-            color: inherit;
-            text-decoration: none;
-            cursor: pointer;
-        }
 
-        .products li a.product-link .product-name {
-            color: var(--navy);
-            font-weight: 600;
-        }
 
-        .products li:hover a.product-link .product-name {
-            color: var(--tiffany);
-        }
 
-        .products li .product-desc {
-            font-weight: 400;
-            color: #555;
-            margin-top: 5px;
-            font-size: 16px;
-        }
 
         .publications {
             padding: 10px 20px;
@@ -764,26 +726,7 @@
             background: linear-gradient(90deg, transparent 0%, var(--tiffany) 50%, transparent 100%);
         }
 
-        .publications ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            text-align: justify;
-        }
 
-        .publications li {
-            font-size: 18px;
-            line-height: 1.4;
-            margin-bottom: 15px;
-            border-radius: 12px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(20px);
-            opacity: 0;
-            background: linear-gradient(135deg, rgba(10, 186, 181, 0.03) 0%, rgba(129, 216, 208, 0.06) 100%);
-            border-left: 4px solid var(--tiffany);
-            position: relative;
-            overflow: hidden;
-        }
 
         .pub-tags {
             display: flex;
@@ -857,103 +800,19 @@
             opacity: 0.7;
         }
 
-        /* Filter transition animations for publications */
-        .publications li.filter-hidden {
-            opacity: 0 !important;
-            max-height: 0 !important;
-            margin-bottom: 0 !important;
-            padding: 0 !important;
-            overflow: hidden;
-            pointer-events: none;
-            transition: all 0.3s ease;
-        }
 
-        .publications li.filter-visible {
-            transition: all 0.3s ease;
-        }
 
-        .publications li.filter-collapsed {
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
 
-        .publications li a.pub-link {
-            display: block;
-            padding: 15px 20px;
-            color: inherit;
-            text-decoration: none;
-            cursor: pointer;
-        }
 
-        .publications li:not(:has(a.pub-link)) {
-            padding: 15px 20px;
-        }
 
-        .publications li::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--tiffany) 0%, var(--tiffany-light) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
 
-        .publications li:hover {
-            transform: translateX(8px);
-            box-shadow: 0 8px 25px rgba(10, 186, 181, 0.2);
-            background: linear-gradient(135deg, rgba(10, 186, 181, 0.08) 0%, rgba(129, 216, 208, 0.12) 100%);
-        }
 
-        .hidden {
-            display: none;
-        }
 
-        .toggle-button.toggle-hidden {
-            display: none !important;
-        }
 
-        #publication-list li.initially-hidden {
-            display: none;
-            transform: translateY(20px);
-            opacity: 0;
-        }
 
-        #publication-list li.initially-hidden.show-hidden {
-            display: list-item;
-        }
 
-        .visible li {
-            transform: translateY(0);
-            opacity: 1;
-        }
 
-        .toggle-button {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, var(--tiffany) 0%, var(--tiffany-light) 100%);
-            color: white;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 30px;
-            cursor: pointer;
-            margin: 20px auto;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(10, 186, 181, 0.3);
-            border: none;
-            -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
-        }
 
-        .toggle-button:hover {
-            background: linear-gradient(135deg, var(--tiffany-light) 0%, var(--tiffany) 100%);
-            transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 8px 25px rgba(10, 186, 181, 0.4), 0 0 20px var(--tiffany-glow);
-        }
 
         .awards {
             padding: 10px 20px;
@@ -981,36 +840,9 @@
             border-radius: 2px;
         }
 
-        .awards ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            text-align: justify;
-        }
 
-        .awards li {
-            font-size: 18px;
-            line-height: 1.4;
-            margin-bottom: 15px;
-            padding: 15px 20px;
-            border-radius: 12px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(20px);
-            opacity: 0;
-            background: linear-gradient(135deg, rgba(10, 186, 181, 0.03) 0%, rgba(129, 216, 208, 0.06) 100%);
-            border-left: 4px solid var(--tiffany);
-        }
 
-        .awards li:hover {
-            transform: translateX(8px);
-            box-shadow: 0 8px 25px rgba(10, 186, 181, 0.2);
-            background: linear-gradient(135deg, rgba(10, 186, 181, 0.08) 0%, rgba(129, 216, 208, 0.12) 100%);
-        }
 
-        .awards .visible li {
-            transform: translateY(0);
-            opacity: 1;
-        }
 
         .presentations {
             padding: 10px 20px;
@@ -1038,36 +870,416 @@
             border-radius: 2px;
         }
 
-        .presentations ul {
-            list-style-type: none;
-            padding: 0;
+        /* headings and filters centre over the full-bleed, viewport-centred rings */
+        .publications, .awards, .presentations, .products {
+            text-align: center;
+        }
+
+        /* ---- 3D circular presentation carousel ---- */
+        .crsl-carousel {
+            --crsl-card-w: 330px;
+            --crsl-card-h: 400px;
+            position: relative;
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            padding-top: 6px;
+            outline: none;
+            overflow: hidden;
+        }
+
+        .crsl-scene {
+            position: relative;
+            perspective: 1400px;
+            perspective-origin: 50% 42%;
+            cursor: grab;
+            touch-action: pan-y;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .crsl-scene.crsl-dragging {
+            cursor: grabbing;
+        }
+
+        /* soft tiffany floor glow beneath the ring */
+        .crsl-scene::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 4px;
+            width: min(560px, 80vw);
+            height: 50px;
+            transform: translateX(-50%);
+            background: radial-gradient(ellipse at center, rgba(10, 186, 181, 0.15) 0%, transparent 70%);
+            filter: blur(6px);
+            pointer-events: none;
+        }
+
+        .crsl-ring {
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        /* 3D ring geometry is armed by JS (crsl-3d); without it the cards
+           below remain a readable stacked list */
+        .crsl-carousel.crsl-3d .crsl-scene {
+            height: calc(var(--crsl-card-h) + 90px);
+        }
+
+        .crsl-carousel.crsl-3d .crsl-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: var(--crsl-card-w);
+            height: var(--crsl-card-h);
+            margin: calc(var(--crsl-card-h) / -2) 0 0 calc(var(--crsl-card-w) / -2);
+        }
+
+        .crsl-carousel.crsl-3d .crsl-card {
+            position: absolute;
+            inset: 0;
+            width: auto;
             margin: 0;
-            text-align: justify;
         }
 
-        .presentations li {
-            font-size: 18px;
-            line-height: 1.4;
-            margin-bottom: 15px;
-            padding: 15px 20px;
-            border-radius: 12px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(20px);
+        .crsl-carousel:not(.crsl-3d) .crsl-controls,
+        .crsl-carousel:not(.crsl-3d) .crsl-hint,
+        .crsl-carousel:not(.crsl-3d) .crsl-scene::after {
+            display: none;
+        }
+
+        .crsl-card {
+            position: relative;
+            width: min(var(--crsl-card-w), calc(100% - 32px));
+            margin: 0 auto 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            padding: 24px 28px 20px;
+            background: linear-gradient(165deg, rgba(255, 255, 255, 0.97) 0%, rgba(244, 250, 250, 0.93) 100%);
+            border: 1px solid rgba(10, 186, 181, 0.16);
+            border-radius: 18px;
+            box-shadow: 0 18px 50px rgba(26, 42, 58, 0.10);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            text-align: left;
+            transition: border-color 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .crsl-card.is-front {
+            border-color: rgba(10, 186, 181, 0.45);
+            box-shadow: 0 26px 60px rgba(10, 186, 181, 0.16), 0 0 40px rgba(10, 186, 181, 0.10);
+        }
+
+        /* tiffany corner brackets, matching the photo frames */
+        .crsl-card::before,
+        .crsl-card::after {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border: 1px solid var(--tiffany);
             opacity: 0;
-            background: linear-gradient(135deg, rgba(10, 186, 181, 0.03) 0%, rgba(129, 216, 208, 0.06) 100%);
-            border-left: 4px solid var(--tiffany);
+            transition: opacity 0.6s ease;
+            pointer-events: none;
         }
 
-
-        .presentations li:hover {
-            transform: translateX(8px);
-            box-shadow: 0 8px 25px rgba(10, 186, 181, 0.2);
-            background: linear-gradient(135deg, rgba(10, 186, 181, 0.08) 0%, rgba(129, 216, 208, 0.12) 100%);
+        .crsl-card::before {
+            top: 9px;
+            left: 9px;
+            border-right: none;
+            border-bottom: none;
         }
 
-        .presentations .visible li {
-            transform: translateY(0);
+        .crsl-card::after {
+            bottom: 9px;
+            right: 9px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .crsl-card.is-front::before,
+        .crsl-card.is-front::after {
             opacity: 1;
+        }
+
+        .crsl-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 14px;
+        }
+
+        .crsl-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1;
+            color: rgba(10, 186, 181, 0.22);
+            letter-spacing: 0.04em;
+        }
+
+        .crsl-date {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            /* deeper teal than --tiffany: this text is tiny, so it needs AA contrast */
+            color: #067E7A;
+        }
+
+        .crsl-title {
+            font-size: 17.5px;
+            font-weight: bold;
+            line-height: 1.45;
+            color: var(--navy);
+            margin: 0 0 8px;
+        }
+
+        .crsl-title-link {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .crsl-card.is-front .crsl-title-link:hover {
+            color: var(--tiffany);
+        }
+
+        .crsl-venue {
+            font-style: italic;
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: var(--slate);
+            margin: 0 0 14px;
+        }
+
+        .crsl-desc {
+            font-size: 13px;
+            line-height: 1.65;
+            color: rgba(45, 62, 80, 0.85);
+            margin: 0 0 14px;
+        }
+
+        .crsl-authors {
+            font-size: 12px;
+            line-height: 1.6;
+            color: rgba(45, 62, 80, 0.85);
+            margin: 0 0 14px;
+        }
+
+        /* the presentations ring keeps its compact, clamped cards */
+        .crsl-clamp .crsl-title {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .crsl-clamp .crsl-venue {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .crsl-clamp .crsl-authors {
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .crsl-authors b {
+            color: var(--tiffany);
+            font-weight: 600;
+        }
+
+        /* very long author lists swap to a condensed form on small screens
+           so the highlighted name survives the line clamp */
+        .crsl-authors .authors-short {
+            display: none;
+        }
+
+        .crsl-card-foot {
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid rgba(10, 186, 181, 0.14);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* publication badge row keeps its gold / silver / tiffany tags */
+        .crsl-card-foot .pub-tags {
+            margin-top: 0;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .crsl-card[hidden] {
+            display: none !important;
+        }
+
+        a.crsl-badge {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .crsl-card.is-front a.crsl-badge:hover {
+            background: var(--tiffany);
+            border-color: var(--tiffany);
+            color: #fff;
+        }
+
+        .crsl-badge {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9.5px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #067E7A;
+            border: 1px solid rgba(10, 186, 181, 0.35);
+            border-radius: 999px;
+            padding: 4px 12px;
+            white-space: nowrap;
+        }
+
+        .crsl-type {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(26, 42, 58, 0.68);
+        }
+
+        .crsl-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            margin-top: 4px;
+        }
+
+        .crsl-arrow {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(10, 186, 181, 0.4);
+            background: rgba(255, 255, 255, 0.6);
+            color: var(--tiffany);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            padding: 0;
+        }
+
+        .crsl-arrow:hover {
+            background: var(--tiffany);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(10, 186, 181, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .crsl-arrow svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .crsl-progress {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .crsl-counter {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            color: var(--navy);
+            min-width: 64px;
+            text-align: center;
+        }
+
+        .crsl-counter em {
+            font-style: normal;
+            color: rgba(26, 42, 58, 0.66);
+            padding: 0 3px;
+        }
+
+        .crsl-carousel:focus-visible {
+            outline: 2px solid var(--tiffany);
+            outline-offset: -4px;
+            border-radius: 8px;
+        }
+
+        .crsl-carousel:focus-visible .crsl-counter {
+            color: var(--tiffany);
+        }
+
+        .crsl-track {
+            width: 120px;
+            height: 2px;
+            background: rgba(10, 186, 181, 0.15);
+            border-radius: 1px;
+            overflow: hidden;
+        }
+
+        .crsl-fill {
+            height: 100%;
+            width: 0;
+            background: var(--gradient-tiffany);
+            transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .crsl-hint {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9.5px;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(26, 42, 58, 0.66);
+            margin: 14px 0 0;
+        }
+
+        /* entrance: hidden until the section scrolls into view — only once the
+           script has armed the reveal, so a JS failure never blanks the section */
+        .crsl-carousel.crsl-js .crsl-scene,
+        .crsl-carousel.crsl-js .crsl-controls,
+        .crsl-carousel.crsl-js .crsl-hint {
+            opacity: 0;
+            transition: opacity 0.9s ease;
+        }
+
+        .crsl-carousel.crsl-revealed .crsl-scene {
+            opacity: 1;
+        }
+
+        .crsl-carousel.crsl-revealed .crsl-controls,
+        .crsl-carousel.crsl-revealed .crsl-hint {
+            opacity: 1;
+            transition-delay: 0.35s;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .crsl-carousel.crsl-js .crsl-scene,
+            .crsl-carousel.crsl-js .crsl-controls,
+            .crsl-carousel.crsl-js .crsl-hint,
+            .crsl-fill,
+            .crsl-card {
+                transition: none;
+            }
         }
 
         .footer {
@@ -1258,26 +1470,17 @@
                 text-align: center;
             }
 
-            .products ul {
-                text-align: left;
-            }
 
             .products {
                 text-align: center;
             }
 
-            .products li .product-desc {
-                font-size: 14px;
-            }
 
             .publications h2 {
                 font-size: 24px;
                 text-align: center;
             }
 
-            .publications ul {
-                text-align: left;
-            }
 
             .awards h2 {
                 font-size: 24px;
@@ -1289,14 +1492,56 @@
                 text-align: center;
             }
 
-            .presentations ul {
-                text-align: left;
+            /* narrower cards so the neighbouring cards peek in from both
+               edges, reading as a ring rather than a single card */
+            .crsl-carousel {
+                --crsl-card-w: min(64vw, 250px);
             }
 
-            .toggle-button {
-                width: auto !important;
-                padding: 10px 20px !important;
+            .crsl-scene {
+                perspective: 1000px;
             }
+
+            .crsl-carousel.crsl-3d .crsl-scene {
+                height: calc(var(--crsl-card-h) + 70px);
+            }
+
+            .crsl-card {
+                padding: 20px 22px 16px;
+            }
+
+            .crsl-title {
+                font-size: 15.5px;
+            }
+
+            .crsl-venue {
+                font-size: 12.5px;
+            }
+
+            .crsl-authors {
+                font-size: 11px;
+            }
+
+            .crsl-clamp .crsl-authors {
+                -webkit-line-clamp: 3;
+            }
+
+            .crsl-authors .authors-full {
+                display: none;
+            }
+
+            .crsl-authors .authors-short {
+                display: inline;
+            }
+
+            .crsl-track {
+                width: 70px;
+            }
+
+            .crsl-hint {
+                font-size: 8.5px;
+            }
+
 
             .publications, .awards, .presentations, .products {
                 text-align: center;
@@ -1338,19 +1583,11 @@
                 margin: 20px auto;
             }
 
-            .publications li,
-            .presentations li {
-                font-size: 14px;
-                line-height: 1.4;
-            }
 
             .education p {
                 font-size: 15px;
             }
 
-            .awards li {
-                font-size: 14px;
-            }
 
             .pub-tags {
                 margin-top: 8px;
@@ -1368,7 +1605,7 @@
            These rules are appended last so they override earlier definitions.
         ===================================================================== */
 
-        /* --- From "Minimal Atelier": photos shown greyscale, colour on hover --- */
+        /* --- From "Minimal Atelier": photos build greyscale, then bloom into colour --- */
         .profile .image-reveal,
         .education .image-reveal {
             clip-path: none !important;
@@ -1402,14 +1639,14 @@
             filter: grayscale(100%) contrast(1.03);
         }
         /* once the grid has finished building, fade the tiles away so the
-           photo underneath becomes the live (hover-to-colour) layer */
+           full-colour photo underneath becomes the visible layer */
         @keyframes tileFadeOut { to { opacity: 0; } }
         .profile .image-reveal.revealed .tile,
         .education .image-reveal.revealed .tile {
             animation: tileFadeOut 0.8s ease forwards;
             pointer-events: none;
         }
-        /* show the real photo, desaturated until hover */
+        /* show the real photo, desaturated until the reveal completes */
         .profile .image-reveal img,
         .education .image-reveal img {
             display: block !important;
@@ -1421,13 +1658,11 @@
             opacity: 0;
             transition: filter 0.8s ease, transform 1.4s ease, opacity 0.8s ease;
         }
-        /* photo fades in beneath as the grid tiles fade out */
+        /* once the grid finishes building, the photo fades in beneath and
+           blooms into full colour — no hover needed */
         .profile .image-reveal.revealed img,
         .education .image-reveal.revealed img {
             opacity: 1;
-        }
-        .profile .image-reveal:hover img,
-        .education .image-reveal:hover img {
             filter: grayscale(0%);
             transform: scale(1);
         }
@@ -1685,26 +1920,138 @@
 
     <div class="products">
         <h2 class="shimmer">Products</h2>
-        <ul>
-            <li><a href="https://shukuyaku.com" target="_blank" class="product-link">◉ <span class="product-name">ShukuYaku</span><div class="product-desc">A reading comprehension evaluation method with an educational platform providing auto-grading capabilities alongside comprehensive data management tools for educators, featuring grade databases, statistical analysis, and collusion detection.</div></a></li>
-            <li><a href="https://shukuyaku-lab.com" target="_blank" class="product-link">◉ <span class="product-name">ShukuYakuLAB</span><div class="product-desc">A platform for practicing and preparing ShukuYaku submissions, enabling users to create condensed answers, check submissions, track practice progress, and maintain records through an integrated system.</div></a></li>
-            <li><a href="https://concerota.com" target="_blank" class="product-link">◉ <span class="product-name">Concerota</span><div class="product-desc">A staff shift management application for kindergartens, designed to simplify scheduling operations, create rotas, track attendance, and manage employee schedules through an intuitive interface.</div></a></li>
-        </ul>
+        <div class="crsl-carousel" id="products-carousel" data-live-label="Product" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Software products. Use the left and right arrow keys to navigate.">
+            <div class="crsl-scene">
+                <div class="crsl-ring">
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">01</span>
+                            <span class="crsl-date">Education</span>
+                        </div>
+                        <h3 class="crsl-title"><a class="crsl-title-link" href="https://shukuyaku.com" target="_blank" rel="noopener">ShukuYaku</a></h3>
+                        <p class="crsl-desc">A reading comprehension evaluation method with an educational platform providing auto-grading capabilities alongside comprehensive data management tools for educators, featuring grade databases, statistical analysis, and collusion detection.</p>
+                        <div class="crsl-card-foot">
+                            <a class="crsl-badge" href="https://shukuyaku.com" target="_blank" rel="noopener">Visit Site</a>
+                            <span class="crsl-type">Web Platform</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">02</span>
+                            <span class="crsl-date">Education</span>
+                        </div>
+                        <h3 class="crsl-title"><a class="crsl-title-link" href="https://shukuyaku-lab.com" target="_blank" rel="noopener">ShukuYakuLAB</a></h3>
+                        <p class="crsl-desc">A platform for practicing and preparing ShukuYaku submissions, enabling users to create condensed answers, check submissions, track practice progress, and maintain records through an integrated system.</p>
+                        <div class="crsl-card-foot">
+                            <a class="crsl-badge" href="https://shukuyaku-lab.com" target="_blank" rel="noopener">Visit Site</a>
+                            <span class="crsl-type">Web Platform</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">03</span>
+                            <span class="crsl-date">Scheduling</span>
+                        </div>
+                        <h3 class="crsl-title"><a class="crsl-title-link" href="https://concerota.com" target="_blank" rel="noopener">Concerota</a></h3>
+                        <p class="crsl-desc">A staff shift management application for kindergartens, designed to simplify scheduling operations, create rotas, track attendance, and manage employee schedules through an intuitive interface.</p>
+                        <div class="crsl-card-foot">
+                            <a class="crsl-badge" href="https://concerota.com" target="_blank" rel="noopener">Visit Site</a>
+                            <span class="crsl-type">Web App</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="crsl-controls">
+                <button type="button" class="crsl-arrow crsl-prev" aria-label="Previous product">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="crsl-progress">
+                    <span class="crsl-counter"><span class="crsl-current">01</span><em>/</em><span class="crsl-total">03</span></span>
+                    <span class="sr-only crsl-live" aria-live="polite" aria-atomic="true"></span>
+                    <div class="crsl-track"><div class="crsl-fill"></div></div>
+                </div>
+                <button type="button" class="crsl-arrow crsl-next" aria-label="Next product">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
+            <p class="crsl-hint">Drag &middot; Scroll &middot; Arrow Keys</p>
+        </div>
     </div>
 
     <div class="section-divider"></div>
 
     <div class="awards">
         <h2 class="shimmer">Awards</h2>
-        <ul id="awards-list">
-            <li style="transform: none; opacity: 1;">◉ Competitive Paper Award, Exploring the Modality of Network-Type Thinking in Young Children with Picture Books, 17th IIAI International Conference on Smart Learning Technologies and Learning Environments (Dec 2024).</li>
-            <li style="transform: none; opacity: 1;">◉ Best Paper Award, A Novel Balanced Reporting Innovation with Data Governance Evolution (BRIDGE) Method: An Eduinformatics Integration of Creativity, Abduction and Organizational Knowledge Acceptance, The 19th International Conference on Knowledge, Information and Creativity Support Systems (Dec 2024).</li>
-            <div id="hidden-awards" class="hidden">
-                <li style="transform: none; opacity: 1;">◉ Funai Overseas Scholarships, Funai Foundation for Information Technology (Sep 2021).</li>
-                <li style="transform: none; opacity: 1;">◉ Scholarships of Student Exchange Support Program, Japan Student Services Organization (Sep 2021).</li>
+        <div class="crsl-carousel" id="awards-carousel" data-live-label="Award" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Awards and scholarships. Use the left and right arrow keys to navigate.">
+            <div class="crsl-scene">
+                <div class="crsl-ring">
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">01</span>
+                            <span class="crsl-date">Dec 2024</span>
+                        </div>
+                        <h3 class="crsl-title">Competitive Paper Award</h3>
+                        <p class="crsl-venue">Exploring the Modality of Network-Type Thinking in Young Children with Picture Books</p>
+                        <p class="crsl-authors">17th IIAI International Conference on Smart Learning Technologies and Learning Environments</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">LTLE 2024-Winter</span>
+                            <span class="crsl-type">Paper Award</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">02</span>
+                            <span class="crsl-date">Dec 2024</span>
+                        </div>
+                        <h3 class="crsl-title">Best Paper Award</h3>
+                        <p class="crsl-venue">A Novel Balanced Reporting Innovation with Data Governance Evolution (BRIDGE) Method: An Eduinformatics Integration of Creativity, Abduction and Organizational Knowledge Acceptance</p>
+                        <p class="crsl-authors">The 19th International Conference on Knowledge, Information and Creativity Support Systems</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">KICSS 2024</span>
+                            <span class="crsl-type">Paper Award</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">03</span>
+                            <span class="crsl-date">Sep 2021</span>
+                        </div>
+                        <h3 class="crsl-title">Funai Overseas Scholarships</h3>
+                        <p class="crsl-venue">Funai Foundation for Information Technology</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">Funai Foundation</span>
+                            <span class="crsl-type">Scholarship</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">04</span>
+                            <span class="crsl-date">Sep 2021</span>
+                        </div>
+                        <h3 class="crsl-title">Scholarships of Student Exchange Support Program</h3>
+                        <p class="crsl-venue">Japan Student Services Organization</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">JASSO</span>
+                            <span class="crsl-type">Scholarship</span>
+                        </div>
+                    </article>
+                </div>
             </div>
-        </ul>
-        <div id="toggle-awards" class="toggle-button" onclick="toggleAwards()"></div>
+            <div class="crsl-controls">
+                <button type="button" class="crsl-arrow crsl-prev" aria-label="Previous award">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="crsl-progress">
+                    <span class="crsl-counter"><span class="crsl-current">01</span><em>/</em><span class="crsl-total">04</span></span>
+                    <span class="sr-only crsl-live" aria-live="polite" aria-atomic="true"></span>
+                    <div class="crsl-track"><div class="crsl-fill"></div></div>
+                </div>
+                <button type="button" class="crsl-arrow crsl-next" aria-label="Next award">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
+            <p class="crsl-hint">Drag &middot; Scroll &middot; Arrow Keys</p>
+        </div>
     </div>
 
     <div class="section-divider"></div>
@@ -1714,56 +2061,448 @@
 
         <div class="publication-filters">
             <div class="filter-container">
-                <button class="filter-btn active" data-filter="all" onclick="filterPublications('all', this)">All <span class="filter-count" id="count-all"></span></button>
-                <button class="filter-btn" data-filter="first-author" onclick="filterPublications('first-author', this)">First Author <span class="filter-count" id="count-first"></span></button>
-                <button class="filter-btn" data-filter="co-first" onclick="filterPublications('co-first', this)">Co-First Author <span class="filter-count" id="count-co-first"></span></button>
+                <button class="filter-btn active" data-filter="all" aria-pressed="true" onclick="filterPublications('all', this)">All <span class="filter-count" id="count-all"></span></button>
+                <button class="filter-btn" data-filter="first-author" aria-pressed="false" onclick="filterPublications('first-author', this)">First Author <span class="filter-count" id="count-first"></span></button>
+                <button class="filter-btn" data-filter="co-first" aria-pressed="false" onclick="filterPublications('co-first', this)">Co-First Author <span class="filter-count" id="count-co-first"></span></button>
             </div>
         </div>
 
-        <ul id="publication-list">
-            <li data-author-type="co-first" style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/ijltle.v9.i1.935" target="_blank" class="pub-link">◉ R. Kozaki, <b>K. Akashi</b>, K. Bannaka, H. Ito, K. Murakami, S. Matsumoto, Y. Kozaki, S. Kajiyama, M. Miyahara, E. Furusawa, K. Takamatsu: Demystification of Network-Type Knowledge Formation Mechanism of Pre-School Children through Picture Books. International Journal of Learning Technologies and Learning Environments 9(1) (Apr 2026).<div class="pub-tags"><span class="pub-tag tag-co-first">Co-First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-            <li data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-3-032-13419-6_37" target="_blank" class="pub-link">◉ K. Takamatsu, S. Matsumoto, K. Murakami, K. Tsuruta, N. Honda, Y. Ishige, S. Matsumoto, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, S. Hirokawa, M. Mori: Extended Lifelong Sustainable Inquiry-based Community Learning (LSiCL) for Human-LLM Learning Based on Eduinformatics. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1758 390-399 (Jan 2026).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-            <li data-author-type="first-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-96-6938-7_13" target="_blank" class="pub-link">◉ <b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Amalgamating DP-LCS-Assisted Abridgement Assessment with BERT-Based Sentiment Analysis for Early Warning and Prediction of Academic Performance. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1441 151-161 (Oct 2025).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-            <li class="initially-hidden" data-author-type="first-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1109/IIAI-AAI-Winter65925.2024.00031" target="_blank" class="pub-link">◉ <b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Fortifying Abridgement Assessment System against Student Collusions by Combining Fast Text Similarity Computation and Disjoint Set Union. 17th International Conference on Data Science and Institutional Research (DSIR 2024-Winter) IEEE 118-123 (Jul 2025).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-            <li class="initially-hidden" data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-9559-8_36" target="_blank" class="pub-link">◉ K. Takamatsu, S. Matsumoto, N. Honda, S. Matsumoto, Y. Ishige, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, K. Murakami, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, M. Mori: Lifelong Sustainable Inquiry-based Community Learning (LSiCL) Based on Eduinformatics. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1178 415-424 (Apr 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-            <li class="initially-hidden" data-author-type="first-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-9559-8_35" target="_blank" class="pub-link">◉ <b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu: Eduinformatics in Practice: Text Mining-Based Analysis of Contributing Factors to the Improvement of Reading Comprehension Assisted by Marking Scheme Employing DP-LCS Algorithm. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1178 403-414 (Apr 2025).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-            <li class="initially-hidden" data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/lir.v005.345" target="_blank" class="pub-link">◉ K. Takamatsu, <b>K. Akashi</b>, S. Matsumoto, A. Hidetani, G. Akashi, H. Ito, K. Murakami, K. Bannaka, R. Kozaki, A. Kishida, Y. Nakata, T. Inakura, S. Imai, M. Mori: Eduinformatics and the Universities' Challenge for "Ri": A 100-Year Vision of Higher Education Transcending Time, Place, and Culture through Shu-Ha-Ri. IIAI Letters on Institutional Research 5 (Mar 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-            <li class="initially-hidden" data-author-type="co-first" style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/liir.v006.343" target="_blank" class="pub-link">◉ R. Kozaki, <b>K. Akashi</b>, K. Bannaka, H. Ito, K. Murakami, S. Matsumoto, Y. Kozaki, K. Takamatsu: Exploring the Modality of Network-Type Thinking in Young Children with Picture Books. IIAI Letters on Informatics and Interdisciplinary Research 6 (Mar 2025).<div class="pub-tags"><span class="pub-tag tag-co-first">Co-First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-            <li class="initially-hidden" data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-8695-4_16" target="_blank" class="pub-link">◉ H. Ito, K. Bannaka, R. Kozaki, K. Murakami, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Leveraging Eduinformatics to Foster Network-Type Thinking in Early Childhood Education through Picture Books. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1177 173-182 (Mar 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-            <li class="initially-hidden" data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-8695-4_19" target="_blank" class="pub-link">◉ T. Sakai, N. Shiratori, S. Matsumoto, <b>K. Akashi</b>, H. Ito, K. Murakami, K. Takamatsu, T. Iiyoshi: Enhancing University Sustainability through Eduinformatics: a Collaborative Approach to Resolving Common Management Issues from a Macro Perspective. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1177 201-210 (Mar 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-            <li class="initially-hidden" data-author-type="first-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/ijltle.v8.i1.873" target="_blank" class="pub-link">◉ <b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu: Computerized Model of Assessment Procedures of Students' Reading Capabilities Based on Abridgement Method Employing Two-Pointer Problem Solution and Dynamic Programming. International Journal of Learning Technologies and Learning Environments 8(1) (Feb 2025).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-            <li class="initially-hidden" data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.52731/lbds.v005.352" target="_blank" class="pub-link">◉ K. Takamatsu, S. Matsumoto, <b>K. Akashi</b>, H. Ito, T. Kirimura, T. Kunisaki, I. Noda, R. Kozaki, A. Kishida, K. Murakami, Y. Nakata, M. Mori: A Novel Balanced Reporting Innovation with Data Governance Evolution (BRIDGE) Method: IIAI Letters on Business and Decision Science 5 (Feb 2025).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-            <li class="initially-hidden" data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1541/ieejeiss.144.1005" target="_blank" class="pub-link">◉ H. Ito, <b>K. Akashi</b>, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: The First Step for Personalised Learning of Abridgement Education: The Character-Based Pyramid Method and Semi-Automatic Implementation. IEEJ Transactions on Electronics, Information and Systems. vol.144(10) 1005-1010 (Oct 2024).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-            <li class="initially-hidden" data-author-type="co-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1007/978-981-97-5035-1_43" target="_blank" class="pub-link">◉ K. Bannaka, R. Kozaki, K. Murakami, H. Ito, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Enhancing Network-Type Thinking in Early Childhood: A Topic Model Approach to Picture Book Analysis based on Eduinformatics. Lecture Notes in Networks and Systems, Springer, Singapore. vol.1053 547-556 (Oct 2024).<div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-            <li class="initially-hidden" data-author-type="first-author" style="transform: none; opacity: 1;"><a href="https://doi.org/10.1109/IIAI-AAI-Winter61682.2023.00035" target="_blank" class="pub-link">◉ <b>K. Akashi</b>, H. Ito, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: Fully automated system for the marking and quantitative assessment of reading skills of students on the basis of abridgement. 15th International Congress on Advanced Applied Informatics Winter (IIAI-AAI-Winter) 143-148 (Jan 2024).<div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div></a></li>
-        </ul>
-        <div id="toggle-button" class="toggle-button" onclick="togglePublications()"></div>
+        <div class="crsl-carousel" id="publications-carousel" data-live-label="Publication" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Peer-reviewed publications. Use the left and right arrow keys to navigate.">
+            <div class="crsl-scene">
+                <div class="crsl-ring">
+                    <article class="crsl-card" data-author-type="co-first">
+                    <div class="crsl-card-top">
+                        <span class="crsl-num">01</span>
+                        <span class="crsl-date">Apr 2026</span>
+                    </div>
+                    <h3 class="crsl-title"><a class="crsl-title-link" href="https://doi.org/10.52731/ijltle.v9.i1.935" target="_blank" rel="noopener">Demystification of Network-Type Knowledge Formation Mechanism of Pre-School Children through Picture Books</a></h3>
+                    <p class="crsl-venue">International Journal of Learning Technologies and Learning Environments 9(1)</p>
+                    <p class="crsl-authors">R. Kozaki, <b>K. Akashi</b>, K. Bannaka, H. Ito, K. Murakami, S. Matsumoto, Y. Kozaki, S. Kajiyama, M. Miyahara, E. Furusawa, K. Takamatsu</p>
+                    <div class="crsl-card-foot">
+                        <div class="pub-tags"><span class="pub-tag tag-co-first">Co-First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div>
+                        <span class="crsl-type">Journal</span>
+                    </div>
+                </article>
+                <article class="crsl-card" data-author-type="co-author">
+                    <div class="crsl-card-top">
+                        <span class="crsl-num">02</span>
+                        <span class="crsl-date">Jan 2026</span>
+                    </div>
+                    <h3 class="crsl-title"><a class="crsl-title-link" href="https://doi.org/10.1007/978-3-032-13419-6_37" target="_blank" rel="noopener">Extended Lifelong Sustainable Inquiry-based Community Learning (LSiCL) for Human-LLM Learning Based on Eduinformatics</a></h3>
+                    <p class="crsl-venue">Lecture Notes in Networks and Systems, Springer, Singapore. vol.1758 390-399</p>
+                    <p class="crsl-authors">K. Takamatsu, S. Matsumoto, K. Murakami, K. Tsuruta, N. Honda, Y. Ishige, S. Matsumoto, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, S. Hirokawa, M. Mori</p>
+                    <div class="crsl-card-foot">
+                        <div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div>
+                        <span class="crsl-type">Proceedings</span>
+                    </div>
+                </article>
+                <article class="crsl-card" data-author-type="first-author">
+                    <div class="crsl-card-top">
+                        <span class="crsl-num">03</span>
+                        <span class="crsl-date">Oct 2025</span>
+                    </div>
+                    <h3 class="crsl-title"><a class="crsl-title-link" href="https://doi.org/10.1007/978-981-96-6938-7_13" target="_blank" rel="noopener">Amalgamating DP-LCS-Assisted Abridgement Assessment with BERT-Based Sentiment Analysis for Early Warning and Prediction of Academic Performance</a></h3>
+                    <p class="crsl-venue">Lecture Notes in Networks and Systems, Springer, Singapore. vol.1441 151-161</p>
+                    <p class="crsl-authors"><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu</p>
+                    <div class="crsl-card-foot">
+                        <div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div>
+                        <span class="crsl-type">Proceedings</span>
+                    </div>
+                </article>
+                <article class="crsl-card" data-author-type="first-author">
+                    <div class="crsl-card-top">
+                        <span class="crsl-num">04</span>
+                        <span class="crsl-date">Jul 2025</span>
+                    </div>
+                    <h3 class="crsl-title"><a class="crsl-title-link" href="https://doi.org/10.1109/IIAI-AAI-Winter65925.2024.00031" target="_blank" rel="noopener">Fortifying Abridgement Assessment System against Student Collusions by Combining Fast Text Similarity Computation and Disjoint Set Union</a></h3>
+                    <p class="crsl-venue">17th International Conference on Data Science and Institutional Research (DSIR 2024-Winter) IEEE 118-123</p>
+                    <p class="crsl-authors"><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu</p>
+                    <div class="crsl-card-foot">
+                        <div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div>
+                        <span class="crsl-type">Proceedings</span>
+                    </div>
+                </article>
+                <article class="crsl-card" data-author-type="co-author">
+                    <div class="crsl-card-top">
+                        <span class="crsl-num">05</span>
+                        <span class="crsl-date">Apr 2025</span>
+                    </div>
+                    <h3 class="crsl-title"><a class="crsl-title-link" href="https://doi.org/10.1007/978-981-97-9559-8_36" target="_blank" rel="noopener">Lifelong Sustainable Inquiry-based Community Learning (LSiCL) Based on Eduinformatics</a></h3>
+                    <p class="crsl-venue">Lecture Notes in Networks and Systems, Springer, Singapore. vol.1178 415-424</p>
+                    <p class="crsl-authors">K. Takamatsu, S. Matsumoto, N. Honda, S. Matsumoto, Y. Ishige, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, K. Murakami, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, M. Mori</p>
+                    <div class="crsl-card-foot">
+                        <div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div>
+                        <span class="crsl-type">Proceedings</span>
+                    </div>
+                </article>
+                <article class="crsl-card" data-author-type="first-author">
+                    <div class="crsl-card-top">
+                        <span class="crsl-num">06</span>
+                        <span class="crsl-date">Apr 2025</span>
+                    </div>
+                    <h3 class="crsl-title"><a class="crsl-title-link" href="https://doi.org/10.1007/978-981-97-9559-8_35" target="_blank" rel="noopener">Eduinformatics in Practice: Text Mining-Based Analysis of Contributing Factors to the Improvement of Reading Comprehension Assisted by Marking Scheme Employing DP-LCS Algorithm</a></h3>
+                    <p class="crsl-venue">Lecture Notes in Networks and Systems, Springer, Singapore. vol.1178 403-414</p>
+                    <p class="crsl-authors"><b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu</p>
+                    <div class="crsl-card-foot">
+                        <div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div>
+                        <span class="crsl-type">Proceedings</span>
+                    </div>
+                </article>
+                <article class="crsl-card" data-author-type="co-author">
+                    <div class="crsl-card-top">
+                        <span class="crsl-num">07</span>
+                        <span class="crsl-date">Mar 2025</span>
+                    </div>
+                    <h3 class="crsl-title"><a class="crsl-title-link" href="https://doi.org/10.52731/lir.v005.345" target="_blank" rel="noopener">Eduinformatics and the Universities' Challenge for "Ri": A 100-Year Vision of Higher Education Transcending Time, Place, and Culture through Shu-Ha-Ri</a></h3>
+                    <p class="crsl-venue">IIAI Letters on Institutional Research 5</p>
+                    <p class="crsl-authors">K. Takamatsu, <b>K. Akashi</b>, S. Matsumoto, A. Hidetani, G. Akashi, H. Ito, K. Murakami, K. Bannaka, R. Kozaki, A. Kishida, Y. Nakata, T. Inakura, S. Imai, M. Mori</p>
+                    <div class="crsl-card-foot">
+                        <div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div>
+                        <span class="crsl-type">Journal</span>
+                    </div>
+                </article>
+                <article class="crsl-card" data-author-type="co-first">
+                    <div class="crsl-card-top">
+                        <span class="crsl-num">08</span>
+                        <span class="crsl-date">Mar 2025</span>
+                    </div>
+                    <h3 class="crsl-title"><a class="crsl-title-link" href="https://doi.org/10.52731/liir.v006.343" target="_blank" rel="noopener">Exploring the Modality of Network-Type Thinking in Young Children with Picture Books</a></h3>
+                    <p class="crsl-venue">IIAI Letters on Informatics and Interdisciplinary Research 6</p>
+                    <p class="crsl-authors">R. Kozaki, <b>K. Akashi</b>, K. Bannaka, H. Ito, K. Murakami, S. Matsumoto, Y. Kozaki, K. Takamatsu</p>
+                    <div class="crsl-card-foot">
+                        <div class="pub-tags"><span class="pub-tag tag-co-first">Co-First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div>
+                        <span class="crsl-type">Journal</span>
+                    </div>
+                </article>
+                <article class="crsl-card" data-author-type="co-author">
+                    <div class="crsl-card-top">
+                        <span class="crsl-num">09</span>
+                        <span class="crsl-date">Mar 2025</span>
+                    </div>
+                    <h3 class="crsl-title"><a class="crsl-title-link" href="https://doi.org/10.1007/978-981-97-8695-4_16" target="_blank" rel="noopener">Leveraging Eduinformatics to Foster Network-Type Thinking in Early Childhood Education through Picture Books</a></h3>
+                    <p class="crsl-venue">Lecture Notes in Networks and Systems, Springer, Singapore. vol.1177 173-182</p>
+                    <p class="crsl-authors">H. Ito, K. Bannaka, R. Kozaki, K. Murakami, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu</p>
+                    <div class="crsl-card-foot">
+                        <div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div>
+                        <span class="crsl-type">Proceedings</span>
+                    </div>
+                </article>
+                <article class="crsl-card" data-author-type="co-author">
+                    <div class="crsl-card-top">
+                        <span class="crsl-num">10</span>
+                        <span class="crsl-date">Mar 2025</span>
+                    </div>
+                    <h3 class="crsl-title"><a class="crsl-title-link" href="https://doi.org/10.1007/978-981-97-8695-4_19" target="_blank" rel="noopener">Enhancing University Sustainability through Eduinformatics: a Collaborative Approach to Resolving Common Management Issues from a Macro Perspective</a></h3>
+                    <p class="crsl-venue">Lecture Notes in Networks and Systems, Springer, Singapore. vol.1177 201-210</p>
+                    <p class="crsl-authors">T. Sakai, N. Shiratori, S. Matsumoto, <b>K. Akashi</b>, H. Ito, K. Murakami, K. Takamatsu, T. Iiyoshi</p>
+                    <div class="crsl-card-foot">
+                        <div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div>
+                        <span class="crsl-type">Proceedings</span>
+                    </div>
+                </article>
+                <article class="crsl-card" data-author-type="first-author">
+                    <div class="crsl-card-top">
+                        <span class="crsl-num">11</span>
+                        <span class="crsl-date">Feb 2025</span>
+                    </div>
+                    <h3 class="crsl-title"><a class="crsl-title-link" href="https://doi.org/10.52731/ijltle.v8.i1.873" target="_blank" rel="noopener">Computerized Model of Assessment Procedures of Students' Reading Capabilities Based on Abridgement Method Employing Two-Pointer Problem Solution and Dynamic Programming</a></h3>
+                    <p class="crsl-venue">International Journal of Learning Technologies and Learning Environments 8(1)</p>
+                    <p class="crsl-authors"><b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu</p>
+                    <div class="crsl-card-foot">
+                        <div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div>
+                        <span class="crsl-type">Journal</span>
+                    </div>
+                </article>
+                <article class="crsl-card" data-author-type="co-author">
+                    <div class="crsl-card-top">
+                        <span class="crsl-num">12</span>
+                        <span class="crsl-date">Feb 2025</span>
+                    </div>
+                    <h3 class="crsl-title"><a class="crsl-title-link" href="https://doi.org/10.52731/lbds.v005.352" target="_blank" rel="noopener">A Novel Balanced Reporting Innovation with Data Governance Evolution (BRIDGE) Method</a></h3>
+                    <p class="crsl-venue">IIAI Letters on Business and Decision Science 5</p>
+                    <p class="crsl-authors">K. Takamatsu, S. Matsumoto, <b>K. Akashi</b>, H. Ito, T. Kirimura, T. Kunisaki, I. Noda, R. Kozaki, A. Kishida, K. Murakami, Y. Nakata, M. Mori</p>
+                    <div class="crsl-card-foot">
+                        <div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div>
+                        <span class="crsl-type">Journal</span>
+                    </div>
+                </article>
+                <article class="crsl-card" data-author-type="co-author">
+                    <div class="crsl-card-top">
+                        <span class="crsl-num">13</span>
+                        <span class="crsl-date">Oct 2024</span>
+                    </div>
+                    <h3 class="crsl-title"><a class="crsl-title-link" href="https://doi.org/10.1541/ieejeiss.144.1005" target="_blank" rel="noopener">The First Step for Personalised Learning of Abridgement Education: The Character-Based Pyramid Method and Semi-Automatic Implementation</a></h3>
+                    <p class="crsl-venue">IEEJ Transactions on Electronics, Information and Systems. vol.144(10) 1005-1010</p>
+                    <p class="crsl-authors">H. Ito, <b>K. Akashi</b>, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu</p>
+                    <div class="crsl-card-foot">
+                        <div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div>
+                        <span class="crsl-type">Journal</span>
+                    </div>
+                </article>
+                <article class="crsl-card" data-author-type="co-author">
+                    <div class="crsl-card-top">
+                        <span class="crsl-num">14</span>
+                        <span class="crsl-date">Oct 2024</span>
+                    </div>
+                    <h3 class="crsl-title"><a class="crsl-title-link" href="https://doi.org/10.1007/978-981-97-5035-1_43" target="_blank" rel="noopener">Enhancing Network-Type Thinking in Early Childhood: A Topic Model Approach to Picture Book Analysis based on Eduinformatics</a></h3>
+                    <p class="crsl-venue">Lecture Notes in Networks and Systems, Springer, Singapore. vol.1053 547-556</p>
+                    <p class="crsl-authors">K. Bannaka, R. Kozaki, K. Murakami, H. Ito, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu</p>
+                    <div class="crsl-card-foot">
+                        <div class="pub-tags"><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div>
+                        <span class="crsl-type">Proceedings</span>
+                    </div>
+                </article>
+                <article class="crsl-card" data-author-type="first-author">
+                    <div class="crsl-card-top">
+                        <span class="crsl-num">15</span>
+                        <span class="crsl-date">Jan 2024</span>
+                    </div>
+                    <h3 class="crsl-title"><a class="crsl-title-link" href="https://doi.org/10.1109/IIAI-AAI-Winter61682.2023.00035" target="_blank" rel="noopener">Fully automated system for the marking and quantitative assessment of reading skills of students on the basis of abridgement</a></h3>
+                    <p class="crsl-venue">15th International Congress on Advanced Applied Informatics Winter (IIAI-AAI-Winter) 143-148</p>
+                    <p class="crsl-authors"><b>K. Akashi</b>, H. Ito, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu</p>
+                    <div class="crsl-card-foot">
+                        <div class="pub-tags"><span class="pub-tag tag-first-author">First Author</span><span class="pub-tag tag-peer-reviewed">Peer-Reviewed</span></div>
+                        <span class="crsl-type">Proceedings</span>
+                    </div>
+                </article>
+                </div>
+            </div>
+            <div class="crsl-controls">
+                <button type="button" class="crsl-arrow crsl-prev" aria-label="Previous publication">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="crsl-progress">
+                    <span class="crsl-counter"><span class="crsl-current">01</span><em>/</em><span class="crsl-total">15</span></span>
+                    <span class="sr-only crsl-live" aria-live="polite" aria-atomic="true"></span>
+                    <div class="crsl-track"><div class="crsl-fill"></div></div>
+                </div>
+                <button type="button" class="crsl-arrow crsl-next" aria-label="Next publication">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
+            <p class="crsl-hint">Drag &middot; Scroll &middot; Arrow Keys</p>
+        </div>
     </div>
 
     <div class="section-divider"></div>
 
     <div class="presentations">
         <h2 class="shimmer">Presentations</h2>
-        <ul id="presentation-list">
-            <li style="transform: none; opacity: 1;">◉ K. Takamatsu, S. Matsumoto, K. Murakami, K. Tsuruta, N. Honda, Y. Ishige, S. Matsumoto, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, S. Hirokawa, M. Mori: Extended Lifelong Sustainable Inquiry-based Community Learning (LSiCL) for Human-LLM Learning Based on Eduinformatics. 4th World Conference on Information Systems for Business Management (ISBM 2025) (Sep 2025).</li>
-            <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Redesigning of Marking and Feedback Architecture in Abridgement Assessment. Technical Meeting on Information Systems IS25013 (Feb 2025).</li>
-            <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Amalgamating DP-LCS-Assisted Abridgement Assessment with BERT-Based Sentiment Analysis. 10th International Congress on Information and Communication Technology (ICICT 2025), London (Feb 2025).</li>
-            <div id="hidden-presentations" class="hidden">
-                <li style="transform: none; opacity: 1;">◉ R. Kozaki, <b>K. Akashi</b>, K. Bannaka, H. Ito, K. Murakami, S. Matsumoto, Y. Kozaki, K. Takamatsu: Exploring the Modality of Network-Type Thinking in Young Children with Picture Books. 17th International Conference on Smart Learning Technologies and Learning Environments (LTLE 2024-Winter) (Dec 2024).</li>
-                <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Fortifying Abridgement Assessment System against Student Collusions. 17th International Conference on Data Science and Institutional Research (DSIR 2024-Winter) (Dec 2024).</li>
-                <li style="transform: none; opacity: 1;">◉ K. Takamatsu, <b>K. Akashi</b>, S. Matsumoto, A. Hidetani, G. Akashi, H. Ito, K. Murakami, K. Bannaka, R. Kozaki, A. Kishida, Y. Nakata, T. Inakura, S. Imai, M. Mori: Eduinformatics and the Universities' Challenge for "Ri": A 100-Year Vision. 17th International Conference on Data Science and Institutional Research (DSIR 2024-Winter) (Dec 2024).</li>
-                <li style="transform: none; opacity: 1;">◉ K. Takamatsu, S. Matsumoto, <b>K. Akashi</b>, H. Ito, T. Kirimura, T. Kunisaki, I. Noda, R. Kozaki, A. Kishida, K. Murakami, Y. Nakata, M. Mori: A Novel Balanced Reporting Innovation with Data Governance Evolution (BRIDGE) Method. 19th International Conference on Knowledge, Information and Creativity Support Systems (KICSS 2024) (Dec 2024).</li>
-                <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu: Fortification of Abridgement Assessment through Fine-Tuned RoBERTa. Technical Meeting on Information Systems IS24045 (Dec 2024).</li>
-                <li style="transform: none; opacity: 1;">◉ K. Takamatsu, S. Matsumoto, N. Honda, S. Matsumoto, Y. Ishige, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, K. Murakami, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, M. Mori: Lifelong Sustainable Inquiry-based Community Learning (LSiCL) Based on Eduinformatics. 8th World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4 2024) (Jul 2024).</li>
-                <li style="transform: none; opacity: 1;">◉ H. Ito, K. Bannaka, R. Kozaki, K. Murakami, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Leveraging Eduinformatics to Foster Network-Type Thinking in Early Childhood Education. 8th World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4 2024) (Jul 2024).</li>
-                <li style="transform: none; opacity: 1;">◉ T. Sakai, N. Shiratori, S. Matsumoto, <b>K. Akashi</b>, H. Ito, K. Murakami, K. Takamatsu, T. Iiyoshi: Enhancing University Sustainability through Eduinformatics. 8th World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4 2024) (Jul 2024).</li>
-                <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu: Eduinformatics in Practice: Text Mining-Based Analysis of Contributing Factors to Reading Comprehension. 8th World Conference on Smart Trends in Systems, Security and Sustainability (WorldS4 2024) (Jul 2024).</li>
-                <li style="transform: none; opacity: 1;">◉ K. Bannaka, R. Kozaki, K. Murakami, H. Ito, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu: Enhancing Network-Type Thinking in Early Childhood: A Topic Model Approach. 9th International Congress on Information and Communication Technology (ICICT 2024) (Feb 2024).</li>
-                <li style="transform: none; opacity: 1;">◉ <b>K. Akashi</b>, H. Ito, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: Fully automated system for the marking and quantitative assessment of reading skills. 15th International Conference on Data Science and Institutional Research (DSIR 2023-Winter) (Dec 2023).</li>
-                <li style="transform: none; opacity: 1;">◉ H. Ito, <b>K. Akashi</b>, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu: The Character-based Pyramid Method and Semi-automatic Abridgement for Scaling Up. Technical Meeting on Information Systems IS23026 (Oct 2023).</li>
+        <div class="crsl-carousel crsl-clamp" id="presentations-carousel" data-live-label="Presentation" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Conference presentations. Use the left and right arrow keys to navigate.">
+            <div class="crsl-scene">
+                <div class="crsl-ring">
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">01</span>
+                            <span class="crsl-date">Sep 2025</span>
+                        </div>
+                        <h3 class="crsl-title">Extended Lifelong Sustainable Inquiry-based Community Learning (LSiCL) for Human-LLM Learning Based on Eduinformatics</h3>
+                        <p class="crsl-venue">4th World Conference on Information Systems for Business Management</p>
+                        <p class="crsl-authors"><span class="authors-full">K. Takamatsu, S. Matsumoto, K. Murakami, K. Tsuruta, N. Honda, Y. Ishige, S. Matsumoto, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, S. Hirokawa, M. Mori</span><span class="authors-short">K. Takamatsu, S. Matsumoto, K. Murakami, &hellip; H. Ito, <b>K. Akashi</b>, S. Hama, &hellip; S. Hirokawa, M. Mori</span></p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">ISBM 2025</span>
+                            <span class="crsl-type">Conference</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">02</span>
+                            <span class="crsl-date">Feb 2025</span>
+                        </div>
+                        <h3 class="crsl-title">Redesigning of Marking and Feedback Architecture in Abridgement Assessment</h3>
+                        <p class="crsl-venue">Technical Meeting on Information Systems</p>
+                        <p class="crsl-authors"><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">IS25013</span>
+                            <span class="crsl-type">Technical Meeting</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">03</span>
+                            <span class="crsl-date">Feb 2025</span>
+                        </div>
+                        <h3 class="crsl-title">Amalgamating DP-LCS-Assisted Abridgement Assessment with BERT-Based Sentiment Analysis</h3>
+                        <p class="crsl-venue">10th International Congress on Information and Communication Technology, London</p>
+                        <p class="crsl-authors"><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">ICICT 2025</span>
+                            <span class="crsl-type">Congress · London</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">04</span>
+                            <span class="crsl-date">Dec 2024</span>
+                        </div>
+                        <h3 class="crsl-title">Exploring the Modality of Network-Type Thinking in Young Children with Picture Books</h3>
+                        <p class="crsl-venue">17th International Conference on Smart Learning Technologies and Learning Environments</p>
+                        <p class="crsl-authors">R. Kozaki, <b>K. Akashi</b>, K. Bannaka, H. Ito, K. Murakami, S. Matsumoto, Y. Kozaki, K. Takamatsu</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">LTLE 2024-Winter</span>
+                            <span class="crsl-type">Conference</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">05</span>
+                            <span class="crsl-date">Dec 2024</span>
+                        </div>
+                        <h3 class="crsl-title">Fortifying Abridgement Assessment System against Student Collusions</h3>
+                        <p class="crsl-venue">17th International Conference on Data Science and Institutional Research</p>
+                        <p class="crsl-authors"><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">DSIR 2024-Winter</span>
+                            <span class="crsl-type">Conference</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">06</span>
+                            <span class="crsl-date">Dec 2024</span>
+                        </div>
+                        <h3 class="crsl-title">Eduinformatics and the Universities' Challenge for "Ri": A 100-Year Vision</h3>
+                        <p class="crsl-venue">17th International Conference on Data Science and Institutional Research</p>
+                        <p class="crsl-authors">K. Takamatsu, <b>K. Akashi</b>, S. Matsumoto, A. Hidetani, G. Akashi, H. Ito, K. Murakami, K. Bannaka, R. Kozaki, A. Kishida, Y. Nakata, T. Inakura, S. Imai, M. Mori</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">DSIR 2024-Winter</span>
+                            <span class="crsl-type">Conference</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">07</span>
+                            <span class="crsl-date">Dec 2024</span>
+                        </div>
+                        <h3 class="crsl-title">A Novel Balanced Reporting Innovation with Data Governance Evolution (BRIDGE) Method</h3>
+                        <p class="crsl-venue">19th International Conference on Knowledge, Information and Creativity Support Systems</p>
+                        <p class="crsl-authors">K. Takamatsu, S. Matsumoto, <b>K. Akashi</b>, H. Ito, T. Kirimura, T. Kunisaki, I. Noda, R. Kozaki, A. Kishida, K. Murakami, Y. Nakata, M. Mori</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">KICSS 2024</span>
+                            <span class="crsl-type">Conference</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">08</span>
+                            <span class="crsl-date">Dec 2024</span>
+                        </div>
+                        <h3 class="crsl-title">Fortification of Abridgement Assessment through Fine-Tuned RoBERTa</h3>
+                        <p class="crsl-venue">Technical Meeting on Information Systems</p>
+                        <p class="crsl-authors"><b>K. Akashi</b>, H. Ito, A. Yamashita, K. Murakami, S. Matsumoto, K. Takamatsu, T. Gozu</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">IS24045</span>
+                            <span class="crsl-type">Technical Meeting</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">09</span>
+                            <span class="crsl-date">Jul 2024</span>
+                        </div>
+                        <h3 class="crsl-title">Lifelong Sustainable Inquiry-based Community Learning (LSiCL) Based on Eduinformatics</h3>
+                        <p class="crsl-venue">8th World Conference on Smart Trends in Systems, Security and Sustainability</p>
+                        <p class="crsl-authors"><span class="authors-full">K. Takamatsu, S. Matsumoto, N. Honda, S. Matsumoto, Y. Ishige, H. Kawasaki, I. Noda, K. Bannaka, T. Gozu, K. Murakami, T. Sakai, R. Kozaki, A. Kishida, H. Ito, <b>K. Akashi</b>, S. Hama, G. Prescott, M. Uchida, A. Nakamura, Y. Kozaki, T. Mori, S. Tajiri, N. Shiratori, S. Imai, K. Mitsunari, Y. Nakata, M. Mori</span><span class="authors-short">K. Takamatsu, S. Matsumoto, N. Honda, &hellip; H. Ito, <b>K. Akashi</b>, S. Hama, &hellip; Y. Nakata, M. Mori</span></p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">WorldS4 2024</span>
+                            <span class="crsl-type">Conference</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">10</span>
+                            <span class="crsl-date">Jul 2024</span>
+                        </div>
+                        <h3 class="crsl-title">Leveraging Eduinformatics to Foster Network-Type Thinking in Early Childhood Education</h3>
+                        <p class="crsl-venue">8th World Conference on Smart Trends in Systems, Security and Sustainability</p>
+                        <p class="crsl-authors">H. Ito, K. Bannaka, R. Kozaki, K. Murakami, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">WorldS4 2024</span>
+                            <span class="crsl-type">Conference</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">11</span>
+                            <span class="crsl-date">Jul 2024</span>
+                        </div>
+                        <h3 class="crsl-title">Enhancing University Sustainability through Eduinformatics</h3>
+                        <p class="crsl-venue">8th World Conference on Smart Trends in Systems, Security and Sustainability</p>
+                        <p class="crsl-authors">T. Sakai, N. Shiratori, S. Matsumoto, <b>K. Akashi</b>, H. Ito, K. Murakami, K. Takamatsu, T. Iiyoshi</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">WorldS4 2024</span>
+                            <span class="crsl-type">Conference</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">12</span>
+                            <span class="crsl-date">Jul 2024</span>
+                        </div>
+                        <h3 class="crsl-title">Eduinformatics in Practice: Text Mining-Based Analysis of Contributing Factors to Reading Comprehension</h3>
+                        <p class="crsl-venue">8th World Conference on Smart Trends in Systems, Security and Sustainability</p>
+                        <p class="crsl-authors"><b>K. Akashi</b>, H. Ito, K. Takamatsu, K. Bannaka, S. Imai, S. Matsumoto, K. Murakami, Y. Nakata, T. Gozu</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">WorldS4 2024</span>
+                            <span class="crsl-type">Conference</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">13</span>
+                            <span class="crsl-date">Feb 2024</span>
+                        </div>
+                        <h3 class="crsl-title">Enhancing Network-Type Thinking in Early Childhood: A Topic Model Approach</h3>
+                        <p class="crsl-venue">9th International Congress on Information and Communication Technology</p>
+                        <p class="crsl-authors">K. Bannaka, R. Kozaki, K. Murakami, H. Ito, <b>K. Akashi</b>, S. Matsumoto, K. Takamatsu</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">ICICT 2024</span>
+                            <span class="crsl-type">Congress</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">14</span>
+                            <span class="crsl-date">Dec 2023</span>
+                        </div>
+                        <h3 class="crsl-title">Fully automated system for the marking and quantitative assessment of reading skills</h3>
+                        <p class="crsl-venue">15th International Conference on Data Science and Institutional Research</p>
+                        <p class="crsl-authors"><b>K. Akashi</b>, H. Ito, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">DSIR 2023-Winter</span>
+                            <span class="crsl-type">Conference</span>
+                        </div>
+                    </article>
+                    <article class="crsl-card">
+                        <div class="crsl-card-top">
+                            <span class="crsl-num">15</span>
+                            <span class="crsl-date">Oct 2023</span>
+                        </div>
+                        <h3 class="crsl-title">The Character-based Pyramid Method and Semi-automatic Abridgement for Scaling Up</h3>
+                        <p class="crsl-venue">Technical Meeting on Information Systems</p>
+                        <p class="crsl-authors">H. Ito, <b>K. Akashi</b>, K. Takamatsu, S. Imai, S. Matsumoto, K. Murakami, T. Gozu</p>
+                        <div class="crsl-card-foot">
+                            <span class="crsl-badge">IS23026</span>
+                            <span class="crsl-type">Technical Meeting</span>
+                        </div>
+                    </article>
+                </div>
             </div>
-        </ul>
-        <div id="toggle-presentations" class="toggle-button" onclick="togglePresentations()"></div>
+            <div class="crsl-controls">
+                <button type="button" class="crsl-arrow crsl-prev" aria-label="Previous presentation">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="crsl-progress">
+                    <span class="crsl-counter"><span class="crsl-current">01</span><em>/</em><span class="crsl-total">15</span></span>
+                    <span class="sr-only crsl-live" aria-live="polite" aria-atomic="true"></span>
+                    <div class="crsl-track"><div class="crsl-fill"></div></div>
+                </div>
+                <button type="button" class="crsl-arrow crsl-next" aria-label="Next presentation">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
+            <p class="crsl-hint">Drag &middot; Scroll &middot; Arrow Keys</p>
+        </div>
     </div>
 
     <div class="section-divider"></div>
@@ -1827,124 +2566,25 @@ function scrollToContent() {
     }
     requestAnimationFrame(animation);
 }
-// Count items and set initial button text
+// Count items referenced in the profile statement
 function initCounts() {
-    const publicationCount = document.getElementById('publication-list').querySelectorAll('li').length;
-    const awardsCount = document.getElementById('awards-list').querySelectorAll('li').length;
-    const presentationCount = document.getElementById('presentation-list').querySelectorAll('li').length;
-
-    document.getElementById('toggle-button').textContent = 'View All ' + publicationCount + ' Publications';
-    document.getElementById('toggle-awards').textContent = 'View All ' + awardsCount + ' Awards';
-    document.getElementById('toggle-presentations').textContent = 'View All ' + presentationCount + ' Presentations';
+    const publicationCount = document.querySelectorAll('#publications-carousel .crsl-card:not(.crsl-card-clone)').length;
     document.getElementById('pub-count').textContent = publicationCount;
 }
 
 // Run on page load
 document.addEventListener('DOMContentLoaded', initCounts);
 
-function togglePublications() {
-    const toggleButton = document.getElementById('toggle-button');
-    const totalCount = document.getElementById('publication-list').querySelectorAll('li').length;
-    const hiddenItems = document.querySelectorAll('#publication-list li.initially-hidden');
-
-    // Determine the count to display based on current filter
-    const displayCount = (currentFilter === 'all') ? totalCount : currentFilteredCount;
-    const buttonText = (currentFilter === 'all')
-        ? 'View All ' + displayCount + ' Publications'
-        : 'View ' + displayCount + ' Publications';
-
-    if (currentFilter === 'all') {
-        // Check if currently collapsed by looking at first hidden item
-        const isCollapsed = hiddenItems.length > 0 && !hiddenItems[0].classList.contains('show-hidden');
-
-        if (isCollapsed) {
-            // Expand: show all hidden items
-            hiddenItems.forEach((item) => {
-                item.classList.add('show-hidden');
-                item.style.transform = 'translateY(20px)';
-                item.style.opacity = '0';
-            });
-
-            setTimeout(() => {
-                hiddenItems.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.style.transform = 'translateY(0)';
-                        item.style.opacity = '1';
-                    }, index * 100);
-                });
-            }, 100);
-            toggleButton.textContent = 'Collapse';
-            void toggleButton.offsetWidth;
-        } else {
-            // Collapse: hide all hidden items
-            hiddenItems.forEach((item, index) => {
-                setTimeout(() => {
-                    item.style.transform = 'translateY(20px)';
-                    item.style.opacity = '0';
-                }, (hiddenItems.length - index - 1) * 100);
-            });
-
-            setTimeout(() => {
-                hiddenItems.forEach((item) => {
-                    item.classList.remove('show-hidden');
-                });
-            }, hiddenItems.length * 100);
-            toggleButton.textContent = buttonText;
-            void toggleButton.offsetWidth;
-        }
-    } else {
-        // Filtered view: toggle collapsed items
-        const collapsedItems = document.querySelectorAll('#publication-list li.filter-collapsed');
-        const isCollapsed = collapsedItems.length > 0 && collapsedItems[0].style.opacity === '0';
-
-        if (isCollapsed) {
-            // Expand: show all matching
-            let delay = 0;
-            collapsedItems.forEach((item) => {
-                setTimeout(() => {
-                    item.style.opacity = '1';
-                    item.style.maxHeight = '';
-                    item.style.marginBottom = '';
-                    item.style.padding = '';
-                    item.style.pointerEvents = '';
-                }, delay);
-                delay += 100;
-            });
-            toggleButton.textContent = 'Collapse';
-            void toggleButton.offsetWidth;
-        } else {
-            // Collapse: hide items beyond first 3
-            let delay = 0;
-            const itemsArray = Array.from(collapsedItems).reverse();
-            itemsArray.forEach((item) => {
-                setTimeout(() => {
-                    item.style.opacity = '0';
-                    item.style.maxHeight = '0';
-                    item.style.marginBottom = '0';
-                    item.style.padding = '0';
-                    item.style.pointerEvents = 'none';
-                }, delay);
-                delay += 100;
-            });
-            toggleButton.textContent = buttonText;
-            void toggleButton.offsetWidth;
-        }
-    }
-}
-
-// Publication Filter System
+// Publication filter system — filters the publications carousel ring
 let currentFilter = 'all';
-let wasExpandedBeforeFilter = false;
-let currentFilteredCount = 0;
-let pendingFilterRAF = null; // Track pending requestAnimationFrame to cancel on rapid clicks
 
 function initFilterCounts() {
-    const publications = document.querySelectorAll('#publication-list li');
+    const pubCards = document.querySelectorAll('#publications-carousel .crsl-card:not(.crsl-card-clone)');
     let total = 0, firstAuthor = 0, coFirst = 0;
 
-    publications.forEach(pub => {
+    pubCards.forEach(card => {
         total++;
-        const type = pub.getAttribute('data-author-type');
+        const type = card.getAttribute('data-author-type');
         if (type === 'first-author') firstAuthor++;
         else if (type === 'co-first') coFirst++;
     });
@@ -1958,112 +2598,21 @@ document.addEventListener('DOMContentLoaded', initFilterCounts);
 
 function filterPublications(filter, btn) {
     if (currentFilter === filter) return;
-
-    // Cancel any pending animation frame from previous rapid clicks
-    if (pendingFilterRAF) {
-        cancelAnimationFrame(pendingFilterRAF);
-        pendingFilterRAF = null;
-    }
-
-    const toggleButton = document.getElementById('toggle-button');
-    const publications = document.querySelectorAll('#publication-list li');
-    const totalCount = publications.length;
-    const hiddenItems = document.querySelectorAll('#publication-list li.initially-hidden');
-
-    // When leaving 'all' filter, remember if it was expanded
-    if (currentFilter === 'all') {
-        wasExpandedBeforeFilter = hiddenItems.length > 0 && hiddenItems[0].classList.contains('show-hidden');
-    }
-
     currentFilter = filter;
 
-    // Update active button state
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+    });
     btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
 
-    if (filter === 'all') {
-        // Restore to previous expanded/collapsed state
-        if (wasExpandedBeforeFilter) {
-            hiddenItems.forEach(item => item.classList.add('show-hidden'));
-            toggleButton.textContent = 'Collapse';
-        } else {
-            hiddenItems.forEach(item => item.classList.remove('show-hidden'));
-            toggleButton.textContent = 'View All ' + totalCount + ' Publications';
-        }
-
-        // Use requestAnimationFrame for reliable Safari rendering
-        pendingFilterRAF = requestAnimationFrame(() => {
-            toggleButton.classList.remove('toggle-hidden');
-            void toggleButton.offsetWidth;
-            pendingFilterRAF = null;
-        });
-
-        // Show all publications and reset filter classes
-        publications.forEach(pub => {
-            pub.classList.remove('filter-hidden', 'filter-visible', 'filter-collapsed');
-            pub.style.opacity = '1';
-            pub.style.maxHeight = '';
-            pub.style.marginBottom = '';
-            pub.style.padding = '';
-            pub.style.pointerEvents = '';
-        });
-    } else {
-        // Make all initially-hidden items visible for filtering
-        hiddenItems.forEach(item => item.classList.add('show-hidden'));
-
-        // Collect all matching publications
-        const matchingPubs = [];
-        publications.forEach(pub => {
-            if (pub.getAttribute('data-author-type') === filter) {
-                matchingPubs.push(pub);
-            }
-        });
-
-        currentFilteredCount = matchingPubs.length;
-
-        // Apply visibility based on filter and position
-        let visibleMatchCount = 0;
-        publications.forEach(pub => {
-            const type = pub.getAttribute('data-author-type');
-            const isMatch = type === filter;
-
-            pub.classList.remove('filter-hidden', 'filter-visible', 'filter-collapsed');
-
-            if (isMatch) {
-                visibleMatchCount++;
-                if (visibleMatchCount <= 3 || currentFilteredCount <= 3) {
-                    // Show first 3 matching, or all if total <= 3
-                    pub.classList.add('filter-visible');
-                    pub.style.opacity = '1';
-                    pub.style.maxHeight = '';
-                    pub.style.marginBottom = '';
-                    pub.style.padding = '';
-                    pub.style.pointerEvents = '';
-                } else {
-                    // Hide matching pubs beyond the first 3 (collapsed state)
-                    pub.classList.add('filter-collapsed');
-                    pub.style.opacity = '0';
-                    pub.style.maxHeight = '0';
-                    pub.style.marginBottom = '0';
-                    pub.style.padding = '0';
-                    pub.style.pointerEvents = 'none';
-                }
-            } else {
-                pub.classList.add('filter-hidden');
-            }
-        });
-
-        // Hide button IMMEDIATELY if count <= 3 (no delay)
-        if (currentFilteredCount <= 3) {
-            toggleButton.classList.add('toggle-hidden');
-        } else {
-            // Update text and show button
-            toggleButton.textContent = 'View ' + currentFilteredCount + ' Publications';
-            toggleButton.classList.remove('toggle-hidden');
-        }
-    }
+    const carousel = cardCarousels['publications-carousel'];
+    if (!carousel) return;
+    carousel.setFilter(filter === 'all' ? null : function(card) {
+        return card.getAttribute('data-author-type') === filter;
+    });
 }
-
 
         // Use Intersection Observer for viewport detection
         const observerOptions = {
@@ -2077,7 +2626,7 @@ function filterPublications(filter, btn) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate');
                     // after the staggered grid finishes building, hand off
-                    // to the photo beneath (greyscale, colour on hover)
+                    // to the photo beneath as it blooms into full colour
                     const target = entry.target;
                     setTimeout(function() { target.classList.add('revealed'); }, 2400);
                     revealObserver.unobserve(entry.target);
@@ -2092,80 +2641,328 @@ function filterPublications(filter, btn) {
             revealObserver.observe(profileReveal);
             revealObserver.observe(educationReveal);
         });
-function toggleAwards() {
-    const hiddenAwards = document.getElementById('hidden-awards');
-    const toggleAwardsButton = document.getElementById('toggle-awards');
-    const items = hiddenAwards.querySelectorAll('li');
-    const totalCount = document.getElementById('awards-list').querySelectorAll('li').length;
 
-    if (hiddenAwards.classList.contains('hidden')) {
-        hiddenAwards.classList.remove('hidden');
+// 3D circular card carousels — one shared engine drives the presentations,
+// publications, awards and products rings. Every ring wraps infinitely:
+// when a section has fewer cards than a full ring needs, the card set is
+// repeated around the circle so card 1 always follows the last card.
+const cardCarousels = {};
 
-        items.forEach((item) => {
-            item.style.transform = 'translateY(20px)';
-            item.style.opacity = '0';
-        });
+function initCardCarousel(root) {
+    const scene = root.querySelector('.crsl-scene');
+    const ring = root.querySelector('.crsl-ring');
+    const cards = Array.prototype.slice.call(ring.querySelectorAll('.crsl-card'));
+    const currentEl = root.querySelector('.crsl-current');
+    const totalEl = root.querySelector('.crsl-total');
+    const fillEl = root.querySelector('.crsl-fill');
+    const liveEl = root.querySelector('.crsl-live');
+    const prevBtn = root.querySelector('.crsl-prev');
+    const nextBtn = root.querySelector('.crsl-next');
+    const liveLabel = root.getAttribute('data-live-label') || 'Item';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // the minimum number of ring positions for a comfortable circle
+    const MIN_RING = 9;
 
-        setTimeout(() => {
-            items.forEach((item, index) => {
-                setTimeout(() => {
-                    item.style.transform = 'translateY(0)';
-                    item.style.opacity = '1';
-                }, index * 100);
+    if (!cards.length) return;
+    let M = cards.length;        // real (visible) cards
+    let slots = M;               // ring positions, including repeats
+    let slotEls = cards.slice(); // element at each ring position
+    let STEP = 360 / Math.max(M, MIN_RING);
+    let radius = 0;
+    let dragK = 0.08;            // degrees of ring rotation per pixel dragged
+    let rotation = 0;
+    let targetRot = 0;
+    let dragging = false;
+    let rafId = null;
+    let lastIndex = -1;
+    let liveTimer = null;
+    let wheelTimer = null;
+    let interacted = false;
+
+    // expose carousel slide semantics to assistive tech (APG carousel pattern)
+    cards.forEach(function(card) {
+        card.setAttribute('role', 'group');
+        card.setAttribute('aria-roledescription', 'slide');
+    });
+
+    function mod(n, m) { return ((n % m) + m) % m; }
+
+    function layout() {
+        const visible = cards.filter(function(c) { return !c.hidden; });
+        M = visible.length;
+        if (!M) return;
+
+        // repeat the card set until the ring has enough positions to wrap
+        const repeats = Math.ceil(MIN_RING / M);
+        slots = M * repeats;
+        STEP = 360 / slots;
+        ring.querySelectorAll('.crsl-card-clone').forEach(function(n) { n.remove(); });
+        slotEls = visible.slice();
+        for (let i = M; i < slots; i++) {
+            const clone = visible[i % M].cloneNode(true);
+            clone.classList.add('crsl-card-clone');
+            clone.classList.remove('is-front');
+            clone.hidden = false;
+            // clones are purely visual: hidden from AT, links unfocusable
+            clone.setAttribute('aria-hidden', 'true');
+            clone.removeAttribute('role');
+            clone.removeAttribute('aria-roledescription');
+            clone.removeAttribute('aria-label');
+            clone.querySelectorAll('a, button').forEach(function(el) {
+                el.setAttribute('tabindex', '-1');
             });
-        }, 100);
-        toggleAwardsButton.textContent = 'Collapse';
-    } else {
-        items.forEach((item, index) => {
-            setTimeout(() => {
-                item.style.transform = 'translateY(20px)';
-                item.style.opacity = '0';
-            }, (items.length - index - 1) * 100);
+            ring.appendChild(clone);
+            slotEls.push(clone);
+        }
+
+        // size the ring to the tallest card's natural content height
+        let maxH = 0;
+        visible.forEach(function(c) {
+            c.style.height = 'auto';
+            c.style.bottom = 'auto';
+            if (c.offsetHeight > maxH) maxH = c.offsetHeight;
+            c.style.height = '';
+            c.style.bottom = '';
+        });
+        root.style.setProperty('--crsl-card-h', Math.ceil(maxH) + 'px');
+
+        const cardW = ring.offsetWidth;
+        // ring radius leaves a slight gap between neighbouring cards
+        radius = Math.round((cardW / 2) / Math.tan(Math.PI / slots) * 1.18);
+        dragK = STEP / (cardW + 40);
+        slotEls.forEach(function(c, i) {
+            c.style.transform = 'rotateY(' + (i * STEP) + 'deg) translateZ(' + radius + 'px)';
+            const num = c.querySelector('.crsl-num');
+            if (num) num.textContent = String((i % M) + 1).padStart(2, '0');
+        });
+        visible.forEach(function(c, i) {
+            c.setAttribute('aria-label', (i + 1) + ' of ' + M);
+        });
+        totalEl.textContent = String(M).padStart(2, '0');
+        lastIndex = -1;
+        render();
+    }
+
+    function render() {
+        ring.style.transform = 'translateZ(' + (-radius) + 'px) rotateY(' + rotation + 'deg)';
+
+        // the fade ends at the first duplicated card, so repeated copies on
+        // small rings are never visible at the same time
+        const fadeEnd = Math.min(96, STEP * (Math.floor((M - 1) / 2) + 1));
+        slotEls.forEach(function(c, i) {
+            let rel = mod(i * STEP + rotation, 360);
+            if (rel > 180) rel -= 360;
+            const dist = Math.abs(rel);
+            const visible = dist < fadeEnd;
+            c.style.opacity = visible ? Math.max(0, 1 - dist / fadeEnd).toFixed(3) : '0';
+            c.style.filter = 'grayscale(' + Math.min(0.9, dist / STEP * 0.9).toFixed(3) + ')';
+            c.style.pointerEvents = visible ? '' : 'none';
+            c.style.zIndex = String(200 - Math.round(dist));
+            const isFront = dist < STEP / 2;
+            c.classList.toggle('is-front', isFront);
+            // only the front card's links are keyboard-reachable (APG carousel);
+            // clones already carry tabindex="-1" from layout()
+            if (!c.classList.contains('crsl-card-clone')) {
+                c.querySelectorAll('a').forEach(function(a) { a.tabIndex = isFront ? 0 : -1; });
+            }
         });
 
-        setTimeout(() => {
-            hiddenAwards.classList.add('hidden');
-        }, items.length * 100);
-        toggleAwardsButton.textContent = 'View All ' + totalCount + ' Awards';
+        const slotIndex = mod(Math.round(-rotation / STEP), slots);
+        const index = slotIndex % M;
+        if (index !== lastIndex) {
+            lastIndex = index;
+            currentEl.textContent = String(index + 1).padStart(2, '0');
+            fillEl.style.width = ((index + 1) / M * 100) + '%';
+            // announce only after real interaction and once the ring settles,
+            // so page load / resize / the entrance spin stay silent for AT
+            if (interacted) {
+                clearTimeout(liveTimer);
+                liveTimer = setTimeout(function() {
+                    liveEl.textContent = liveLabel + ' ' + (index + 1) + ' of ' + M;
+                }, 200);
+            }
+        }
     }
+
+    function animate() {
+        rafId = null;
+        const diff = targetRot - rotation;
+        if (Math.abs(diff) < 0.04) {
+            rotation = targetRot;
+            render();
+            return;
+        }
+        rotation += diff * (reduceMotion ? 1 : 0.09);
+        render();
+        rafId = requestAnimationFrame(animate);
+    }
+
+    function play() {
+        if (rafId === null) rafId = requestAnimationFrame(animate);
+    }
+
+    function stop() {
+        if (rafId !== null) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+        }
+    }
+
+    function go(delta) {
+        interacted = true;
+        clearTimeout(wheelTimer);
+        targetRot = (Math.round(targetRot / STEP) - delta) * STEP;
+        play();
+    }
+
+    // Pointer drag (mouse + touch; touch-action: pan-y keeps page scroll alive)
+    let startX = 0, startRot = 0, lastX = 0, lastT = 0, velocity = 0, moved = false;
+    let activePointerId = null;
+
+    scene.addEventListener('pointerdown', function(e) {
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        if (dragging) return;
+        interacted = true;
+        activePointerId = e.pointerId;
+        dragging = true;
+        moved = false;
+        startX = lastX = e.clientX;
+        startRot = rotation;
+        lastT = performance.now();
+        velocity = 0;
+        scene.classList.add('crsl-dragging');
+        // capture on the pressed element: capturing on the scene would retarget
+        // the derived click to .crsl-scene and kill card links / side-card taps
+        if (e.target.setPointerCapture) e.target.setPointerCapture(e.pointerId);
+        stop();
+        clearTimeout(wheelTimer);
+    });
+
+    scene.addEventListener('pointermove', function(e) {
+        if (!dragging || e.pointerId !== activePointerId) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 5) moved = true;
+        const now = performance.now();
+        velocity = (e.clientX - lastX) / Math.max(1, now - lastT);
+        lastX = e.clientX;
+        lastT = now;
+        rotation = startRot + dx * dragK;
+        render();
+    });
+
+    function endDrag(e) {
+        if (!dragging || (e && e.pointerId !== activePointerId)) return;
+        activePointerId = null;
+        dragging = false;
+        scene.classList.remove('crsl-dragging');
+        // a pause before release means the user parked deliberately - no fling
+        if (performance.now() - lastT > 100) velocity = 0;
+        // carry the fling momentum a little, then settle on the nearest card
+        const projected = rotation + velocity * 110 * dragK * 16;
+        targetRot = Math.round(projected / STEP) * STEP;
+        play();
+        // the post-drag click fires synchronously; clear the flag afterwards
+        // so keyboard / assistive-tech clicks are not swallowed later
+        setTimeout(function() { moved = false; }, 0);
+    }
+
+    scene.addEventListener('pointerup', endDrag);
+    scene.addEventListener('pointercancel', endDrag);
+
+    // Horizontal trackpad / shift-wheel rotates; vertical wheel scrolls the page
+    scene.addEventListener('wheel', function(e) {
+        if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+        e.preventDefault();
+        interacted = true;
+        stop();
+        rotation -= e.deltaX * dragK * 0.7;
+        targetRot = rotation;
+        render();
+        clearTimeout(wheelTimer);
+        wheelTimer = setTimeout(function() {
+            targetRot = Math.round(rotation / STEP) * STEP;
+            play();
+        }, 140);
+    }, { passive: false });
+
+    // Tap a side card (original or clone) to bring it to the front;
+    // suppress link clicks after a drag. Delegated so clones are covered.
+    ring.addEventListener('click', function(e) {
+        const card = e.target.closest('.crsl-card');
+        if (!card || !ring.contains(card)) return;
+        if (moved) {
+            e.preventDefault();
+            return;
+        }
+        const i = slotEls.indexOf(card);
+        if (i === -1) return;
+        let rel = mod(i * STEP + rotation, 360);
+        if (rel > 180) rel -= 360;
+        if (Math.abs(rel) < STEP / 2) return;   // front card: links work normally
+        e.preventDefault();
+        targetRot = Math.round((rotation - rel) / STEP) * STEP;
+        play();
+    });
+
+    prevBtn.addEventListener('click', function() { go(-1); });
+    nextBtn.addEventListener('click', function() { go(1); });
+
+    root.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            go(-1);
+        } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            go(1);
+        }
+    });
+
+    // Entrance: fade in and spin the ring into place when scrolled into view
+    const revealOnScroll = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            root.classList.add('crsl-revealed');
+            if (!reduceMotion) {
+                rotation = STEP * 2.5;
+                targetRot = 0;
+                play();
+            }
+            revealOnScroll.disconnect();
+        });
+    }, { threshold: 0.2 });
+
+    function setFilter(predicate) {
+        stop();
+        // cancel any in-progress drag so a stale startRot can't undo the reset
+        dragging = false;
+        activePointerId = null;
+        velocity = 0;
+        scene.classList.remove('crsl-dragging');
+        cards.forEach(function(c) { c.hidden = !!predicate && !predicate(c); });
+        rotation = 0;
+        targetRot = 0;
+        layout();
+    }
+
+    window.addEventListener('resize', layout);
+    // 3D ring geometry applies only from here on; without JS the cards
+    // remain a readable stacked list
+    root.classList.add('crsl-3d');
+    layout();
+    // arm the hidden entrance state only now that everything above succeeded
+    root.classList.add('crsl-js');
+    revealOnScroll.observe(scene);
+
+    cardCarousels[root.id] = { layout: layout, setFilter: setFilter };
 }
 
-function togglePresentations() {
-    const hiddenPresentations = document.getElementById('hidden-presentations');
-    const togglePresentationsButton = document.getElementById('toggle-presentations');
-    const items = hiddenPresentations.querySelectorAll('li');
-    const totalCount = document.getElementById('presentation-list').querySelectorAll('li').length;
+document.querySelectorAll('.crsl-carousel').forEach(initCardCarousel);
 
-    if (hiddenPresentations.classList.contains('hidden')) {
-        hiddenPresentations.classList.remove('hidden');
-
-        items.forEach((item) => {
-            item.style.transform = 'translateY(20px)';
-            item.style.opacity = '0';
-        });
-
-        setTimeout(() => {
-            items.forEach((item, index) => {
-                setTimeout(() => {
-                    item.style.transform = 'translateY(0)';
-                    item.style.opacity = '1';
-                }, index * 100);
-            });
-        }, 100);
-        togglePresentationsButton.textContent = 'Collapse';
-    } else {
-        items.forEach((item, index) => {
-            setTimeout(() => {
-                item.style.transform = 'translateY(20px)';
-                item.style.opacity = '0';
-            }, (items.length - index - 1) * 100);
-        });
-
-        setTimeout(() => {
-            hiddenPresentations.classList.add('hidden');
-        }, items.length * 100);
-        togglePresentationsButton.textContent = 'View All ' + totalCount + ' Presentations';
-    }
+// card heights are measured from content, so re-measure once webfonts arrive
+if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function() {
+        Object.keys(cardCarousels).forEach(function(id) { cardCarousels[id].layout(); });
+    });
 }
 
 // Enhanced Interactive Constellation Network
