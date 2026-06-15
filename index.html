@@ -1389,6 +1389,24 @@
                 padding: 20px 22px 16px;
             }
 
+            /* On narrow mobile cards the badge pill and the type note cannot
+               share one line without overflowing the card (e.g. "Funai
+               Foundation" + "Scholarship" needs ~244px in a ~204px card), so
+               stack them: badge/tags on top, type beneath, both left-aligned.
+               The badge is the only nowrap element and fits its own line;
+               multi-word type labels wrap naturally if ever needed. */
+            .crsl-card-foot {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 7px;
+            }
+
+            /* keep the publication tag row flowing horizontally within its
+               own line; only the foot's top-level axis becomes vertical */
+            .crsl-card-foot .pub-tags {
+                flex-direction: row;
+            }
+
             .crsl-title {
                 font-size: 15.5px;
             }
