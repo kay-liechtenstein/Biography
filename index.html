@@ -827,7 +827,23 @@
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
             text-align: left;
+            /* clip to the rounded border: even if a stray measure/paint mismatch
+               leaves content a hair too tall, nothing can ever spill outside the
+               card — the footer can never dangle below the bottom edge */
+            overflow: hidden;
             transition: border-color 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        /* the body holds everything above the footer. As a flex child it grows to
+           fill the card so the footer is always pinned to the bottom edge; its
+           own overflow is hidden so excess content clips internally instead of
+           pushing the footer out of the card. min-height:0 lets it shrink below
+           its content size so that clipping (not card growth) absorbs any
+           overflow. */
+        .crsl-card-body {
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow: hidden;
         }
 
         .crsl-card.is-front {
@@ -2642,6 +2658,22 @@ function initCardCarousel(root) {
         card.setAttribute('aria-roledescription', 'slide');
     });
 
+    // Wrap every card's content (everything above the footer) in a flex body so
+    // the footer is anchored to the bottom edge and surplus content clips inside
+    // the body instead of spilling past the card. Done before clones are made so
+    // cloneNode copies the wrapped structure.
+    cards.forEach(function(card) {
+        if (card.querySelector(':scope > .crsl-card-body')) return;
+        var foot = card.querySelector(':scope > .crsl-card-foot');
+        var body = document.createElement('div');
+        body.className = 'crsl-card-body';
+        while (card.firstChild && card.firstChild !== foot) {
+            body.appendChild(card.firstChild);
+        }
+        if (foot) card.insertBefore(body, foot);
+        else card.appendChild(body);
+    });
+
     function mod(n, m) { return ((n % m) + m) % m; }
 
     function layout() {
@@ -2672,7 +2704,12 @@ function initCardCarousel(root) {
             slotEls.push(clone);
         }
 
-        // size the ring to the tallest card's natural content height
+        // size the ring to the tallest card's natural content height. offsetHeight
+        // ignores the 3D transform (it is layout height, not the projected box),
+        // so measuring mid-rotation is safe. A small buffer absorbs cross-device
+        // font-metric rounding so the footer divider always keeps a little air
+        // above the bottom edge rather than skimming or clipping it.
+        const HEIGHT_BUFFER = 6;
         let maxH = 0;
         visible.forEach(function(c) {
             c.style.height = 'auto';
@@ -2681,7 +2718,7 @@ function initCardCarousel(root) {
             c.style.height = '';
             c.style.bottom = '';
         });
-        root.style.setProperty('--crsl-card-h', Math.ceil(maxH) + 'px');
+        root.style.setProperty('--crsl-card-h', (Math.ceil(maxH) + HEIGHT_BUFFER) + 'px');
 
         const cardW = ring.offsetWidth;
         // ring radius leaves a slight gap between neighbouring cards
@@ -2800,7 +2837,13 @@ function initCardCarousel(root) {
         const dx = e.clientX - startX;
         if (Math.abs(dx) > 5) moved = true;
         const now = performance.now();
-        velocity = (e.clientX - lastX) / Math.max(1, now - lastT);
+        // Floor the time delta: touch devices can fire two move events 1-2ms
+        // apart, and dividing a few pixels by ~1ms manufactures a huge phantom
+        // velocity that flings the ring across the whole set on a light flick.
+        const dt = Math.max(8, now - lastT);
+        const inst = (e.clientX - lastX) / dt;
+        // low-pass the velocity so one stray sample near release can't dominate
+        velocity = velocity * 0.6 + inst * 0.4;
         lastX = e.clientX;
         lastT = now;
         rotation = startRot + dx * dragK;
@@ -2814,8 +2857,16 @@ function initCardCarousel(root) {
         scene.classList.remove('crsl-dragging');
         // a pause before release means the user parked deliberately - no fling
         if (performance.now() - lastT > 100) velocity = 0;
-        // carry the fling momentum a little, then settle on the nearest card
-        const projected = rotation + velocity * 110 * dragK * 16;
+        // Clamp the release speed, then carry a gentle, bounded amount of
+        // momentum. A light flick should advance a card or so and settle, not
+        // spin the ring vigorously across several cards. The momentum window
+        // (300) is far smaller than before and the throw is hard-capped at two
+        // cards per gesture.
+        const vClamped = Math.max(-1.6, Math.min(1.6, velocity));
+        let flung = vClamped * 300 * dragK;
+        const maxFling = STEP * 2;
+        flung = Math.max(-maxFling, Math.min(maxFling, flung));
+        const projected = rotation + flung;
         targetRot = Math.round(projected / STEP) * STEP;
         play();
         // the post-drag click fires synchronously; clear the flag afterwards
@@ -2915,12 +2966,24 @@ function initCardCarousel(root) {
 
 document.querySelectorAll('.crsl-carousel').forEach(initCardCarousel);
 
-// card heights are measured from content, so re-measure once webfonts arrive
-if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(function() {
-        Object.keys(cardCarousels).forEach(function(id) { cardCarousels[id].layout(); });
-    });
+function relayoutAllCarousels() {
+    Object.keys(cardCarousels).forEach(function(id) { cardCarousels[id].layout(); });
 }
+
+// Card heights are measured from rendered content, so they must be re-measured
+// after anything that can change a card's painted height. The Montserrat webfont
+// (used by the footer badges) swaps in after first paint, and on some mobile
+// browsers that swap lands a touch later than fonts.ready resolves — so we
+// re-measure on fonts.ready, on window load, and on two short delays. Cheap, and
+// it guarantees --crsl-card-h reflects the final painted layout on every device.
+if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(relayoutAllCarousels);
+}
+window.addEventListener('load', function() {
+    relayoutAllCarousels();
+    setTimeout(relayoutAllCarousels, 250);
+    setTimeout(relayoutAllCarousels, 1200);
+});
 
 // Enhanced Interactive Constellation Network
 (function() {
