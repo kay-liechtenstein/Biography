@@ -128,6 +128,25 @@
             --gradient-dark: linear-gradient(180deg, #1A2A3A 0%, #2D3E50 100%);
         }
 
+        /* Lock the page against horizontal scroll. The 3D card rings rotate their
+           side cards out past the viewport edge; because those cards live inside a
+           `transform-style: preserve-3d` subtree, they ESCAPE an ancestor's
+           `overflow-x: hidden` for scroll-size purposes (a long-standing Chrome/
+           WebKit behaviour), so the document ends up ~31px wider than the screen and
+           a horizontal swipe lets the whole body pan/shift. `overflow-x: clip` is a
+           harder paint-level clip that the 3D layers DO respect, and it must sit on
+           the root element (`html`) — the viewport scroller — because clipping on
+           `body` alone leaves the document overflow intact. `clip` keeps vertical
+           scroll fully alive (unlike `hidden`, it doesn't turn the other axis into a
+           scroll container). `hidden` is kept first as a fallback for engines without
+           `clip`; `overscroll-behavior-x: none` kills any residual horizontal
+           rubber-band. */
+        html {
+            overflow-x: hidden;
+            overflow-x: clip;
+            overscroll-behavior-x: none;
+        }
+
         body {
             font-family: 'Times New Roman', Times, serif;
             margin: 0;
@@ -135,6 +154,8 @@
             color: var(--navy);
             background-color: var(--pearl);
             overflow-x: hidden;
+            overflow-x: clip;
+            overscroll-behavior-x: none;
         }
 
         #network-bg {
