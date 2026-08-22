@@ -1267,7 +1267,11 @@
             transition: all 0.3s ease;
         }
 
+        .mobile-br { display: none; }
+
         @media (max-width: 768px) {
+            .mobile-br { display: inline; }
+
             .hero-content h1 {
                 font-size: 32px !important;
             }
@@ -1831,7 +1835,7 @@
             </div>
             <div>
                 <h2 class="shimmer">Kay/Koichi Akashi</h2>
-                <h3>Fourth-Year Medical Student at the University of Manchester</h3>
+                <h3>Fourth-Year Medical Student<br class="mobile-br"> at the University of Manchester</h3>
             </div>
         </div>
     </div>
